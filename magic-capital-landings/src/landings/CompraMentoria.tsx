@@ -11,12 +11,12 @@ import {
   Icon,
 } from '../components/primitives'
 import { Reveal, Stagger, RevealItem, PinnedSequence } from '../components/motion'
-import { RoadmapTimeline, YesNoColumns, FAQAccordion } from '../components/blocks'
+import { RoadmapTimeline, YesNoColumns, FAQAccordion, DataTable } from '../components/blocks'
 import type { RoadmapModule } from '../components/blocks'
 import { Hero, LandingLayout } from '../components/shell'
 import { CheckoutMock } from '../components/forms'
 import { waLink } from '../content/brand'
-import { img } from '../content/images'
+import { img, bg } from '../content/images'
 import { FIGURE_LABELS } from '../content/compliance'
 
 const MODULES: RoadmapModule[] = [
@@ -176,7 +176,11 @@ export default function CompraMentoria() {
       </Section>
 
       {/* 4 · Transparencia de riesgo */}
-      <Section tone="charcoal" pad="lg">
+      <Section
+        tone="charcoal"
+        pad="lg"
+        texture={{ src: bg('fondo__ledger-legal-oscuro-16x9.png'), opacity: 0.1 }}
+      >
         <Container width="narrow">
           <SectionHeader
             tone="dark"
@@ -216,22 +220,25 @@ export default function CompraMentoria() {
                 </div>
               </div>
             </Reveal>
-            <Reveal delay={0.1}>
-              <div className="rounded-2xl border border-charcoal/10 bg-white p-6 shadow-glass">
-                <h3 className="font-display text-lg font-semibold text-charcoal">Referencia de mercado</h3>
-                <ul className="mt-4 space-y-3 text-[14px] text-charcoal/80">
-                  <li className="flex justify-between gap-4"><span>Programas comparables en inglés</span><span className="font-display tabular-nums">$6k–$19k</span></li>
-                  <li className="flex justify-between gap-4"><span>Autoestudio en video</span><span className="font-display tabular-nums">~$13–$60</span></li>
-                  <li className="flex justify-between gap-4"><span>Mentoría básica</span><span className="font-display tabular-nums">~$499</span></li>
-                </ul>
-                <p className="mt-4 rounded-xl bg-petrol/[0.05] px-4 py-3 text-[14px] leading-snug text-charcoal/75">
-                  Esto es 1-a-1, personalizado, con dos expertos, a $3,997 — no un video que ves solo.
-                </p>
-                <div className="mt-4">
-                  <Footnote>Referencias aproximadas de terceros, a modo de comparación.</Footnote>
-                </div>
-              </div>
-            </Reveal>
+            <div>
+              <h3 className="font-display text-lg font-semibold text-charcoal">Referencia de mercado</h3>
+              <DataTable
+                className="mt-4"
+                columns={[
+                  { key: 'item', header: 'Opción' },
+                  { key: 'price', header: 'Rango', align: 'right', emphasis: true },
+                ]}
+                rows={[
+                  { item: 'Programas comparables en inglés', price: '$6k–$19k' },
+                  { item: 'Autoestudio en video', price: '~$13–$60' },
+                  { item: 'Mentoría básica', price: '~$499' },
+                ]}
+                footnote="Referencias aproximadas de terceros, a modo de comparación."
+              />
+              <p className="mt-4 rounded-xl bg-petrol/[0.05] px-4 py-3 text-[14px] leading-snug text-charcoal/75">
+                Esto es 1-a-1, personalizado, con dos expertos, a $3,997 — no un video que ves solo.
+              </p>
+            </div>
           </div>
         </Container>
       </Section>

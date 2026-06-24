@@ -41,7 +41,7 @@ export function FunnelMap({ current, tone = 'light' }: { current?: string; tone?
                 >
                   {s.name}
                 </div>
-                <div className={cn('text-[12px]', dark ? 'text-ivory/45' : 'text-smoke')}>{s.price}</div>
+                <div className={cn('text-[12px]', dark ? 'text-ivory/65' : 'text-smoke')}>{s.price}</div>
               </div>
               {i < STEPS.length - 1 && (
                 <span className={cn('shrink-0 px-1 sm:py-1', dark ? 'text-ivory/30' : 'text-smoke/60')} aria-hidden>

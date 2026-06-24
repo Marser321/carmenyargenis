@@ -22,6 +22,10 @@ const padClass = {
  * oscuras (charcoal/petrol) son los "momentos editoriales" del sistema híbrido
  * y reciben grano sutil. `relative` para anclar fondos/scrims absolutos.
  */
+/** Textura/documento muy tenue detrás del contenido (ledger, mapa parcelario…).
+ *  Degrada a nada si `src` falta, así que cablear antes de generar la imagen es seguro. */
+export type SectionTexture = { src?: string; opacity?: number; focal?: string }
+
 export function Section({
   children,
   tone = 'ivory',
@@ -29,6 +33,7 @@ export function Section({
   id,
   className,
   aura = false,
+  texture,
 }: {
   children: ReactNode
   tone?: Tone
@@ -38,12 +43,30 @@ export function Section({
   /** Capa atmosférica (manchas de luz que derivan) detrás del contenido.
    *  `true` elige el tono según la sección; o fíjalo explícito. Solo en tonos oscuros. */
   aura?: boolean | 'petrol' | 'olive' | 'mixed'
+  texture?: SectionTexture
 }) {
   const auraTone = aura === true ? (tone === 'petrol' ? 'petrol' : 'mixed') : aura || undefined
+  const hasTexture = Boolean(texture?.src)
+  const lift = Boolean(auraTone) || hasTexture
   return (
     <section id={id} className={cn('relative overflow-hidden', toneClass[tone], padClass[pad], className)}>
+      {hasTexture && (
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <img
+            src={texture!.src}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none'
+            }}
+            className="h-full w-full object-cover"
+            style={{ opacity: texture!.opacity ?? 0.1, objectPosition: texture!.focal ?? '50% 50%' }}
+          />
+        </div>
+      )}
       {auraTone && <AuroraField tone={auraTone} />}
-      {auraTone ? <div className="relative z-10">{children}</div> : children}
+      {lift ? <div className="relative z-10">{children}</div> : children}
     </section>
   )
 }

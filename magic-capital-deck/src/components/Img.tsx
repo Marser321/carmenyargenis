@@ -28,7 +28,7 @@ function Placeholder({ label }: { label: string }) {
         <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-olive/80">
           Imagen pendiente
         </p>
-        <p className="mt-1.5 text-[13px] leading-snug text-ivory/55">{label}</p>
+        <p className="mt-1.5 text-[13px] leading-snug text-ivory/70">{label}</p>
       </div>
     </div>
   )

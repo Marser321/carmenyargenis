@@ -62,7 +62,7 @@ export function Slide({
         <div
           className={cn(
             'pointer-events-none absolute inset-x-24 bottom-5 z-20 text-[11px] leading-snug',
-            dark ? 'text-ivory/45' : 'text-charcoal/45',
+            dark ? 'text-ivory/60' : 'text-charcoal/60',
           )}
         >
           {footnote}

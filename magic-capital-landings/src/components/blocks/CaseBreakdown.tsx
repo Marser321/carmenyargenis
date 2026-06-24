@@ -38,7 +38,7 @@ export function CaseBreakdown({
                   {l.label}
                 </dt>
                 {l.hint && (
-                  <p className={cn('text-[12px]', dark ? 'text-ivory/45' : 'text-smoke')}>{l.hint}</p>
+                  <p className={cn('text-[12px]', dark ? 'text-ivory/65' : 'text-smoke')}>{l.hint}</p>
                 )}
               </div>
               <dd className={cn('font-display text-base tabular-nums', dark ? 'text-ivory' : 'text-charcoal')}>

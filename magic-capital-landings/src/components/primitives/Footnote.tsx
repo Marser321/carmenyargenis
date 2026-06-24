@@ -19,7 +19,7 @@ export function Footnote({
     <p
       className={cn(
         'text-[12px] leading-snug',
-        tone === 'dark' ? 'text-ivory/55' : 'text-smoke',
+        tone === 'dark' ? 'text-ivory/70' : 'text-smoke',
         className,
       )}
     >

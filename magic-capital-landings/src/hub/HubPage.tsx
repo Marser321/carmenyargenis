@@ -7,7 +7,7 @@ import { LANDINGS, kindLabel } from '../content/registry'
 import { LEAD_MAGNETS } from '../content/lead-magnets'
 import { BRAND, CONTACT } from '../content/brand'
 import { DEMO_NOTE } from '../content/compliance'
-import { lm } from '../content/images'
+import { bg, lm } from '../content/images'
 import { cn } from '../lib/cn'
 
 export default function HubPage() {
@@ -143,8 +143,20 @@ export default function HubPage() {
       {/* Deck */}
       <section className="py-16">
         <Container>
-          <div className="overflow-hidden rounded-2xl border border-charcoal/10 bg-charcoal text-ivory">
-            <div className="grid items-center gap-6 p-8 sm:grid-cols-[1fr_auto] sm:p-10">
+          <div className="relative overflow-hidden rounded-2xl border border-charcoal/10 bg-charcoal text-ivory">
+            <div className="pointer-events-none absolute inset-0" aria-hidden>
+              <img
+                src={bg('fondo__ledger-legal-oscuro-16x9.png')}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none'
+                }}
+                className="h-full w-full object-cover opacity-[0.08]"
+              />
+            </div>
+            <div className="relative z-10 grid items-center gap-6 p-8 sm:grid-cols-[1fr_auto] sm:p-10">
               <div>
                 <Kicker>Proyecto hermano</Kicker>
                 <h2 className="mt-2 font-display text-2xl font-semibold">Deck de la masterclass</h2>

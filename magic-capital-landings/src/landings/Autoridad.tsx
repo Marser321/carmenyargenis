@@ -16,11 +16,12 @@ import {
   YesNoColumns,
   CaseBreakdown,
   PortalMock,
+  PropertyShowcase,
 } from '../components/blocks'
 import { Hero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { FOUNDERS, waLink } from '../content/brand'
-import { img, founder } from '../content/images'
+import { img, bg, founder } from '../content/images'
 import { FIGURE_LABELS } from '../content/compliance'
 import { cn } from '../lib/cn'
 
@@ -63,7 +64,7 @@ export default function Autoridad() {
       >
         <div className="max-w-2xl">
           <Kicker>Magic Capital · {FOUNDERS.argenis.name} &amp; {FOUNDERS.carmen.name}</Kicker>
-          <DisplayHeading as="h1" size="xl" className="mt-4">
+          <DisplayHeading as="h1" size="xl" className="mt-4 text-ivory">
             Ejecutores, no influencers. Pujamos en los mismos condados que te enseñamos.
           </DisplayHeading>
           <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
@@ -84,7 +85,11 @@ export default function Autoridad() {
       </Hero>
 
       {/* 2 · Misión */}
-      <Section tone="ivory" pad="lg">
+      <Section
+        tone="ivory"
+        pad="lg"
+        texture={{ src: bg('fondo__ledger-legal-claro-16x9.png'), opacity: 0.06 }}
+      >
         <Container width="narrow">
           <SectionHeader
             align="left"
@@ -249,6 +254,15 @@ export default function Autoridad() {
                   <Icon.MapPin /> Washington County, PA
                 </Badge>
               </div>
+              <Reveal className="mt-6">
+                <PropertyShowcase
+                  src={img('07', '07-autoridad-argenis__caso-vivienda-modesta-pa--4x5.png')}
+                  alt="Vivienda modesta en un pueblo de Pennsylvania, del tipo que se adjudica en subasta de tax deed."
+                  ratio="4x5"
+                  tone="dark"
+                  caption="Imagen ilustrativa de una vivienda modesta del tipo que se trabaja en subasta; no es la propiedad exacta del caso."
+                />
+              </Reveal>
             </div>
             <CaseBreakdown
               tone="dark"

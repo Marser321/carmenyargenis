@@ -10,7 +10,7 @@ import {
   Icon,
 } from '../components/primitives'
 import { Reveal, Stagger, RevealItem } from '../components/motion'
-import { MAP9Phases, ForWhomColumns, YesNoColumns, StatCards, TrustBar, FAQAccordion } from '../components/blocks'
+import { MAP9Phases, ForWhomColumns, YesNoColumns, StatCards, TrustBar, FAQAccordion, PropertyShowcase } from '../components/blocks'
 import { Hero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { LeadForm } from '../components/forms'
@@ -98,6 +98,15 @@ export default function ReservaMasterclass() {
             title="La hipoteca tradicional se está cerrando. Te mostramos la otra puerta."
             intro="La inasequibilidad del mercado es, en parte, una ilusión causada por depender de la hipoteca tradicional. La transferencia real de patrimonio ocurre en otro lugar: el mercado secundario de liquidaciones fiscales."
           />
+          <Reveal className="mx-auto mt-10 max-w-3xl">
+            <PropertyShowcase
+              src={img('01', '01-reserva-masterclass__opportunity-vivienda-modesta-fl--3x2.png')}
+              alt="Vivienda modesta en un barrio de Florida, del tipo que aparece en el mercado secundario de liquidaciones fiscales."
+              ratio="3x2"
+              region="FL"
+              caption="Imagen ilustrativa del tipo de vivienda que se transfiere en el mercado secundario; varía por estado, condado y propiedad."
+            />
+          </Reveal>
           <div className="mt-10">
             <StatCards
               stats={[

@@ -91,6 +91,48 @@ se generan variaciones. Editar al ratio del slot, gradar a la paleta y comprimir
 
 ---
 
+## 4 · Propiedades de subasta (protagonistas) + fondos textura
+
+La **propiedad en subasta** (vivienda modesta de Florida o Pennsylvania) es la protagonista emocional del
+funnel. Va **racionada** (2 imágenes hero en todo el funnel) para NO leer como "flipping" inmobiliario:
+documental, modesta, **sin personas, sin texto/letreros/"se vende", sin renovación ni antes/después, sin
+señales de ganancia**. Ya están cableadas con placeholder seguro hasta que existan. Brief regional
+completo (cómo se ven realmente las casas FL/PA): `entrega-pase-unico/11-batch-propiedades-y-fondos.md`.
+
+### P1 — Caso 07 Autoridad (casa modesta PA) · `07/07-autoridad-argenis__caso-vivienda-modesta-pa--4x5.png`
+**Prompt:** "Documentary editorial photograph of a modest small-town single-family house in Washington
+County, Pennsylvania — two-story wood or aluminum-sided modest home (or plain brick), gable roof, small
+covered front porch, narrow sloped lot, bare deciduous trees, cracked or gravel driveway, overcast grey
+sky, faint snow remnants; vacant and unglamorous but dignified. No people, no signage, no 'for sale'.
+Muted slate, ivory and olive palette, shallow depth of field, 35mm, fine film grain." · *Ratio 4:5.* ·
+*Fuente: GENERAR (IA).* · + Negativo §0. · *Ken Burns sutil (CSS).*
+
+### P2 — Problema 01 Reserva (casa modesta FL) · `01/01-reserva-masterclass__opportunity-vivienda-modesta-fl--3x2.png`
+**Prompt:** "Documentary editorial photograph of a modest single-story concrete-block-stucco (CBS) ranch
+house in a working-class Florida neighborhood — low-pitch hip roof, carport, aluminum/jalousie windows,
+flat sandy lot with palmettos and scrub, chain-link fence, humid hazy daylight with soft afternoon
+clouds; modest, real, unglamorous. No people, no signage, no 'for sale'. Muted ivory, slate, teal-navy
+and olive palette, shallow depth of field, 35mm, fine film grain." · *Ratio 3:2.* · *Fuente: GENERAR
+(IA).* · + Negativo §0. · *Ken Burns sutil (CSS).*
+
+### F-claro — Textura ledger CLARA (secciones marfil) · `backgrounds/fondo__ledger-legal-claro-16x9.png`
+**Prompt:** "Very faint LIGHT document texture on warm ivory — abstract county ledger / legal paper with
+subtle ruled columns and faint stamp marks, extremely low contrast, no readable text or numbers; a quiet
+paper grain meant to sit at ~6% opacity behind text on a light section. Documentary, not techy." ·
+*Ratio 16:9.* · *Fuente: GENERAR (IA).* · + Negativo §0. · *Va en Autoridad "Por qué hacemos esto".*
+
+### F-oscuro — Textura ledger OSCURA (secciones carbón) · `backgrounds/fondo__ledger-legal-oscuro-16x9.png`
+**Prompt:** "Faint DARK document texture — abstract legal ledger / tax record with subtle columns, paper
+fibers and stamp marks in deep charcoal with a faint petrol tint, no readable text or numbers; meant to
+sit at ~8–10% opacity behind text on a charcoal section. Quiet, sober, documentary." · *Ratio 16:9.* ·
+*Fuente: GENERAR (IA).* · + Negativo §0. · *Va en Mentoría "Transparencia de riesgo" y la tarjeta del Hub.*
+
+> **Opcional (no cablear sin pedido del cliente):** una `PropertyGallery` de 2–3 casas como "así se ven
+> las viviendas en subasta" (útil en 01 o 07), pero con riesgo de leer como listings; por defecto se usa
+> **una** `PropertyShowcase`.
+
+---
+
 ## Cómo enchufar los videos (sin tocar más código)
 
 1. Coloca `01-hero-loop.mp4` y `01-hero-loop.webm` (+ su poster ya existe) en `public/img/01/`.
