@@ -10,7 +10,7 @@ const sizes: Record<Size, string> = {
   xl: 'text-[5.25rem]',
 }
 
-/** Titular display (Geist/Inter Display) con tracking ajustado. */
+/** Titular display editorial (Fraunces serif): tracking suave, leading ajustado. */
 export function DisplayHeading({
   children,
   size = 'lg',
@@ -23,7 +23,7 @@ export function DisplayHeading({
   return (
     <h1
       className={cn(
-        'font-display font-semibold leading-[1.05] tracking-tightest',
+        'font-display font-semibold leading-[1.06] tracking-[-0.015em]',
         sizes[size],
         className,
       )}

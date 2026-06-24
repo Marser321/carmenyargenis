@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { cn } from '../lib/cn'
 import { Spotlight } from './Spotlight'
+import { AuroraField } from './AuroraField'
 
 type Props = {
   variant?: 'light' | 'dark'
@@ -9,6 +10,9 @@ type Props = {
   /** Viñeta radial suave para foco / profundidad de campo (sobre todo en slides oscuras con fondo). */
   vignette?: boolean
   background?: ReactNode
+  /** Campo atmosférico (manchas de luz que derivan) en slides oscuras SIN fondo propio.
+   *  Auto-activo; pásalo `false` para dejar la slide oscura plana. */
+  aura?: boolean
   /** Disclaimer al pie, fijo abajo (para slides con cifras/claims: 98%, $30-100k, precios). */
   footnote?: ReactNode
   className?: string
@@ -22,11 +26,14 @@ export function Slide({
   spotlight = true,
   vignette = false,
   background,
+  aura = true,
   footnote,
   className,
   children,
 }: Props) {
   const dark = variant === 'dark'
+  // Atmósfera sólo en slides oscuras planas (sin fondo propio que se ensucie).
+  const showAura = aura && dark && !background
   return (
     <div
       className={cn(
@@ -36,6 +43,7 @@ export function Slide({
         className,
       )}
     >
+      {showAura && <AuroraField className="z-0" />}
       {background && <div className="absolute inset-0 z-0">{background}</div>}
       {vignette && (
         <div

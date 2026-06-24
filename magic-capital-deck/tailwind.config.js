@@ -16,7 +16,8 @@ export default {
         'petrol-bright': '#16566B',
       },
       fontFamily: {
-        display: ['"Geist Variable"', '"Inter Variable"', 'system-ui', 'sans-serif'],
+        // Display editorial (serif Fraunces variable). Body en Inter.
+        display: ['"Fraunces Variable"', 'Georgia', 'Cambria', 'serif'],
         sans: ['"Inter Variable"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {

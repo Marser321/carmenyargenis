@@ -27,9 +27,10 @@ body {
   overflow: hidden; /* el deck gestiona su propio layout a pantalla completa */
 }
 
-/* Tipografía display con tracking ajustado para titulares editoriales */
+/* Display editorial (Fraunces variable): óptico automático + leve suavidad/peso. */
 .font-display {
-  font-feature-settings: 'ss01' on;
+  font-optical-sizing: auto;
+  font-variation-settings: 'SOFT' 28, 'WONK' 0, 'opsz' 120;
 }
 
 /* Glass controlado (claro sobre marfil) */
