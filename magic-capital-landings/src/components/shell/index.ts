@@ -1,0 +1,5 @@
+export { LandingChrome } from './LandingChrome'
+export { Footer } from './Footer'
+export { FloatingWhatsApp } from './FloatingWhatsApp'
+export { Hero } from './Hero'
+export { LandingLayout } from './LandingLayout'

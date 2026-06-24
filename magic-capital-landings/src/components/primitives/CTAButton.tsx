@@ -1,0 +1,80 @@
+import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
+import { cn } from '../../lib/cn'
+
+type Variant = 'primary' | 'secondary' | 'whatsapp' | 'ghost' | 'light'
+type Size = 'md' | 'lg'
+
+const base =
+  'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-petrol/60 disabled:opacity-60 disabled:pointer-events-none'
+
+const variantClass: Record<Variant, string> = {
+  primary: 'bg-petrol text-ivory hover:bg-petrol-bright shadow-cta hover:-translate-y-0.5',
+  secondary:
+    'bg-transparent text-petrol ring-1 ring-petrol/30 hover:ring-petrol/60 hover:bg-petrol/[0.04]',
+  whatsapp: 'bg-olive text-ivory hover:brightness-110 shadow-cta hover:-translate-y-0.5',
+  ghost: 'bg-transparent text-ivory/80 hover:text-ivory underline-offset-4 hover:underline',
+  light: 'bg-ivory text-charcoal hover:bg-white shadow-glass hover:-translate-y-0.5',
+}
+
+const sizeClass: Record<Size, string> = {
+  md: 'px-5 py-2.5 text-sm',
+  lg: 'px-7 py-3.5 text-base',
+}
+
+type CommonProps = {
+  children: ReactNode
+  variant?: Variant
+  size?: Size
+  className?: string
+  icon?: ReactNode
+}
+
+/**
+ * Botón/enlace de acción. Polimórfico: `to` → <Link> interno, `href` →
+ * <a> externo (nueva pestaña), si no → <button onClick>.
+ */
+export function CTAButton({
+  children,
+  variant = 'primary',
+  size = 'lg',
+  className,
+  icon,
+  to,
+  href,
+  onClick,
+  type = 'button',
+}: CommonProps & {
+  to?: string
+  href?: string
+  onClick?: () => void
+  type?: 'button' | 'submit'
+}) {
+  const classes = cn(base, variantClass[variant], sizeClass[size], className)
+  const content = (
+    <>
+      {children}
+      {icon}
+    </>
+  )
+
+  if (to) {
+    return (
+      <Link to={to} className={classes}>
+        {content}
+      </Link>
+    )
+  }
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {content}
+      </a>
+    )
+  }
+  return (
+    <button type={type} onClick={onClick} className={classes}>
+      {content}
+    </button>
+  )
+}

@@ -1,0 +1,169 @@
+import { Link } from 'react-router-dom'
+import { Container, DisplayHeading, Kicker, Badge, CTAButton, Icon } from '../components/primitives'
+import { Reveal, Stagger, RevealItem } from '../components/motion'
+import { Img, Spotlight } from '../components/media'
+import { Footer, FloatingWhatsApp } from '../components/shell'
+import { LANDINGS, kindLabel } from '../content/registry'
+import { LEAD_MAGNETS } from '../content/lead-magnets'
+import { BRAND, CONTACT } from '../content/brand'
+import { DEMO_NOTE } from '../content/compliance'
+import { lm } from '../content/images'
+import { cn } from '../lib/cn'
+
+export default function HubPage() {
+  return (
+    <div className="min-h-screen bg-ivory">
+      {/* Header del hub */}
+      <header className="sticky top-0 z-40 border-b border-charcoal/10 bg-ivory/80 backdrop-blur-md">
+        <Container className="flex items-center justify-between py-3">
+          <div className="flex items-center gap-2.5">
+            <span className="grid h-8 w-8 place-items-center rounded-md bg-petrol text-sm font-bold text-ivory">M</span>
+            <span className="font-display text-[15px] font-semibold text-charcoal">{BRAND.name}</span>
+            <Badge tone="smoke" className="hidden sm:inline-flex">Funnel local · demo</Badge>
+          </div>
+          <a href={CONTACT.deckUrl} target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium text-charcoal/70 hover:text-charcoal">
+            Deck de la masterclass ↗
+          </a>
+        </Container>
+      </header>
+
+      {/* Hero del hub */}
+      <section className="relative isolate overflow-hidden bg-charcoal text-ivory grain">
+        <Spotlight />
+        <Container className="relative z-10 py-20 sm:py-28">
+          <Reveal>
+            <Kicker>Selector de landings · versión ultra-refinada local</Kicker>
+            <DisplayHeading as="h1" size="xl" className="mt-4 max-w-3xl">
+              El funnel completo de Magic Capital, en un solo lugar.
+            </DisplayHeading>
+            <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-ivory/75">
+              Las 8 landings del recorrido —de la autoridad a la masterclass, la comunidad, el intensivo y la
+              mentoría— construidas como código, con imágenes reales, animación sobria y compliance embebido.
+              Elige una para recorrerla.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Badge tone="ivory"><Icon.Check /> 8 landings</Badge>
+              <Badge tone="ivory"><Icon.Check /> 10 lead magnets</Badge>
+              <Badge tone="ivory"><Icon.Check /> Mobile-first</Badge>
+            </div>
+            <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-olive/15 px-3.5 py-1.5 text-[12.5px] text-olive">
+              <Icon.Lock /> {DEMO_NOTE}
+            </p>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* El recorrido — las 8 landings */}
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <Kicker>El recorrido</Kicker>
+              <h2 className="mt-2 font-display text-2xl font-semibold text-charcoal sm:text-3xl">
+                Las 8 landings del funnel
+              </h2>
+            </div>
+            <span className="hidden text-[13px] text-smoke sm:inline">En orden de embudo →</span>
+          </div>
+
+          <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {LANDINGS.map((l, i) => (
+              <RevealItem key={l.slug}>
+                <Link
+                  to={l.route}
+                  className="group block h-full overflow-hidden rounded-2xl border border-charcoal/10 bg-white shadow-glass transition-all hover:-translate-y-1 hover:shadow-cta"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Img
+                      src={l.thumb}
+                      alt={l.title}
+                      kenBurns={false}
+                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                      focal="50% 35%"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
+                    <span className="absolute left-3 top-3 grid h-8 w-8 place-items-center rounded-lg bg-charcoal/70 font-display text-[13px] font-bold text-ivory backdrop-blur">
+                      {l.num}
+                    </span>
+                    {l.price && (
+                      <span className="absolute right-3 top-3 rounded-full bg-petrol px-2.5 py-1 text-[12px] font-semibold text-ivory">
+                        {l.price}
+                      </span>
+                    )}
+                    <span className="absolute bottom-3 left-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ivory/90">
+                      {kindLabel(l.kind)}
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-display text-lg font-semibold text-charcoal">{l.title}</h3>
+                    <p className="mt-1 text-[13.5px] leading-snug text-charcoal/65">{l.subtitle}</p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-petrol">
+                      Ver landing <Icon.ArrowRight className="transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </Link>
+              </RevealItem>
+            ))}
+          </Stagger>
+        </Container>
+      </section>
+
+      {/* Lead magnets */}
+      <section className="bg-ivory-dim py-16 sm:py-20">
+        <Container>
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <Kicker>Tope del funnel</Kicker>
+              <h2 className="mt-2 font-display text-2xl font-semibold text-charcoal sm:text-3xl">
+                10 lead magnets gratis
+              </h2>
+            </div>
+            <CTAButton to="/lead-magnets" variant="secondary" size="md" icon={<Icon.ArrowRight />}>
+              Ver todos
+            </CTAButton>
+          </div>
+          <Stagger className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" gap={0.05}>
+            {LEAD_MAGNETS.map((m) => (
+              <RevealItem key={m.id}>
+                <Link to="/lead-magnets" className="group block">
+                  <div className={cn('overflow-hidden rounded-xl border border-charcoal/10 bg-white shadow-glass', m.ratio === '4x5' ? 'aspect-[4/5]' : 'aspect-video')}>
+                    <Img src={lm(m.file)} alt={m.title} kenBurns={false} className="h-full w-full transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <p className="mt-2 text-[12.5px] font-medium leading-snug text-charcoal/75">{m.title}</p>
+                  <span className={cn('text-[11px] font-semibold uppercase tracking-[0.1em]', m.autor === 'argenis' ? 'text-petrol' : 'text-olive')}>
+                    {m.autor}
+                  </span>
+                </Link>
+              </RevealItem>
+            ))}
+          </Stagger>
+        </Container>
+      </section>
+
+      {/* Deck */}
+      <section className="py-16">
+        <Container>
+          <div className="overflow-hidden rounded-2xl border border-charcoal/10 bg-charcoal text-ivory">
+            <div className="grid items-center gap-6 p-8 sm:grid-cols-[1fr_auto] sm:p-10">
+              <div>
+                <Kicker>Proyecto hermano</Kicker>
+                <h2 className="mt-2 font-display text-2xl font-semibold">Deck de la masterclass</h2>
+                <p className="mt-2 max-w-xl text-[14.5px] leading-snug text-ivory/70">
+                  La presentación en vivo de la masterclass (23 slides, 5 actos) corre como app aparte. Inícialo
+                  con <code className="rounded bg-white/10 px-1.5 py-0.5 text-[13px]">npm run dev</code> en{' '}
+                  <code className="rounded bg-white/10 px-1.5 py-0.5 text-[13px]">magic-capital-deck</code> (puerto 5180).
+                </p>
+              </div>
+              <CTAButton href={CONTACT.deckUrl} variant="light" icon={<Icon.ArrowUpRight />}>
+                Abrir el deck
+              </CTAButton>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <Footer />
+      <FloatingWhatsApp />
+    </div>
+  )
+}

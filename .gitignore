@@ -1,0 +1,40 @@
+# ── Dependencias ──────────────────────────────────────────────────────────
+node_modules/
+
+# ── Salida de build ───────────────────────────────────────────────────────
+dist/
+dist-ssr/
+*.local
+
+# ── Logs ──────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── Editor / SO ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── Vercel ──────────────────────────────────────────────────────────────────
+.vercel/
+
+# ── Tooling local de desarrollo (no para deploy) ────────────────────────────
+.claude/
+
+# ── Material fuente que NO va en este repo (solo se publican las 2 apps) ─────
+/imagenes-landings/
+/landings-listas/
+/album-d431491685-downloads*/
+/prompts-landings/
+/entrega-pase-unico/
+/kit-lanzamiento/
+/tools/
+/*.docx
+/*.mp4
+/*.mov
+/deep-research-report.md
+/Investigación Marketing Inmobiliario Tax Deed.md
