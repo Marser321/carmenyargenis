@@ -8,7 +8,7 @@ const sizeClass = {
   sm: 'text-xl sm:text-2xl',
 } as const
 
-/** Titular display editorial (Geist), tracking ajustado, equilibrado. */
+/** Titular display editorial (Fraunces serif): tracking suave, leading ajustado, balance. */
 export function DisplayHeading({
   children,
   size = 'lg',
@@ -23,7 +23,7 @@ export function DisplayHeading({
   return (
     <As
       className={cn(
-        'font-display font-semibold leading-[1.05] tracking-tightest text-balance',
+        'font-display font-semibold leading-[1.08] tracking-[-0.015em] text-balance',
         sizeClass[size],
         className,
       )}

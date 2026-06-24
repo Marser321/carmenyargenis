@@ -72,7 +72,7 @@ export default function Autoridad() {
             comprar— antes de que arriesgues un dólar.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <CTAButton to="/l/01-reserva" icon={<Icon.ArrowRight />}>
+            <CTAButton to="/l/01-reserva" icon={<Icon.ArrowRight />} magnetic>
               Ver la masterclass gratis
             </CTAButton>
             <CTAButton href="https://instagram.com" variant="ghost">
@@ -293,7 +293,7 @@ export default function Autoridad() {
       </Section>
 
       {/* 9 · CTA final */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" aura>
         <Container width="narrow" className="text-center">
           <div className="mx-auto mb-6 flex justify-center gap-3">
             <Img
@@ -317,7 +317,7 @@ export default function Autoridad() {
             deed sin adivinar: qué condados mirar, qué propiedades descartar y cómo financiar con criterio.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <CTAButton to="/l/01-reserva" icon={<Icon.ArrowRight />}>
+            <CTAButton to="/l/01-reserva" icon={<Icon.ArrowRight />} magnetic>
               Ver la masterclass gratis
             </CTAButton>
             <CTAButton href={waLink('Hola, quiero saber más sobre la masterclass de Magic Capital.')} variant="whatsapp" icon={<Icon.Whatsapp />}>

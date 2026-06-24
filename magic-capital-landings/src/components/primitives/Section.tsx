@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { cn } from '../../lib/cn'
+import { AuroraField } from '../media/AuroraField'
 
 export type Tone = 'ivory' | 'ivory-dim' | 'charcoal' | 'petrol'
 
@@ -27,16 +28,22 @@ export function Section({
   pad = 'md',
   id,
   className,
+  aura = false,
 }: {
   children: ReactNode
   tone?: Tone
   pad?: keyof typeof padClass
   id?: string
   className?: string
+  /** Capa atmosférica (manchas de luz que derivan) detrás del contenido.
+   *  `true` elige el tono según la sección; o fíjalo explícito. Solo en tonos oscuros. */
+  aura?: boolean | 'petrol' | 'olive' | 'mixed'
 }) {
+  const auraTone = aura === true ? (tone === 'petrol' ? 'petrol' : 'mixed') : aura || undefined
   return (
     <section id={id} className={cn('relative overflow-hidden', toneClass[tone], padClass[pad], className)}>
-      {children}
+      {auraTone && <AuroraField tone={auraTone} />}
+      {auraTone ? <div className="relative z-10">{children}</div> : children}
     </section>
   )
 }

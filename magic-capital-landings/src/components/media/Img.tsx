@@ -4,7 +4,7 @@ import { cn } from '../../lib/cn'
 
 export type Scrim = 'none' | 'left' | 'right' | 'bottom' | 'full' | 'top'
 
-const scrimClass: Record<Scrim, string> = {
+export const scrimClass: Record<Scrim, string> = {
   none: '',
   left: 'bg-gradient-to-r from-charcoal/90 via-charcoal/45 to-transparent',
   right: 'bg-gradient-to-l from-charcoal/90 via-charcoal/45 to-transparent',

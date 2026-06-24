@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Container } from '../primitives/Container'
-import { Img, type Scrim } from '../media'
+import { VideoBackground, type Scrim } from '../media'
 import { DepthBackground } from '../media'
 import { Spotlight } from '../media'
 import { cn } from '../../lib/cn'
@@ -19,7 +19,7 @@ export function Hero({
   children,
   className,
 }: {
-  image?: { src: string; alt: string; focal?: string; scrim?: Scrim }
+  image?: { src: string; alt: string; focal?: string; scrim?: Scrim; video?: string; webm?: string }
   tone?: HeroTone
   parallax?: boolean
   children: ReactNode
@@ -29,9 +29,13 @@ export function Hero({
   const toneClass =
     tone === 'charcoal' ? 'bg-charcoal text-ivory' : tone === 'petrol' ? 'bg-petrol text-ivory' : 'bg-ivory text-charcoal'
 
+  // Drop-in: VideoBackground muestra el poster (la imagen) hoy; cuando se generen
+  // los loops M1–M5 basta con pasar `image.video` y reproduce el bucle cinematográfico.
   const bg = image && (
-    <Img
-      src={image.src}
+    <VideoBackground
+      src={image.video}
+      webm={image.webm}
+      poster={image.src}
       alt={image.alt}
       focal={image.focal}
       scrim={image.scrim ?? (dark ? 'left' : 'none')}

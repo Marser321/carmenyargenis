@@ -294,7 +294,7 @@ export default function ReservaMasterclass() {
       </Section>
 
       {/* 11 · CTA final */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" aura>
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Reserva tu lugar y empieza por entender</DisplayHeading>
           <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-ivory/70">
@@ -302,7 +302,7 @@ export default function ReservaMasterclass() {
             e información correcta.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <CTAButton href="#top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} icon={<Icon.ArrowRight />}>
+            <CTAButton href="#top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} icon={<Icon.ArrowRight />} magnetic>
               Reservar mi lugar gratis
             </CTAButton>
             <CTAButton href={waLink('Hola, quiero reservar mi lugar en la masterclass gratis.')} variant="whatsapp" icon={<Icon.Whatsapp />}>

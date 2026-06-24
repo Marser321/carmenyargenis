@@ -106,7 +106,7 @@ export default function CompraMentoria() {
           </p>
           <p className="mt-3 text-[14px] text-ivory/55">Inversión: $3,997 (pago único; planes de pago a definir).</p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />}>
+            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>
               Empezar mi mentoría
             </CTAButton>
             <CTAButton href={waLink('Hola, ¿podríamos agendar una llamada de diagnóstico de la mentoría?')} variant="ghost">
@@ -321,11 +321,11 @@ export default function CompraMentoria() {
       </Section>
 
       {/* 10 · CTA final */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" aura>
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Si estás listo para ejecutar con criterio, empecemos</DisplayHeading>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />}>
+            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>
               Empezar mi mentoría
             </CTAButton>
             <CTAButton href={waLink('Hola, quiero saber más sobre la Mentoría 1:1.')} variant="whatsapp" icon={<Icon.Whatsapp />}>

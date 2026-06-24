@@ -236,7 +236,7 @@ export default function Comunidad() {
       </Section>
 
       {/* 7 · CTA final */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" aura>
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Quédate cerca. Sigue avanzando.</DisplayHeading>
           <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-ivory/70">
@@ -244,7 +244,7 @@ export default function Comunidad() {
             y en español. Sin hype, sin presión: avanzas a tu ritmo y cancelas cuando quieras.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />}>
+            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>
               {FUNNEL.comunidad.cta}
             </CTAButton>
             <CTAButton

@@ -79,7 +79,7 @@ export default function CompraIntensivo() {
           </p>
           <p className="mt-3 text-[14px] text-ivory/55">Cupos limitados por la capacidad real de la cohorte en vivo.</p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />}>
+            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>
               Reservar mi asiento ($297)
             </CTAButton>
             <CTAButton href={waLink('Hola, tengo una pregunta sobre el Intensivo MAP-9 antes de comprar.')} variant="ghost">
@@ -330,7 +330,7 @@ export default function CompraIntensivo() {
       </Section>
 
       {/* 10 · CTA final */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" aura>
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Reserva tu asiento en la cohorte en vivo</DisplayHeading>
           <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-ivory/70">
@@ -338,7 +338,7 @@ export default function CompraIntensivo() {
             de la cohorte.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />}>
+            <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>
               Reservar mi asiento ($297)
             </CTAButton>
             <CTAButton href={waLink('Hola, tengo una pregunta sobre el Intensivo MAP-9 antes de comprar.')} variant="whatsapp" icon={<Icon.Whatsapp />}>

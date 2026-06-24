@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { cn } from '../../lib/cn'
+import { Magnetic } from '../motion/Magnetic'
 
 type Variant = 'primary' | 'secondary' | 'whatsapp' | 'ghost' | 'light'
 type Size = 'md' | 'lg'
@@ -44,11 +45,14 @@ export function CTAButton({
   href,
   onClick,
   type = 'button',
+  magnetic = false,
 }: CommonProps & {
   to?: string
   href?: string
   onClick?: () => void
   type?: 'button' | 'submit'
+  /** Tirón magnético sutil hacia el cursor (solo desktop). Para CTAs principales. */
+  magnetic?: boolean
 }) {
   const classes = cn(base, variantClass[variant], sizeClass[size], className)
   const content = (
@@ -58,23 +62,19 @@ export function CTAButton({
     </>
   )
 
-  if (to) {
-    return (
-      <Link to={to} className={classes}>
-        {content}
-      </Link>
-    )
-  }
-  if (href) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
-        {content}
-      </a>
-    )
-  }
-  return (
+  const el = to ? (
+    <Link to={to} className={classes}>
+      {content}
+    </Link>
+  ) : href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+      {content}
+    </a>
+  ) : (
     <button type={type} onClick={onClick} className={classes}>
       {content}
     </button>
   )
+
+  return magnetic ? <Magnetic strength={7}>{el}</Magnetic> : el
 }
