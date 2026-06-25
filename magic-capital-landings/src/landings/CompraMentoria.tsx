@@ -132,7 +132,7 @@ export default function CompraMentoria() {
             tone="dark"
             kicker="Qué incluye"
             title="3 módulos, sesiones privadas 1:1"
-            intro="Desplázate para recorrer el camino. Argenis lleva la oportunidad; Carmen, el capital."
+            intro="El camino completo, módulo a módulo. Argenis lleva la oportunidad; Carmen, el capital."
           />
         </Container>
         <PinnedSequence count={MODULES.length} vhPerStep={70}>
