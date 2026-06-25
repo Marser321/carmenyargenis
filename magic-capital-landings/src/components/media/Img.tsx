@@ -10,7 +10,9 @@ export const scrimClass: Record<Scrim, string> = {
   right: 'bg-gradient-to-l from-charcoal/90 via-charcoal/45 to-transparent',
   bottom: 'bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent',
   top: 'bg-gradient-to-b from-charcoal/80 via-charcoal/20 to-transparent',
-  full: 'bg-charcoal/55',
+  // Oscurecido fuerte: funde la foto de fondo casi del todo para máxima
+  // legibilidad (lo usa el hero de la masterclass 01, con el video de protagonista).
+  full: 'bg-midnight/85',
 }
 
 /** Placeholder elegante cuando la imagen aún no existe (no rompe la landing). */

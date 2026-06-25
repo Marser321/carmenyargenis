@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Container } from '../primitives/Container'
 import { Disclaimer } from '../primitives/Disclaimer'
 import { LANDINGS } from '../../content/registry'
-import { BRAND, FOUNDERS, CONTACT } from '../../content/brand'
+import { BRAND, FOUNDERS } from '../../content/brand'
 import { DEMO_NOTE } from '../../content/compliance'
 
 /** Pie de página común: marca, navegación del funnel, "no somos asesores" y el disclaimer íntegro. */
@@ -37,19 +37,9 @@ export function Footer() {
             <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">Más</div>
             <ul className="mt-3 space-y-1.5 text-[13.5px] text-ivory/70">
               <li>
-                <Link to="/" className="inline-block py-0.5 hover:text-ivory">
-                  Hub / selector
-                </Link>
-              </li>
-              <li>
                 <Link to="/lead-magnets" className="inline-block py-0.5 hover:text-ivory">
                   Lead magnets
                 </Link>
-              </li>
-              <li>
-                <a href={CONTACT.deckUrl} target="_blank" rel="noopener noreferrer" className="inline-block py-0.5 hover:text-ivory">
-                  Deck de la masterclass ↗
-                </a>
               </li>
             </ul>
             <p className="mt-4 text-[12px] leading-snug text-ivory/60">

@@ -65,8 +65,8 @@ export function LandingHero({
   const bannerNode = banner && (
     USE_BANNER_VIDEO ? (
       // Banner de video (flyer animado): vertical en móvil, horizontal en desktop.
-      // Más ancho en desktop para que el 16:9 no quede diminuto.
-      <Reveal className={cn('w-full max-w-sm lg:max-w-xl', centered && 'mx-auto')}>
+      // En modo centrado (01) es la IDEA CENTRAL → más grande; si no, tamaño normal.
+      <Reveal className={cn('w-full', centered ? 'mx-auto max-w-2xl lg:max-w-3xl' : 'max-w-sm lg:max-w-xl')}>
         <BannerVideoCycle
           horizontal={BANNER_VIDEO.horizontal}
           vertical={BANNER_VIDEO.vertical}
@@ -91,7 +91,7 @@ export function LandingHero({
   )
 
   const spine = (
-    <div className={cn('flex flex-col gap-5', centered ? 'mx-auto max-w-2xl items-center text-center' : 'max-w-2xl')}>
+    <div className={cn('flex flex-col gap-5', centered ? 'mx-auto max-w-3xl items-center text-center' : 'max-w-2xl')}>
       {countdown && (
         <CountdownTimer
           targetISO={countdown.targetISO}
@@ -123,7 +123,7 @@ export function LandingHero({
       ) : (
         <>
           {spine}
-          {aside && <div className="mt-8">{aside}</div>}
+          {aside && <div className={cn('mt-8', centered && 'mx-auto w-full max-w-md')}>{aside}</div>}
         </>
       )}
     </Hero>

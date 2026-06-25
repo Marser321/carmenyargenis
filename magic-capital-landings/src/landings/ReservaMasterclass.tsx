@@ -21,7 +21,7 @@ import { LandingHero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { LeadForm } from '../components/forms'
 import { MAP9_PHASES, MASTERCLASS, waLink } from '../content/brand'
-import { img, MASTERCLASS_FLYER, USE_FLYER_IMAGE, LANDING_BANNER } from '../content/images'
+import { img, LANDING_BANNER } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
 
 const CAMBIOS = [
@@ -53,9 +53,10 @@ const FAQ = [
 export default function ReservaMasterclass() {
   return (
     <LandingLayout waMessage="Hola, quiero reservar mi lugar en la masterclass gratis.">
-      {/* 1 · Hero-póster: contador arriba → H1 → datos → formulario */}
+      {/* 1 · Hero centrado: video protagonista → contador → H1 → video → formulario liviano */}
       <LandingHero
         tone="charcoal"
+        align="center"
         image={{
           src: img('01', '01-reserva-masterclass__hero-fundadores-trabajando.png'),
           alt: 'Argenis y Carmen, fundadores de Magic Capital',
@@ -64,54 +65,22 @@ export default function ReservaMasterclass() {
         }}
         countdown={{ targetISO: MASTERCLASS.fechaISO, label: 'La próxima clase en vivo empieza en' }}
         banner={{ src: LANDING_BANNER['01'], alt: 'Masterclass gratis — Cómo adquirir propiedades en subasta, paso a paso, con Argenis y Carmen', ratio: '4x5' }}
-        kicker={
-          <span className="inline-flex items-center gap-2 self-start rounded-full bg-gold/12 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold gold-hairline">
-            <Icon.Sparkles /> Masterclass gratis · en vivo
-          </span>
-        }
         title={
           <span className="uppercase">
             Cómo adquirir <span className="text-gold-metallic">propiedades en subasta</span>{' '}
             <span className="block text-[0.62em] font-medium tracking-[0.04em] text-ivory/85">paso a paso</span>
           </span>
         }
-        sub={
-          <>
-            Las dos piezas que casi nadie enseña juntas: el{' '}
-            <strong className="text-ivory">Método MAP-9</strong> para filtrar antes de pujar, y el{' '}
-            <strong className="text-ivory">crédito empresarial al 0%</strong> (APR promocional) para comprar sin
-            vaciar tus ahorros.
-            <span className="mt-4 flex flex-wrap gap-2.5">
-              <span className="inline-flex items-center gap-2 rounded-xl bg-navy-soft/70 px-3.5 py-2 text-[13px] font-medium text-ivory gold-hairline">
-                <Icon.Calendar className="text-gold" /> {MASTERCLASS.fechaLabel}
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-xl bg-navy-soft/70 px-3.5 py-2 text-[13px] font-medium text-ivory gold-hairline">
-                <Icon.Clock className="text-gold" /> {MASTERCLASS.horaLabel} · {MASTERCLASS.zonaLabel}
-              </span>
-            </span>
-          </>
-        }
         aside={
           <Reveal>
-            {USE_FLYER_IMAGE ? (
-              <div className="overflow-hidden rounded-2xl shadow-glass-dark gold-hairline">
-                <Img
-                  src={MASTERCLASS_FLYER}
-                  alt="Flyer de la masterclass: cómo adquirir propiedades en subasta paso a paso"
-                  className="aspect-[4/5] w-full"
-                  kenBurns={false}
-                  priority
-                />
+            {/* Formulario liviano, sin recuadro: el texto resalta y el video manda. */}
+            <div className="text-center">
+              <h2 className="font-display text-xl font-semibold text-ivory">Reserva tu cupo gratis</h2>
+              <p className="mt-1 text-[13.5px] text-ivory/60">Tu nombre y WhatsApp. Te enviamos el enlace de acceso.</p>
+              <div className="mt-4 text-left">
+                <LeadForm ctaLabel="Reserva tu cupo gratis" redirectTo="/l/02-gracias-reserva" tone="dark" />
               </div>
-            ) : (
-              <div className="rounded-2xl border border-gold/25 bg-midnight/75 p-6 shadow-gold-ring backdrop-blur-md">
-                <h2 className="font-display text-xl font-semibold text-ivory">Reserva tu cupo gratis</h2>
-                <p className="mt-1 text-[13.5px] text-ivory/60">Tu nombre y WhatsApp. Te enviamos el enlace de acceso.</p>
-                <div className="mt-4">
-                  <LeadForm ctaLabel="Reserva tu cupo gratis" redirectTo="/l/02-gracias-reserva" tone="dark" />
-                </div>
-              </div>
-            )}
+            </div>
           </Reveal>
         }
       />

@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Container } from '../primitives/Container'
 import { VideoBackground, type Scrim } from '../media'
 import { DepthBackground } from '../media'
 import { Spotlight } from '../media'
+import { DEADLINES } from '../../content/brand'
 import { cn } from '../../lib/cn'
 
 type HeroTone = 'charcoal' | 'petrol' | 'ivory'
@@ -30,6 +32,12 @@ export function Hero({
   const toneClass =
     tone === 'charcoal' ? 'bg-midnight text-ivory' : tone === 'petrol' ? 'bg-navy text-ivory' : 'bg-navy text-ivory'
 
+  // Quitada la barra de demo (LandingChrome). El único elemento fijo arriba es la
+  // UrgencyBar, y solo en rutas con deadline (01/03): ahí el hero la despeja; en el
+  // resto arranca cerca del borde con un respiro.
+  const { pathname } = useLocation()
+  const hasBar = Boolean(DEADLINES[pathname])
+
   // Drop-in: VideoBackground muestra el poster (la imagen) hoy; cuando se generen
   // los loops M1–M5 basta con pasar `image.video` y reproduce el bucle cinematográfico.
   const bg = image && (
@@ -54,7 +62,9 @@ export function Hero({
           <div className="absolute inset-0">{bg}</div>
         ))}
       {dark && <Spotlight />}
-      <Container className="pt-36 pb-16 sm:pt-40 sm:pb-24">{children}</Container>
+      <Container className={cn('pb-16 sm:pb-24', hasBar ? 'pt-24 sm:pt-28' : 'pt-14 sm:pt-20')}>
+        {children}
+      </Container>
     </section>
   )
 }

@@ -16,6 +16,7 @@ export type LandingMeta = {
   price?: string
   thumb: string // miniatura para el hub (su hero)
   stageLabel: string // etiqueta del paso en el funnel
+  docTitle: string // <title> público al compartir la URL
 }
 
 const KIND_LABEL: Record<LandingKind, string> = {
@@ -40,6 +41,7 @@ export const LANDINGS: readonly LandingMeta[] = [
     kind: 'pillar',
     thumb: img('07', '07-autoridad-argenis__hero-fundadores-espacio-titular.png'),
     stageLabel: 'Pilar de marca',
+    docTitle: 'Argenis y Carmen — Magic Capital',
   },
   {
     num: '01',
@@ -51,6 +53,7 @@ export const LANDINGS: readonly LandingMeta[] = [
     price: 'Gratis',
     thumb: img('01', '01-reserva-masterclass__hero-fundadores-trabajando.png'),
     stageLabel: 'Masterclass gratis',
+    docTitle: 'Masterclass gratis — Magic Capital',
   },
   {
     num: '02',
@@ -61,6 +64,7 @@ export const LANDINGS: readonly LandingMeta[] = [
     kind: 'thankyou',
     thumb: img('02', '02-gracias-reserva__hero-confirmacion-serena.png'),
     stageLabel: 'Confirmación',
+    docTitle: '¡Reservado! — Masterclass Magic Capital',
   },
   {
     num: '09',
@@ -72,6 +76,7 @@ export const LANDINGS: readonly LandingMeta[] = [
     price: '$27/mes',
     thumb: img('09', '09-comunidad__hero-pertenencia-sobria.png'),
     stageLabel: 'Comunidad $27/mes',
+    docTitle: 'Comunidad Magic Capital — $27/mes',
   },
   {
     num: '03',
@@ -83,6 +88,7 @@ export const LANDINGS: readonly LandingMeta[] = [
     price: '$297',
     thumb: img('03', '03-compra-intensivo__hero-fundadores-sesion-vivo.png'),
     stageLabel: 'Intensivo $297',
+    docTitle: 'Intensivo MAP-9 — Magic Capital',
   },
   {
     num: '04',
@@ -93,6 +99,7 @@ export const LANDINGS: readonly LandingMeta[] = [
     kind: 'thankyou',
     thumb: img('04', '04-gracias-compra-intensivo__hero-bienvenida-area-miembros.png'),
     stageLabel: 'Onboarding',
+    docTitle: 'Bienvenido al Intensivo — Magic Capital',
   },
   {
     num: '05',
@@ -104,6 +111,7 @@ export const LANDINGS: readonly LandingMeta[] = [
     price: '$3,997',
     thumb: img('05', '05-compra-mentoria__hero-fundadores-revisando-portal.png'),
     stageLabel: 'Mentoría $3,997',
+    docTitle: 'Mentoría 1:1 — Magic Capital',
   },
   {
     num: '06',
@@ -114,6 +122,7 @@ export const LANDINGS: readonly LandingMeta[] = [
     kind: 'thankyou',
     thumb: img('06', '06-gracias-compra-mentoria__hero-recibimiento-premium.png'),
     stageLabel: 'Onboarding premium',
+    docTitle: 'Bienvenido a la Mentoría — Magic Capital',
   },
 ] as const
 
