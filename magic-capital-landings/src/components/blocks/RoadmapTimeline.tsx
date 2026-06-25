@@ -39,11 +39,11 @@ export function RoadmapTimeline({
       {/* Riel vertical */}
       <span
         aria-hidden
-        className={cn('absolute left-[11px] top-2 bottom-2 w-px', dark ? 'bg-white/15' : 'bg-charcoal/12')}
+        className={cn('absolute left-[11px] top-2 bottom-2 w-px', dark ? 'bg-white/15' : 'bg-white/15')}
       />
       <motion.span
         aria-hidden
-        className="absolute left-[11px] top-2 w-px origin-top bg-olive"
+        className="absolute left-[11px] top-2 w-px origin-top bg-gold"
         initial={{ scaleY: 0 }}
         animate={controlled ? { scaleY: (active! + 1) / modules.length } : undefined}
         whileInView={controlled ? undefined : { scaleY: 1 }}
@@ -69,10 +69,10 @@ export function RoadmapTimeline({
               className={cn(
                 'absolute -left-8 top-1 grid h-6 w-6 place-items-center rounded-full font-display text-[11px] font-semibold ring-2 transition-colors',
                 isCurrent
-                  ? 'bg-olive text-ivory ring-olive/40'
+                  ? 'bg-gold text-midnight ring-gold/40'
                   : dark
                     ? 'bg-charcoal text-ivory/70 ring-white/15'
-                    : 'bg-white text-charcoal/70 ring-charcoal/15',
+                    : 'bg-navy-soft text-ivory/70 ring-white/15',
               )}
             >
               {m.n}
@@ -80,23 +80,23 @@ export function RoadmapTimeline({
             <div
               className={cn(
                 'rounded-2xl border p-5 transition-all',
-                isCurrent && 'ring-1 ring-olive/40',
-                dark ? 'border-white/10 bg-white/[0.04]' : 'border-charcoal/10 bg-white shadow-glass',
+                isCurrent && 'ring-1 ring-gold/40',
+                dark ? 'border-white/10 bg-white/[0.04]' : 'border-gold/15 bg-navy-soft shadow-glass-dark',
               )}
             >
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <h4 className={cn('font-display text-lg font-semibold', dark ? 'text-ivory' : 'text-charcoal')}>
+                <h4 className={cn('font-display text-lg font-semibold', dark ? 'text-ivory' : 'text-ivory')}>
                   {m.title}
                 </h4>
-                <span className={cn('text-[12px]', dark ? 'text-ivory/50' : 'text-smoke')}>{m.weeks}</span>
+                <span className={cn('text-[12px]', dark ? 'text-ivory/50' : 'text-ivory/50')}>{m.weeks}</span>
               </div>
-              <div className="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-olive">
+              <div className="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-gold">
                 {whoLabel[m.who]}
               </div>
-              <ul className={cn('mt-3 space-y-1.5 text-[13.5px] leading-snug', dark ? 'text-ivory/70' : 'text-charcoal/75')}>
+              <ul className={cn('mt-3 space-y-1.5 text-[13.5px] leading-snug', dark ? 'text-ivory/70' : 'text-ivory/75')}>
                 {m.points.map((pt) => (
                   <li key={pt} className="flex gap-2">
-                    <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-olive/70" />
+                    <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-gold/70" />
                     {pt}
                   </li>
                 ))}

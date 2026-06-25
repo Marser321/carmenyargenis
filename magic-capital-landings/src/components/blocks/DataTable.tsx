@@ -32,17 +32,17 @@ export function DataTable({
       <div
         className={cn(
           'overflow-hidden rounded-2xl border',
-          dark ? 'border-white/10 bg-white/[0.04]' : 'border-charcoal/10 bg-white shadow-glass',
+          dark ? 'border-white/10 bg-white/[0.04]' : 'border-gold/15 bg-navy-soft shadow-glass-dark',
         )}
       >
         <table className="w-full border-collapse text-left">
           {caption && (
-            <caption className={cn('px-5 pt-4 text-left text-[13px]', dark ? 'text-ivory/70' : 'text-smoke')}>
+            <caption className={cn('px-5 pt-4 text-left text-[13px]', dark ? 'text-ivory/70' : 'text-ivory/55')}>
               {caption}
             </caption>
           )}
           <thead>
-            <tr className={cn('border-b', dark ? 'border-white/10' : 'border-charcoal/10')}>
+            <tr className={cn('border-b', dark ? 'border-white/10' : 'border-white/10')}>
               {columns.map((c) => (
                 <th
                   key={c.key}
@@ -50,7 +50,7 @@ export function DataTable({
                   className={cn(
                     'px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em]',
                     c.align === 'right' ? 'text-right' : 'text-left',
-                    dark ? 'text-ivory/65' : 'text-smoke',
+                    dark ? 'text-ivory/65' : 'text-ivory/65',
                   )}
                 >
                   {c.header}
@@ -64,8 +64,8 @@ export function DataTable({
                 key={r.id ?? i}
                 className={cn(
                   'border-b last:border-0',
-                  dark ? 'border-white/[0.06]' : 'border-charcoal/[0.06]',
-                  r.highlight && (dark ? 'bg-olive/15' : 'bg-olive/[0.08]'),
+                  dark ? 'border-white/[0.06]' : 'border-white/[0.06]',
+                  r.highlight && (dark ? 'bg-gold/15' : 'bg-gold/[0.10]'),
                 )}
               >
                 {columns.map((c) => (
@@ -75,11 +75,11 @@ export function DataTable({
                       'px-5 py-3 align-baseline text-[14px]',
                       c.align === 'right' ? 'text-right tabular-nums' : 'text-left',
                       c.emphasis
-                        ? cn('font-display', dark ? 'text-ivory' : 'text-charcoal')
+                        ? cn('font-display', dark ? 'text-ivory' : 'text-ivory')
                         : dark
                           ? 'text-ivory/85'
-                          : 'text-charcoal/85',
-                      r.struck && 'text-smoke line-through',
+                          : 'text-ivory/85',
+                      r.struck && 'text-ivory/45 line-through',
                     )}
                   >
                     {r[c.key]}

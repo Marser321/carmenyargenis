@@ -16,7 +16,7 @@ export function FAQAccordion({ items, tone = 'light' }: { items: QA[]; tone?: 'l
       {items.map((it, i) => {
         const isOpen = open === i
         return (
-          <div key={it.q} className={cn(dark ? 'text-ivory' : 'text-charcoal')}>
+          <div key={it.q} className="text-ivory">
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
@@ -26,7 +26,7 @@ export function FAQAccordion({ items, tone = 'light' }: { items: QA[]; tone?: 'l
               <span className="font-display text-base font-medium sm:text-lg">{it.q}</span>
               <ChevronDown
                 className={cn(
-                  'shrink-0 text-lg text-olive transition-transform duration-300',
+                  'shrink-0 text-lg text-gold transition-transform duration-300',
                   isOpen && 'rotate-180',
                 )}
               />
@@ -40,7 +40,7 @@ export function FAQAccordion({ items, tone = 'light' }: { items: QA[]; tone?: 'l
                   transition={{ duration: 0.32, ease: ease.out }}
                   className="overflow-hidden"
                 >
-                  <p className={cn('pb-4 text-[14.5px] leading-relaxed', dark ? 'text-ivory/70' : 'text-charcoal/75')}>
+                  <p className={cn('pb-4 text-[14.5px] leading-relaxed', dark ? 'text-ivory/70' : 'text-ivory/75')}>
                     {it.a}
                   </p>
                 </motion.div>

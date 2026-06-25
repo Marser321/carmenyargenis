@@ -10,12 +10,21 @@ import {
   Icon,
 } from '../components/primitives'
 import { Reveal, Stagger, RevealItem } from '../components/motion'
-import { MAP9Phases, ForWhomColumns, YesNoColumns, StatCards, TrustBar, FAQAccordion, PropertyShowcase } from '../components/blocks'
+import {
+  MAP9Phases,
+  ForWhomColumns,
+  YesNoColumns,
+  TrustBar,
+  FAQAccordion,
+  PropertyShowcase,
+  CountdownTimer,
+} from '../components/blocks'
 import { Hero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { LeadForm } from '../components/forms'
-import { MAP9_PHASES, waLink } from '../content/brand'
-import { img } from '../content/images'
+import { MAP9_PHASES, MASTERCLASS, waLink } from '../content/brand'
+import { img, MASTERCLASS_FLYER, USE_FLYER_IMAGE } from '../content/images'
+import { sectionBg } from '../content/section-backgrounds'
 
 const CAMBIOS = [
   { from: 'Adivinar qué comprar', to: 'Filtrado forense', icon: <Icon.Filter /> },
@@ -30,47 +39,67 @@ const APRENDERAS = [
   'Cómo calcular el capital total de entrada antes de pujar.',
 ]
 
-const AGENDA = [
-  { icon: <Icon.Calendar />, t: 'Cuándo', d: 'En vivo, cada semana · te enviamos el día y la hora en tu zona al reservar' },
-  { icon: <Icon.Clock />, t: 'Duración', d: '~60 minutos + preguntas en vivo' },
-  { icon: <Icon.Globe />, t: 'Dónde', d: '100% online por Zoom, en español neutro' },
-  { icon: <Icon.Document />, t: 'Qué traer', d: 'Papel y lápiz, y el condado o estado que te interesa' },
+const QUE_ESPERAR = [
+  { icon: <Icon.Clock />, t: 'Duración', d: '~60 min + preguntas en vivo' },
+  { icon: <Icon.Globe />, t: 'Dónde', d: `100% online por ${MASTERCLASS.plataforma}, en español` },
+  { icon: <Icon.Document />, t: 'Qué traer', d: 'Papel, lápiz y el condado que te interesa' },
 ]
 
 const FAQ = [
   { q: '¿Esto es una estafa?', a: 'Tienes razón en dudar. Por eso te mostramos el proceso público del condado: calendarios, números de caso y listados que cualquiera puede verificar. Exigimos que desconfíes.' },
   { q: '¿Cuánto dinero necesito?', a: 'Para operar con criterio solemos hablar de un capital de entrada razonable (puja + fees + title + contingencia). En la masterclass te enseñamos a estimarlo; no te pediremos pujar por intuición.' },
-  { q: '¿Necesito papeles o residencia?', a: 'Es una sesión educativa sobre un proceso público. Para operar y para estructurar crédito, los requisitos varían por estado, condado y emisor; siempre recomendamos verificación local.' },
-  { q: '¿Necesito inglés?', a: 'No. Todo es en español neutro.' },
-  { q: '¿Cuánto dura?', a: 'Alrededor de 60 minutos, con espacio para preguntas en vivo.' },
+  { q: '¿Necesito inglés o papeles?', a: 'Todo es en español neutro. Es una sesión educativa sobre un proceso público; para operar y estructurar crédito, los requisitos varían por estado, condado y emisor, y siempre recomendamos verificación local.' },
   { q: '¿Queda grabada?', a: 'Es una experiencia en vivo. Si habilitamos una repetición, te avisamos por WhatsApp y correo.' },
 ]
 
 export default function ReservaMasterclass() {
   return (
     <LandingLayout waMessage="Hola, quiero reservar mi lugar en la masterclass gratis.">
-      {/* 1 · Hero + formulario */}
+      {/* 1 · Hero-póster (banner + contador + formulario) */}
       <Hero
         tone="charcoal"
         image={{
           src: img('01', '01-reserva-masterclass__hero-fundadores-trabajando.png'),
-          alt: 'Argenis y Carmen trabajando',
+          alt: 'Argenis y Carmen, fundadores de Magic Capital',
           focal: '50% 35%',
-          scrim: 'left',
+          scrim: 'full',
         }}
       >
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* Lado póster */}
           <div>
-            <Kicker>Masterclass gratis en vivo · cada semana · en español</Kicker>
-            <DisplayHeading as="h1" size="xl" className="mt-4">
-              Cómo adquirir propiedades en subasta, paso a paso.
+            <span className="inline-flex items-center gap-2 rounded-full bg-gold/12 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold gold-hairline">
+              <Icon.Sparkles /> Masterclass gratis · en vivo
+            </span>
+            <DisplayHeading as="h1" size="xl" className="mt-4 uppercase">
+              Cómo adquirir{' '}
+              <span className="text-gold-metallic">propiedades en subasta</span>{' '}
+              <span className="block text-[0.62em] font-medium tracking-[0.04em] text-ivory/85">paso a paso</span>
             </DisplayHeading>
-            <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
-              Te mostramos las dos piezas que casi nadie enseña juntas: el <strong className="text-ivory">Método
-              MAP-9</strong> para analizar y descartar propiedades antes de pujar, y cómo estructurar{' '}
-              <strong className="text-ivory">crédito empresarial al 0%</strong> para fondear la compra sin
-              liquidar tus ahorros — antes de tu primera subasta tax deed.
+            <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-ivory/75">
+              Las dos piezas que casi nadie enseña juntas: el <strong className="text-ivory">Método MAP-9</strong>{' '}
+              para analizar y descartar propiedades antes de pujar, y cómo estructurar{' '}
+              <strong className="text-ivory">crédito empresarial al 0%</strong> (APR promocional) para fondear sin
+              liquidar tus ahorros.
             </p>
+
+            {/* Chips de fecha/hora (estilo póster) */}
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              <span className="inline-flex items-center gap-2 rounded-xl bg-navy-soft/70 px-3.5 py-2 text-[13px] font-medium text-ivory gold-hairline">
+                <Icon.Calendar className="text-gold" /> {MASTERCLASS.fechaLabel}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-xl bg-navy-soft/70 px-3.5 py-2 text-[13px] font-medium text-ivory gold-hairline">
+                <Icon.Clock className="text-gold" /> {MASTERCLASS.horaLabel} · {MASTERCLASS.zonaLabel} · {MASTERCLASS.plataforma}
+              </span>
+            </div>
+
+            {/* Contador a fecha fija real */}
+            <CountdownTimer
+              targetISO={MASTERCLASS.fechaISO}
+              label="La próxima sesión empieza en"
+              className="mt-6"
+            />
+
             <div className="mt-6 flex flex-wrap gap-2">
               <Badge tone="ivory"><Icon.Check /> En vivo</Badge>
               <Badge tone="ivory"><Icon.Check /> En español</Badge>
@@ -78,117 +107,98 @@ export default function ReservaMasterclass() {
             </div>
           </div>
 
+          {/* Formulario / opcional swap por el flyer */}
           <Reveal>
-            <div className="rounded-2xl border border-white/10 bg-charcoal/70 p-6 shadow-glass-dark backdrop-blur-md">
-              <h2 className="font-display text-xl font-semibold text-ivory">Reserva tu lugar gratis</h2>
-              <p className="mt-1 text-[13.5px] text-ivory/60">Nombre y WhatsApp. Te enviamos el enlace.</p>
-              <div className="mt-4">
-                <LeadForm ctaLabel="Reservar mi lugar gratis" redirectTo="/l/02-gracias-reserva" tone="dark" />
+            {USE_FLYER_IMAGE ? (
+              <div className="overflow-hidden rounded-2xl shadow-glass-dark gold-hairline">
+                <Img
+                  src={MASTERCLASS_FLYER}
+                  alt="Flyer de la masterclass: Cómo adquirir propiedades en subasta paso a paso"
+                  className="aspect-[4/5] w-full"
+                  kenBurns={false}
+                  priority
+                />
               </div>
-            </div>
+            ) : (
+              <div className="rounded-2xl border border-gold/25 bg-midnight/75 p-6 shadow-gold-ring backdrop-blur-md">
+                <h2 className="font-display text-xl font-semibold text-ivory">Reserva tu cupo gratis</h2>
+                <p className="mt-1 text-[13.5px] text-ivory/60">Nombre y WhatsApp. Te enviamos el enlace de acceso.</p>
+                <div className="mt-4">
+                  <LeadForm ctaLabel="Reserva tu cupo gratis" redirectTo="/l/02-gracias-reserva" tone="dark" />
+                </div>
+              </div>
+            )}
           </Reveal>
         </div>
       </Hero>
 
-      {/* 2 · El problema (reframe editorial) */}
-      <Section tone="ivory" pad="lg">
+      {/* 2 · Qué aprenderás (problema + cambios + 9 fases, fusionado) */}
+      <Section tone="ivory" pad="lg" texture={sectionBg('01-reserva-masterclass', 1)}>
         <Container>
           <SectionHeader
-            kicker="El sistema te dejó fuera"
-            title="La hipoteca tradicional se está cerrando. Te mostramos la otra puerta."
-            intro="La inasequibilidad del mercado es, en parte, una ilusión causada por depender de la hipoteca tradicional. La transferencia real de patrimonio ocurre en otro lugar: el mercado secundario de liquidaciones fiscales."
+            kicker="De adivinar a decidir con criterio"
+            title="La hipoteca tradicional se cierra. Te mostramos la otra puerta."
+            intro="La transferencia real de patrimonio ocurre en el mercado secundario de liquidaciones fiscales. Aquí no se adivina: se filtra, se verifica y se financia con método."
           />
-          <Reveal className="mx-auto mt-10 max-w-3xl">
-            <PropertyShowcase
-              src={img('01', '01-reserva-masterclass__opportunity-vivienda-modesta-fl--3x2.png')}
-              alt="Vivienda modesta en un barrio de Florida, del tipo que aparece en el mercado secundario de liquidaciones fiscales."
-              ratio="3x2"
-              region="FL"
-              caption="Imagen ilustrativa del tipo de vivienda que se transfiere en el mercado secundario; varía por estado, condado y propiedad."
-            />
-          </Reveal>
-          <div className="mt-10">
-            <StatCards
-              stats={[
-                { value: '+47%', label: 'Aumento acumulado de precios de vivienda en años recientes.', footnote: 'Dato ilustrativo de mercado; varía por región y periodo.' },
-                { value: 'Tasas altas', label: 'Las tasas hipotecarias en niveles que reducen tu poder de compra.' },
-                { value: 'Ahorros quietos', label: 'El dinero parado pierde frente a la inflación, sin ponerse a trabajar.' },
-              ]}
-            />
-          </div>
-        </Container>
-      </Section>
 
-      {/* 3 · Trust bar */}
-      <Section tone="ivory-dim" pad="md">
-        <Container>
-          <TrustBar
-            items={[
-              { icon: <Icon.Shield />, text: 'Exigimos que desconfíes: es un proceso público y verificable.' },
-              { icon: <Icon.Filter />, text: 'Te enseñamos primero qué NO comprar.' },
-              { icon: <Icon.Globe />, text: 'En vivo y en español.' },
-              { icon: <Icon.Check />, text: 'Sin urgencia falsa ni cuenta regresiva.' },
-            ]}
-          />
-        </Container>
-      </Section>
-
-      {/* 4 · Tres cambios */}
-      <Section tone="ivory" pad="lg">
-        <Container>
-          <SectionHeader kicker="Lo que cambia para ti" title="De adivinar a decidir con criterio" />
+          {/* Tres cambios */}
           <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {CAMBIOS.map((c) => (
               <RevealItem key={c.to}>
                 <GlassCard tone="solid" className="h-full">
-                  <div className="text-2xl text-petrol">{c.icon}</div>
-                  <div className="mt-3 text-[14px] text-smoke line-through">{c.from}</div>
-                  <div className="mt-1 flex items-center gap-2 font-display text-lg font-semibold text-charcoal">
-                    <Icon.ArrowRight className="text-olive" /> {c.to}
+                  <div className="text-2xl text-gold">{c.icon}</div>
+                  <div className="mt-3 text-[14px] text-ivory/55 line-through">{c.from}</div>
+                  <div className="mt-1 flex items-center gap-2 font-display text-lg font-semibold text-ivory">
+                    <Icon.ArrowRight className="text-gold" /> {c.to}
                   </div>
                 </GlassCard>
               </RevealItem>
             ))}
           </Stagger>
-        </Container>
-      </Section>
 
-      {/* 5 · Qué aprenderás (9 fases) */}
-      <Section tone="charcoal" pad="lg">
-        <Container>
-          <div className="grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          {/* Propiedad protagonista + las 9 fases */}
+          <div className="mt-12 grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
-              <SectionHeader
-                align="left"
-                tone="dark"
-                kicker="Qué aprenderás"
-                title="El Método MAP-9, fase por fase"
-                intro="El filtrado forense (fases 5–9) es el corazón: primero, qué NO comprar."
-              />
+              <Reveal>
+                <PropertyShowcase
+                  src={img('01', '01-reserva-masterclass__opportunity-vivienda-modesta-fl--3x2.png')}
+                  alt="Vivienda modesta en un barrio de Florida, del tipo que aparece en el mercado secundario de liquidaciones fiscales."
+                  ratio="3x2"
+                  region="FL"
+                  tone="dark"
+                  caption="Imagen ilustrativa del tipo de vivienda que se transfiere en el mercado secundario; varía por estado, condado y propiedad."
+                />
+              </Reveal>
               <Stagger className="mt-6 space-y-2.5">
                 {APRENDERAS.map((a) => (
                   <RevealItem key={a} subtle>
                     <div className="flex gap-3">
-                      <Icon.Check className="mt-1 shrink-0 text-olive" />
+                      <Icon.Check className="mt-1 shrink-0 text-gold" />
                       <p className="text-[15px] leading-snug text-ivory/80">{a}</p>
                     </div>
                   </RevealItem>
                 ))}
               </Stagger>
+            </div>
+            <div>
+              <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">
+                El Método MAP-9, fase por fase
+              </div>
+              <Reveal>
+                <MAP9Phases phases={MAP9_PHASES} tone="dark" />
+              </Reveal>
               <p className="mt-5 rounded-xl bg-white/[0.05] px-4 py-3 text-[14px] text-ivory/70">
-                No prometemos resultados. Te damos el <strong className="text-ivory">sistema</strong> y la{' '}
+                El filtrado forense (fases 5–9) es el corazón: primero, qué <strong className="text-ivory">NO</strong>{' '}
+                comprar. No prometemos resultados — te damos el <strong className="text-ivory">sistema</strong> y la{' '}
                 <strong className="text-ivory">claridad</strong> para decidir.
               </p>
             </div>
-            <Reveal>
-              <MAP9Phases phases={MAP9_PHASES} tone="dark" />
-            </Reveal>
           </div>
         </Container>
       </Section>
 
-      {/* 6 · Para quién / no */}
-      <Section tone="ivory-dim">
+      {/* 3 · Para quién es / no */}
+      <Section tone="ivory-dim" texture={sectionBg('01-reserva-masterclass', 5)}>
         <Container>
           <SectionHeader kicker="Honestidad" title="Para quién es (y para quién no)" />
           <div className="mt-10">
@@ -216,15 +226,15 @@ export default function ReservaMasterclass() {
         </Container>
       </Section>
 
-      {/* 7 · Quiénes son */}
-      <Section tone="ivory" pad="lg">
+      {/* 4 · Quiénes son */}
+      <Section tone="ivory" pad="lg" texture={sectionBg('01-reserva-masterclass', 6)}>
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <Reveal>
               <Img
                 src={img('01', '01-quienes-fundadores--16x9.png')}
                 alt="Argenis Aguilera y Carmen Espinosa"
-                className="aspect-[16/10] w-full rounded-2xl shadow-glass"
+                className="aspect-[16/10] w-full rounded-2xl shadow-glass-dark gold-hairline"
                 focal="50% 30%"
               />
             </Reveal>
@@ -245,29 +255,32 @@ export default function ReservaMasterclass() {
         </Container>
       </Section>
 
-      {/* 8 · Agenda */}
-      <Section tone="ivory-dim">
+      {/* 5 · Confianza compacta (qué esperar + esto SÍ / esto NO; nutrido con el filtro forense) */}
+      <Section
+        tone="ivory-dim"
+        pad="lg"
+        texture={{
+          src: img('01', '01-reserva-masterclass__filtro-forense-no-comprar--16x9--codex-v02.png'),
+          opacity: 0.1,
+          focal: '50% 45%',
+        }}
+      >
         <Container>
-          <SectionHeader kicker="La masterclass" title="Qué esperar el día de la sesión" />
-          <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {AGENDA.map((a) => (
+          <SectionHeader kicker="Transparencia anti-estafa" title="Qué esperar — y qué no prometemos" />
+
+          <Stagger className="mt-10 grid gap-4 sm:grid-cols-3">
+            {QUE_ESPERAR.map((a) => (
               <RevealItem key={a.t}>
                 <GlassCard tone="solid" className="h-full">
-                  <div className="text-2xl text-petrol">{a.icon}</div>
-                  <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-olive">{a.t}</div>
-                  <p className="mt-1 text-[14px] leading-snug text-charcoal/80">{a.d}</p>
+                  <div className="text-2xl text-gold">{a.icon}</div>
+                  <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-gold">{a.t}</div>
+                  <p className="mt-1 text-[14px] leading-snug text-ivory/80">{a.d}</p>
                 </GlassCard>
               </RevealItem>
             ))}
           </Stagger>
-        </Container>
-      </Section>
 
-      {/* 9 · Esto SÍ / Esto NO */}
-      <Section tone="ivory" pad="lg">
-        <Container>
-          <SectionHeader kicker="Transparencia anti-estafa" title="Esto SÍ · Esto NO" />
-          <div className="mt-10">
+          <div className="mt-8">
             <YesNoColumns
               left={{
                 heading: 'Esto SÍ',
@@ -289,11 +302,22 @@ export default function ReservaMasterclass() {
               }}
             />
           </div>
+
+          <div className="mt-8">
+            <TrustBar
+              items={[
+                { icon: <Icon.Shield />, text: 'Exigimos que desconfíes: es un proceso público y verificable.' },
+                { icon: <Icon.Filter />, text: 'Te enseñamos primero qué NO comprar.' },
+                { icon: <Icon.Globe />, text: 'En vivo y en español.' },
+                { icon: <Icon.Calendar />, text: 'Fecha y hora reales — sin temporizadores que se reinician solos.' },
+              ]}
+            />
+          </div>
         </Container>
       </Section>
 
-      {/* 10 · FAQ */}
-      <Section tone="ivory-dim">
+      {/* 6 · FAQ */}
+      <Section tone="ivory" texture={sectionBg('01-reserva-masterclass', 9)}>
         <Container>
           <SectionHeader kicker="Preguntas frecuentes" title="Lo que la gente nos pregunta" />
           <div className="mt-10">
@@ -302,17 +326,20 @@ export default function ReservaMasterclass() {
         </Container>
       </Section>
 
-      {/* 11 · CTA final */}
-      <Section tone="charcoal" pad="lg" aura>
+      {/* 7 · CTA final */}
+      <Section tone="charcoal" pad="lg" aura texture={sectionBg('01-reserva-masterclass', 10)}>
         <Container width="narrow" className="text-center">
-          <DisplayHeading size="lg">Reserva tu lugar y empieza por entender</DisplayHeading>
+          <DisplayHeading size="lg">Reserva tu cupo y empieza por entender</DisplayHeading>
           <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-ivory/70">
             Gratis, en vivo y en español. Tu estancamiento no es por falta de dinero, es por falta de dirección
             e información correcta.
           </p>
+          <div className="mt-6">
+            <CountdownTimer targetISO={MASTERCLASS.fechaISO} className="items-center" />
+          </div>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <CTAButton href="#top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} icon={<Icon.ArrowRight />} magnetic>
-              Reservar mi lugar gratis
+              Reserva tu cupo gratis
             </CTAButton>
             <CTAButton href={waLink('Hola, quiero reservar mi lugar en la masterclass gratis.')} variant="whatsapp" icon={<Icon.Whatsapp />}>
               Escríbenos por WhatsApp

@@ -3,11 +3,13 @@ import { cn } from '../../lib/cn'
 
 type Tone = 'petrol' | 'olive' | 'mixed'
 
-// Manchas de luz en color de marca (petróleo / oliva), MUY tenues y difusas.
+// Manchas de luz del sistema oscuro-lujo (dorado metálico + navy), MUY tenues y
+// difusas. Los nombres de tono se conservan (los pasa Section) pero el color es
+// dorado cálido sobre azul profundo — el resplandor del flyer, sin saturar.
 const palettes: Record<Tone, string[]> = {
-  petrol: ['rgba(22,86,107,0.40)', 'rgba(14,58,74,0.38)'],
-  olive: ['rgba(92,107,74,0.34)', 'rgba(14,58,74,0.34)'],
-  mixed: ['rgba(22,86,107,0.38)', 'rgba(92,107,74,0.30)', 'rgba(14,58,74,0.36)'],
+  petrol: ['rgba(201,162,75,0.20)', 'rgba(15,32,54,0.55)'],
+  olive: ['rgba(147,114,52,0.22)', 'rgba(15,32,54,0.50)'],
+  mixed: ['rgba(201,162,75,0.20)', 'rgba(147,114,52,0.18)', 'rgba(15,32,54,0.55)'],
 }
 
 const spots = [

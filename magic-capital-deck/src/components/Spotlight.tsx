@@ -7,7 +7,7 @@ import { motion, useMotionValue, useMotionTemplate, useReducedMotion } from 'fra
  * coordenadas locales del escenario (que está escalado).
  */
 export function Spotlight({
-  color = 'rgba(92,107,74,0.12)',
+  color = 'rgba(201,162,75,0.14)',
   size = 460,
 }: {
   color?: string

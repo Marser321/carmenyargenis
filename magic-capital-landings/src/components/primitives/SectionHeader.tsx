@@ -33,7 +33,8 @@ export function SectionHeader({
         <p
           className={cn(
             'mt-4 text-[16px] leading-relaxed text-pretty sm:text-[17px]',
-            tone === 'dark' ? 'text-ivory/70' : 'text-charcoal/70',
+            // Oscuro-lujo: ambos tonos viven sobre navy → texto ivory.
+            tone === 'dark' ? 'text-ivory/70' : 'text-ivory/75',
             centered && 'mx-auto',
           )}
         >

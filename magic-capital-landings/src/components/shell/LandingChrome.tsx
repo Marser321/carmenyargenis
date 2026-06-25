@@ -14,18 +14,18 @@ export function LandingChrome() {
   const current = LANDINGS.find((l) => l.route === pathname)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-charcoal/10 bg-ivory/80 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-9 z-40 border-b border-white/10 bg-midnight/80 backdrop-blur-md sm:top-10">
       <div className="mx-auto flex max-w-stage items-center justify-between gap-3 px-4 py-2.5 sm:px-6">
         <Link
           to="/"
-          className="group inline-flex items-center gap-2 text-[13px] font-semibold text-charcoal/80 hover:text-charcoal"
+          className="group inline-flex items-center gap-2 text-[13px] font-semibold text-ivory/80 hover:text-ivory"
         >
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-petrol text-[13px] font-bold text-ivory">
+          <span className="grid h-7 w-7 place-items-center rounded-md bg-gradient-to-b from-gold-bright to-gold-deep text-[13px] font-bold text-midnight">
             M
           </span>
           <span className="hidden sm:inline">{BRAND.name}</span>
-          <span className="text-smoke">·</span>
-          <span className="text-smoke group-hover:text-charcoal">Hub</span>
+          <span className="text-ivory/40">·</span>
+          <span className="text-ivory/55 group-hover:text-ivory">Hub</span>
         </Link>
 
         <div className="flex items-center gap-2">
@@ -38,7 +38,7 @@ export function LandingChrome() {
               value={current?.route ?? ''}
               onChange={(e) => navigate(e.target.value)}
               className={cn(
-                'appearance-none rounded-full border border-charcoal/15 bg-white py-1.5 pl-3.5 pr-8 text-[13px] font-medium text-charcoal shadow-sm outline-none transition-colors hover:border-charcoal/30 focus:border-petrol',
+                'appearance-none rounded-full border border-white/15 bg-navy-soft py-1.5 pl-3.5 pr-8 text-[13px] font-medium text-ivory shadow-sm outline-none transition-colors hover:border-gold/40 focus:border-gold',
               )}
             >
               {!current && <option value="">Elegir landing…</option>}
@@ -48,7 +48,7 @@ export function LandingChrome() {
                 </option>
               ))}
             </select>
-            <ArrowRight className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rotate-90 text-xs text-smoke" />
+            <ArrowRight className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rotate-90 text-xs text-ivory/50" />
           </div>
         </div>
       </div>

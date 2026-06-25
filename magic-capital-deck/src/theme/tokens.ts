@@ -4,12 +4,17 @@
 //  Paleta y tipografía: 00-SISTEMA-marca-y-compliance.md §5.
 // ─────────────────────────────────────────────────────────────────────────
 
+// Pivote navy + dorado (paridad con el funnel). `charcoal`/`petrol` se remapean a
+// navy y `olive` a dorado para que las clases existentes rindan el nuevo estilo.
 export const palette = {
   ivory: '#F7F5F0',
-  charcoal: '#1A1C1E',
-  petrol: '#0E3A4A',
-  olive: '#5C6B4A',
+  charcoal: '#0A1426',
+  petrol: '#0F2036',
+  olive: '#C9A24B',
   smoke: '#8A8F94',
+  midnight: '#0A1426',
+  navy: '#0F2036',
+  gold: '#C9A24B',
 } as const
 
 // Curvas de easing (cubic-bezier). `out` = entrada suave y decidida.

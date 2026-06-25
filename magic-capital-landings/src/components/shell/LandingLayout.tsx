@@ -1,12 +1,24 @@
 import type { ReactNode } from 'react'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { UrgencyBar } from './UrgencyBar'
 import { LandingChrome } from './LandingChrome'
 import { Footer } from './Footer'
 import { FloatingWhatsApp } from './FloatingWhatsApp'
+import { LiveActivityToasts } from './LiveActivityToasts'
 
-/** Envuelve cada landing: barra fija + contenido + pie + WhatsApp flotante. */
-export function LandingLayout({ children, waMessage }: { children: ReactNode; waMessage?: string }) {
+/** Envuelve cada landing: barra fija + contenido + pie + WhatsApp flotante +
+ *  toasts de actividad (prueba social simulada de la demo). `activity=false`
+ *  los desactiva en páginas donde no aportan (p. ej. páginas de gracias). */
+export function LandingLayout({
+  children,
+  waMessage,
+  activity = true,
+}: {
+  children: ReactNode
+  waMessage?: string
+  activity?: boolean
+}) {
   const { pathname } = useLocation()
 
   // Al cambiar de landing, vuelve arriba.
@@ -15,11 +27,13 @@ export function LandingLayout({ children, waMessage }: { children: ReactNode; wa
   }, [pathname])
 
   return (
-    <div className="min-h-screen bg-ivory">
+    <div className="min-h-screen bg-midnight">
+      <UrgencyBar />
       <LandingChrome />
       <main>{children}</main>
       <Footer />
       <FloatingWhatsApp message={waMessage} />
+      <LiveActivityToasts enabled={activity} />
     </div>
   )
 }

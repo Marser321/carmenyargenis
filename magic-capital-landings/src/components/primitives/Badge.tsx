@@ -11,10 +11,11 @@ export function Badge({
   tone?: 'olive' | 'petrol' | 'smoke' | 'ivory'
   className?: string
 }) {
+  // Sistema oscuro-lujo: los acentos olive/petrol se re-tintan a dorado sobre navy.
   const toneClass = {
-    olive: 'bg-olive/12 text-olive ring-olive/20',
-    petrol: 'bg-petrol/10 text-petrol ring-petrol/20',
-    smoke: 'bg-smoke/15 text-smoke ring-smoke/25',
+    olive: 'bg-gold/12 text-gold ring-gold/25',
+    petrol: 'bg-gold/12 text-gold ring-gold/25',
+    smoke: 'bg-white/8 text-ivory/70 ring-white/15',
     ivory: 'bg-white/10 text-ivory ring-white/20',
   }[tone]
   return (

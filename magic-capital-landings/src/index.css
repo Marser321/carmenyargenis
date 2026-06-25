@@ -8,7 +8,14 @@
   --petrol: #0e3a4a;
   --olive: #5c6b4a;
   --smoke: #8a8f94;
-  color-scheme: light;
+  /* Sistema oscuro-lujo (look del flyer navy + dorado metálico). */
+  --midnight: #0a1426;
+  --navy: #0f2036;
+  --navy-soft: #16293f;
+  --gold: #c9a24b;
+  --gold-bright: #e3c77a;
+  --gold-deep: #937234;
+  color-scheme: dark;
 }
 
 html {
@@ -17,11 +24,24 @@ html {
 
 body {
   margin: 0;
-  background: var(--ivory);
-  color: var(--charcoal);
+  background: var(--midnight);
+  color: var(--ivory);
   font-family: 'Inter Variable', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Texto/borde dorado metálico (degradado sutil, no neón) — título-póster, kickers. */
+.text-gold-metallic {
+  background-image: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 52%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hairline dorado para encuadrar tarjetas/chips estilo póster. */
+.gold-hairline {
+  border: 1px solid rgba(201, 162, 75, 0.35);
 }
 
 /* Display editorial (Fraunces variable): óptico automático + leve suavidad/peso. */
@@ -30,10 +50,10 @@ body {
   font-variation-settings: 'SOFT' 28, 'WONK' 0, 'opsz' 96;
 }
 
-/* Glass controlado (claro sobre marfil) */
+/* Glass controlado (tarjeta elevada sobre navy — antes "claro sobre marfil"). */
 .glass-light {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(26, 28, 30, 0.08);
+  background: rgba(22, 41, 63, 0.6);
+  border: 1px solid rgba(201, 162, 75, 0.18);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -57,12 +77,12 @@ body {
 }
 
 ::selection {
-  background: rgba(14, 58, 74, 0.18);
+  background: rgba(201, 162, 75, 0.28);
 }
 
-/* Anclas que no quedan ocultas bajo la barra fija */
+/* Anclas que no quedan ocultas bajo las barras fijas (urgencia + header) */
 [id] {
-  scroll-margin-top: 84px;
+  scroll-margin-top: 120px;
 }
 
 @media (prefers-reduced-motion: reduce) {

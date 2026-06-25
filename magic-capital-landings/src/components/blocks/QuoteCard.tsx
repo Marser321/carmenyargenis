@@ -25,22 +25,20 @@ export function QuoteCard({
 }) {
   const dark = tone === 'dark'
   const container =
-    tone === 'dark'
-      ? 'border-white/10 bg-white/[0.04] text-ivory'
-      : tone === 'solid'
-        ? 'border-charcoal/10 bg-white text-charcoal shadow-glass'
-        : 'border-charcoal/10 bg-white/70 text-charcoal'
+    tone === 'solid'
+      ? 'border-gold/15 bg-navy-soft text-ivory shadow-glass-dark'
+      : 'border-white/10 bg-white/[0.04] text-ivory'
   return (
     <Reveal className={className}>
       <figure className={cn('rounded-2xl border p-6', container)}>
-        <span className="mb-3 inline-flex text-xl text-olive" aria-hidden>
+        <span className="mb-3 inline-flex text-xl text-gold" aria-hidden>
           <Quote />
         </span>
-        <blockquote className={cn('text-[17px] leading-relaxed', dark ? 'text-ivory/90' : 'text-charcoal/90')}>
+        <blockquote className={cn('text-[17px] leading-relaxed', dark ? 'text-ivory/90' : 'text-ivory/90')}>
           {quote}
         </blockquote>
         {(attribution || role) && (
-          <figcaption className={cn('mt-4 text-[13px]', dark ? 'text-ivory/65' : 'text-smoke')}>
+          <figcaption className={cn('mt-4 text-[13px]', dark ? 'text-ivory/65' : 'text-ivory/65')}>
             {attribution && <span className="font-semibold">{attribution}</span>}
             {attribution && role && ' · '}
             {role}

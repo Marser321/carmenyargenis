@@ -13,8 +13,11 @@ import { Reveal, Stagger, RevealItem } from '../components/motion'
 import { FunnelMap, YesNoColumns, FAQAccordion } from '../components/blocks'
 import type { QA } from '../components/blocks'
 import { Hero, LandingLayout } from '../components/shell'
+import { Img } from '../components/media'
 import { CheckoutMock } from '../components/forms'
 import { FUNNEL, waLink } from '../content/brand'
+import { img } from '../content/images'
+import { sectionBg } from '../content/section-backgrounds'
 
 const INCLUYE = [
   {
@@ -93,7 +96,7 @@ export default function Comunidad() {
           <DisplayHeading as="h1" size="xl" className="mt-4">
             Sigue avanzando, con criterio y en comunidad
           </DisplayHeading>
-          <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-charcoal/75">
+          <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
             Por $27/mes te mantienes cerca de las dos piezas que casi nadie enseña juntas: la
             oportunidad (Método MAP-9 de Argenis) y el capital (crédito empresarial 0% de Carmen).
             Contenido nuevo, preguntas respondidas, gente recorriendo el mismo camino.
@@ -110,36 +113,46 @@ export default function Comunidad() {
               Escríbenos por WhatsApp
             </CTAButton>
           </div>
-          <p className="mt-4 text-[13px] text-charcoal/55">
+          <p className="mt-4 text-[13px] text-ivory/55">
             $27/mes · cancela cuando quieras · sin compromiso.
           </p>
         </div>
       </Hero>
 
       {/* 2 · Qué incluye */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('09-comunidad', 1)}>
         <Container>
           <SectionHeader
             kicker="Qué incluye"
             title="Acompañamiento mensual, sin promesas"
             intro="Cinco cosas concretas que recibes cada mes. Todo es proceso y educación: te ayudamos a mantener el ritmo y el criterio, no a perseguir un resultado prometido."
           />
-          <Stagger className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {INCLUYE.map((c) => (
-              <RevealItem key={c.t}>
-                <GlassCard tone="solid" className="h-full">
-                  <div className="text-2xl text-petrol">{c.icon}</div>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-charcoal">{c.t}</h3>
-                  <p className="mt-2 text-[14.5px] leading-snug text-charcoal/70">{c.d}</p>
-                </GlassCard>
-              </RevealItem>
-            ))}
-          </Stagger>
+          <div className="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <Reveal>
+              <Img
+                src={img('09', '09-comunidad__feed-comunidad-recursos-calendario--9x16--codex-v02.png')}
+                alt="Vista de la comunidad: sesiones nuevas, recursos organizados y calendario de subastas"
+                className="aspect-[9/16] w-full rounded-2xl shadow-glass-dark"
+                focal="50% 25%"
+              />
+            </Reveal>
+            <Stagger className="grid gap-5 sm:grid-cols-2">
+              {INCLUYE.map((c) => (
+                <RevealItem key={c.t}>
+                  <GlassCard tone="solid" className="h-full">
+                    <div className="text-2xl text-gold">{c.icon}</div>
+                    <h3 className="mt-3 font-display text-lg font-semibold text-ivory">{c.t}</h3>
+                    <p className="mt-2 text-[14.5px] leading-snug text-ivory/70">{c.d}</p>
+                  </GlassCard>
+                </RevealItem>
+              ))}
+            </Stagger>
+          </div>
         </Container>
       </Section>
 
       {/* 3 · Para quién SÍ / NO */}
-      <Section tone="ivory-dim">
+      <Section tone="ivory-dim" texture={sectionBg('09-comunidad', 2)}>
         <Container>
           <SectionHeader kicker="¿Es para ti?" title="Para quién sí · para quién no" />
           <div className="mt-10">
@@ -167,8 +180,16 @@ export default function Comunidad() {
         </Container>
       </Section>
 
-      {/* 4 · Dónde encaja */}
-      <Section tone="charcoal" pad="md">
+      {/* 4 · Dónde encaja (nutrido con la biblioteca/calendario) */}
+      <Section
+        tone="charcoal"
+        pad="md"
+        texture={{
+          src: img('09', '09-comunidad__biblioteca-calendario-mensual--16x9--codex-v02.png'),
+          opacity: 0.1,
+          focal: '50% 50%',
+        }}
+      >
         <Container width="narrow">
           <SectionHeader
             tone="dark"
@@ -189,20 +210,20 @@ export default function Comunidad() {
       </Section>
 
       {/* 5 · Precio y checkout */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('09-comunidad', 4)}>
         <Container width="narrow">
           <Reveal>
             <GlassCard tone="solid" className="mx-auto max-w-xl text-center">
               <Kicker className="mb-3">Una membresía honesta</Kicker>
-              <div className="font-display text-5xl font-semibold tabular-nums text-charcoal">
-                $27<span className="text-2xl text-smoke">/mes</span>
+              <div className="font-display text-5xl font-semibold tabular-nums text-ivory">
+                $27<span className="text-2xl text-ivory/55">/mes</span>
               </div>
               <Stagger className="mx-auto mt-6 max-w-sm space-y-2.5 text-left">
                 {OFERTA.map((b) => (
                   <RevealItem key={b} subtle>
                     <div className="flex gap-3">
-                      <Icon.Check className="mt-1 shrink-0 text-olive" />
-                      <p className="text-[15px] leading-snug text-charcoal/80">{b}</p>
+                      <Icon.Check className="mt-1 shrink-0 text-gold" />
+                      <p className="text-[15px] leading-snug text-ivory/80">{b}</p>
                     </div>
                   </RevealItem>
                 ))}
@@ -217,7 +238,7 @@ export default function Comunidad() {
                   {FUNNEL.comunidad.cta}
                 </CTAButton>
               </div>
-              <p className="mt-4 text-[13px] text-charcoal/60">
+              <p className="mt-4 text-[13px] text-ivory/60">
                 ¿Dudas antes de suscribirte? Escríbenos por WhatsApp.
               </p>
             </GlassCard>
@@ -226,7 +247,7 @@ export default function Comunidad() {
       </Section>
 
       {/* 6 · FAQ */}
-      <Section tone="ivory-dim">
+      <Section tone="ivory-dim" texture={sectionBg('09-comunidad', 5)}>
         <Container>
           <SectionHeader kicker="Preguntas frecuentes" title="Lo que conviene saber antes" />
           <div className="mt-10">
@@ -236,7 +257,7 @@ export default function Comunidad() {
       </Section>
 
       {/* 7 · CTA final */}
-      <Section tone="charcoal" pad="lg" aura>
+      <Section tone="charcoal" pad="lg" aura texture={sectionBg('09-comunidad', 6)}>
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Quédate cerca. Sigue avanzando.</DisplayHeading>
           <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-ivory/70">

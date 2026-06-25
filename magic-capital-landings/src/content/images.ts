@@ -25,6 +25,13 @@ export function founder(file: string): string {
   return `/img/founders/${file}`
 }
 
+// Banner-póster del flyer oficial de la masterclass (navy + dorado, fundadores,
+// fecha/hora). El hero recrea el póster en CÓDIGO por defecto; cuando el cliente
+// suba el PNG a public/img/01/ con este nombre y se ponga `USE_FLYER_IMAGE=true`,
+// <Img> lo muestra como póster (degrada solo si falta). Slot de swap, "ambas".
+export const MASTERCLASS_FLYER = '/img/01/01-reserva-masterclass__flyer-poster--4x5.png'
+export const USE_FLYER_IMAGE = false
+
 export type Ratio = '16x9' | '4x5' | '1x1' | '9x16' | '21x9' | '3x2'
 
 export const RATIO_CLASS: Record<Ratio, string> = {

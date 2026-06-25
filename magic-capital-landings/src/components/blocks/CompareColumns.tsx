@@ -15,18 +15,14 @@ function Col({ col, dark }: { col: CompareCol; dark: boolean }) {
       className={cn(
         'rounded-2xl border p-6',
         positive
-          ? dark
-            ? 'border-olive/35 bg-olive/[0.08]'
-            : 'border-petrol/20 bg-petrol/[0.04]'
-          : dark
-            ? 'border-white/10 bg-white/[0.03]'
-            : 'border-charcoal/10 bg-charcoal/[0.02]',
+          ? 'border-gold/30 bg-gold/[0.07]'
+          : 'border-white/10 bg-white/[0.03]',
       )}
     >
       <h4
         className={cn(
           'font-display text-lg font-semibold',
-          positive ? (dark ? 'text-ivory' : 'text-petrol') : dark ? 'text-ivory/80' : 'text-charcoal/75',
+          positive ? 'text-gold' : 'text-ivory/80',
         )}
       >
         {col.heading}
@@ -38,12 +34,12 @@ function Col({ col, dark }: { col: CompareCol; dark: boolean }) {
               <span
                 className={cn(
                   'mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full text-[12px]',
-                  positive ? 'bg-olive/20 text-olive' : 'bg-smoke/20 text-smoke',
+                  positive ? 'bg-gold/15 text-gold' : 'bg-white/10 text-ivory/55',
                 )}
               >
                 {positive ? <Check /> : <X />}
               </span>
-              <span className={cn('text-[14px] leading-snug', dark ? 'text-ivory/80' : 'text-charcoal/80')}>{it}</span>
+              <span className="text-[14px] leading-snug text-ivory/80">{it}</span>
             </div>
           </RevealItem>
         ))}
@@ -80,7 +76,7 @@ export function CompareColumns({
           <p
             className={cn(
               'mx-auto mt-5 max-w-2xl rounded-xl px-4 py-3 text-center text-[14px] leading-snug',
-              dark ? 'bg-white/[0.04] text-ivory/75' : 'bg-charcoal/[0.03] text-charcoal/75',
+              'bg-white/[0.04] text-ivory/75',
             )}
           >
             {note}

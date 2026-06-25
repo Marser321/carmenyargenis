@@ -11,13 +11,14 @@ import {
   Footnote,
   Icon,
 } from '../components/primitives'
-import { Reveal, Stagger, RevealItem, PinnedSequence } from '../components/motion'
+import { Reveal, Stagger, RevealItem } from '../components/motion'
 import { MAP9Phases, YesNoColumns, CaseBreakdown, CapitalCalc, FAQAccordion } from '../components/blocks'
 import { Hero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { CheckoutMock } from '../components/forms'
 import { MAP9_PHASES, waLink } from '../content/brand'
 import { img } from '../content/images'
+import { sectionBg } from '../content/section-backgrounds'
 import { FIGURE_LABELS } from '../content/compliance'
 import { cn } from '../lib/cn'
 
@@ -90,7 +91,7 @@ export default function CompraIntensivo() {
       </Hero>
 
       {/* 2 · Qué ES / qué NO ES */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('03-compra-intensivo', 1)}>
         <Container>
           <SectionHeader kicker="Para que sepas qué compras" title="Qué ES y qué NO ES el intensivo" />
           <div className="mt-10">
@@ -121,79 +122,71 @@ export default function CompraIntensivo() {
         </Container>
       </Section>
 
-      {/* 3a · Viernes con Carmen */}
-      <Section tone="ivory-dim">
+      {/* 3 · El fin de semana, paso a paso (Viernes + Sábado fusionados) */}
+      <Section tone="charcoal" pad="lg" texture={sectionBg('03-compra-intensivo', 2)}>
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <Reveal>
-              <Img
-                src={img('03', '03-compra-intensivo__carmen-bloque-capital-viernes.png')}
-                alt="Carmen explicando el bloque de capital"
-                className="aspect-[4/5] w-full rounded-2xl shadow-glass sm:aspect-[4/3]"
-                focal="50% 30%"
-              />
-            </Reveal>
+          <SectionHeader
+            tone="dark"
+            kicker="Viernes + sábado · en vivo"
+            title="El fin de semana, paso a paso"
+            intro="Dos días, dos mitades del sistema: el capital con Carmen y el método con Argenis. Construyes ambos con nosotros, en vivo."
+          />
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            {/* Día 1 · Viernes — el capital */}
             <div>
-              <Badge tone="petrol"><Icon.Calendar /> Día 1 · Viernes</Badge>
-              <SectionHeader
-                align="left"
-                className="mt-3"
-                kicker="Con Carmen + Argenis"
-                title="El capital: empresa, crédito y financiamiento 0%"
-              />
+              <Badge tone="petrol"><Icon.Calendar /> Día 1 · Viernes — el capital</Badge>
+              <h3 className="mt-3 font-display text-xl font-semibold text-ivory">
+                Empresa, crédito y financiamiento 0% (con Carmen)
+              </h3>
               <Stagger className="mt-5 space-y-2.5">
                 {VIERNES.map((v) => (
                   <RevealItem key={v} subtle>
                     <div className="flex gap-3">
-                      <Icon.Check className="mt-1 shrink-0 text-olive" />
-                      <p className="text-[14.5px] leading-snug text-charcoal/80">{v}</p>
+                      <Icon.Check className="mt-1 shrink-0 text-gold" />
+                      <p className="text-[14.5px] leading-snug text-ivory/80">{v}</p>
                     </div>
                   </RevealItem>
                 ))}
               </Stagger>
               <div className="mt-4">
-                <Footnote>{FIGURE_LABELS.credito0}</Footnote>
+                <Footnote tone="dark">{FIGURE_LABELS.credito0}</Footnote>
+              </div>
+              <Reveal className="mt-6">
+                <Img
+                  src={img('03', '03-compra-intensivo__capital-viernes-sin-rostro--4x5--codex-v02.png')}
+                  alt="Estructura de empresa, perfil de crédito y materiales del bloque de capital del viernes"
+                  className="aspect-[4/5] w-full rounded-2xl shadow-glass-dark"
+                  focal="50% 45%"
+                />
+              </Reveal>
+            </div>
+            {/* Día 2 · Sábado — las 9 fases */}
+            <div>
+              <Badge tone="ivory"><Icon.Calendar /> Día 2 · Sábado — las 9 fases</Badge>
+              <h3 className="mt-3 font-display text-xl font-semibold text-ivory">
+                El MAP-9 con Argenis: primero, qué NO comprar
+              </h3>
+              <p className="mt-2 text-[14px] leading-snug text-ivory/70">
+                El filtrado forense (fases 5–9) descarta propiedades tóxicas antes de pujar.
+              </p>
+              <div className="mt-5">
+                <MAP9Phases phases={MAP9_PHASES} tone="dark" />
               </div>
             </div>
           </div>
+          <Reveal className="mt-8">
+            <Img
+              src={img('03', '03-compra-intensivo__filtro-ab-red-flags-map-9--16x9--codex-v02.png')}
+              alt="Señales de alerta del filtro A/B del MAP-9 sobre un listado de subasta"
+              className="aspect-[16/9] w-full rounded-2xl shadow-glass-dark"
+              focal="50% 45%"
+            />
+          </Reveal>
         </Container>
-      </Section>
-
-      {/* 3b · Sábado · las 9 fases (PINNED) */}
-      <Section tone="charcoal" pad="sm">
-        <Container>
-          <Badge tone="ivory"><Icon.Calendar /> Día 2 · Sábado</Badge>
-          <SectionHeader
-            tone="dark"
-            className="mt-3"
-            kicker="Con Argenis"
-            title="Las 9 fases del MAP-9, una por una"
-            intro="Desplázate para recorrer el método. El filtrado forense (fases 5–9) descarta propiedades tóxicas antes de pujar."
-          />
-        </Container>
-        <PinnedSequence count={MAP9_PHASES.length} vhPerStep={40}>
-          {(active) => (
-            <Container>
-              <div className="grid items-center gap-8 lg:grid-cols-[0.7fr_1.3fr]">
-                <div>
-                  <div className="font-display text-6xl font-semibold tabular-nums text-olive">
-                    {String(active + 1).padStart(2, '0')}
-                  </div>
-                  <div className="mt-2 font-display text-2xl font-semibold text-ivory">{MAP9_PHASES[active]}</div>
-                  <div className="mt-2 text-[13px] uppercase tracking-[0.14em] text-ivory/45">
-                    Fase {active + 1} de {MAP9_PHASES.length}
-                    {active >= 4 && <span className="ml-2 text-olive">· filtrado forense</span>}
-                  </div>
-                </div>
-                <MAP9Phases phases={MAP9_PHASES} revealedUpTo={active} tone="dark" />
-              </div>
-            </Container>
-          )}
-        </PinnedSequence>
       </Section>
 
       {/* 4 · Entregable + 5 herramientas */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('03-compra-intensivo', 4)}>
         <Container>
           <SectionHeader
             kicker="Tu entregable"
@@ -203,14 +196,14 @@ export default function CompraIntensivo() {
           <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {TOOLS.map((t) => (
               <RevealItem key={t.t}>
-                <GlassCard tone="solid" className={cn('h-full', t.base && 'ring-1 ring-petrol/30')}>
+                <GlassCard tone="solid" className={cn('h-full', t.base && 'ring-1 ring-gold/30')}>
                   {t.base ? (
                     <Badge tone="petrol">Base</Badge>
                   ) : (
-                    <Icon.Document className="text-2xl text-olive" />
+                    <Icon.Document className="text-2xl text-gold" />
                   )}
-                  <h3 className="mt-3 font-display text-base font-semibold text-charcoal">{t.t}</h3>
-                  <p className="mt-1 text-[13.5px] leading-snug text-charcoal/70">{t.d}</p>
+                  <h3 className="mt-3 font-display text-base font-semibold text-ivory">{t.t}</h3>
+                  <p className="mt-1 text-[13.5px] leading-snug text-ivory/70">{t.d}</p>
                 </GlassCard>
               </RevealItem>
             ))}
@@ -219,7 +212,7 @@ export default function CompraIntensivo() {
       </Section>
 
       {/* 5 · Caso real $7,500 */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" texture={sectionBg('03-compra-intensivo', 5)}>
         <Container width="narrow">
           <div className="grid items-start gap-8 lg:grid-cols-2">
             <div>
@@ -246,72 +239,74 @@ export default function CompraIntensivo() {
         </Container>
       </Section>
 
-      {/* 6 · Transparencia de costos */}
-      <Section tone="ivory" pad="lg">
+      {/* 6 · Capital + oferta (fusionados) */}
+      <Section tone="ivory-dim" pad="lg" texture={sectionBg('03-compra-intensivo', 6)}>
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+          <SectionHeader
+            kicker="Te lo decimos antes de que pagues"
+            title="Cuánto necesitas y cuánto cuesta"
+            intro="El capital de entrada va por tu cuenta; el asiento en la cohorte en vivo es lo que reservas aquí."
+          />
+          <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
+            {/* Capital de entrada */}
             <div>
-              <SectionHeader
-                align="left"
-                kicker="Te lo decimos antes de que pagues"
-                title="Cuánto capital necesitas de verdad"
-                intro="Para operar con criterio recomendamos ~$5k–$15k de capital de entrada total: puja + fees del condado + title work + contingencia + holding. El intensivo no incluye este capital; te enseña a estimarlo."
-              />
-              <p className="mt-5 rounded-xl bg-charcoal/[0.03] px-4 py-3 text-[14px] text-charcoal/75">
+              <h3 className="font-display text-xl font-semibold text-ivory">Cuánto capital necesitas de verdad</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-ivory/75">
+                Para operar con criterio recomendamos ~$5k–$15k de capital de entrada total: puja + fees del condado +
+                title work + contingencia + holding. El intensivo no incluye este capital; te enseña a estimarlo.
+              </p>
+              <p className="mt-4 rounded-xl bg-white/[0.04] px-4 py-3 text-[14px] text-ivory/75">
                 Si hoy no tienes un rango razonable de capital, preferimos decírtelo ahora a que compres a ciegas.
               </p>
+              <Reveal className="mt-5">
+                <CapitalCalc />
+              </Reveal>
             </div>
+            {/* Oferta + ancla */}
             <Reveal>
-              <CapitalCalc />
+              <div className="rounded-2xl border border-white/10 bg-navy-soft p-7 shadow-glass-dark">
+                <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-gold">
+                  Tu asiento en la cohorte en vivo
+                </div>
+                <div className="mt-3 flex items-center gap-3 text-ivory/55">
+                  <span className="text-lg line-through">$1,000</span>
+                  <span className="text-lg line-through">$500</span>
+                  <Icon.ArrowRight className="text-gold" />
+                </div>
+                <div className="mt-2 font-display text-5xl font-semibold text-ivory">$297</div>
+                <p className="mt-2 text-[13px] text-ivory/55">
+                  $1,000 y $500 son valores de referencia; el precio vigente es $297.
+                </p>
+                <ul className="mt-5 space-y-2 text-[14px] text-ivory/80">
+                  {['2 días en vivo (viernes capital + sábado 9 fases)', 'Guía PDF del MAP-9 + 5 herramientas', 'Caso real desglosado', 'Repetición y sesión de seguimiento'].map((b) => (
+                    <li key={b} className="flex gap-2">
+                      <Icon.Check className="mt-0.5 shrink-0 text-gold" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6">
+                  <CTAButton onClick={() => setCheckout(true)} size="lg" className="w-full">
+                    Reservar mi asiento ($297)
+                  </CTAButton>
+                </div>
+              </div>
             </Reveal>
           </div>
         </Container>
       </Section>
 
-      {/* 7 · Oferta + ancla */}
-      <Section tone="ivory-dim" pad="lg">
-        <Container width="narrow" className="text-center">
-          <SectionHeader kicker="Tu asiento en la cohorte en vivo" title="Una inversión que rinde en criterio" />
-          <Reveal className="mt-8">
-            <div className="mx-auto max-w-md rounded-2xl border border-charcoal/10 bg-white p-7 shadow-glass">
-              <div className="flex items-center justify-center gap-3 text-smoke">
-                <span className="text-lg line-through">$1,000</span>
-                <span className="text-lg line-through">$500</span>
-                <Icon.ArrowRight className="text-olive" />
-              </div>
-              <div className="mt-2 font-display text-5xl font-semibold text-charcoal">$297</div>
-              <p className="mt-2 text-[13px] text-smoke">
-                $1,000 y $500 son valores de referencia; el precio vigente es $297.
-              </p>
-              <ul className="mt-5 space-y-2 text-left text-[14px] text-charcoal/80">
-                {['2 días en vivo (viernes capital + sábado 9 fases)', 'Guía PDF del MAP-9 + 5 herramientas', 'Caso real desglosado', 'Repetición y sesión de seguimiento'].map((b) => (
-                  <li key={b} className="flex gap-2">
-                    <Icon.Check className="mt-0.5 shrink-0 text-olive" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6">
-                <CTAButton onClick={() => setCheckout(true)} size="lg" className="w-full">
-                  Reservar mi asiento ($297)
-                </CTAButton>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* 8 · Reductores de riesgo */}
-      <Section tone="ivory" pad="md">
+      {/* 7 · Reductores de riesgo */}
+      <Section tone="ivory" pad="md" texture={sectionBg('03-compra-intensivo', 8)}>
         <Container>
           <SectionHeader kicker="Reservamos tu confianza, no solo tu asiento" title="Si algo no encaja, no te dejamos colgado" />
           <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {RISK_REDUCERS.map((r) => (
               <RevealItem key={r.t}>
                 <GlassCard tone="solid" className="h-full">
-                  <div className="text-2xl text-petrol">{r.icon}</div>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-charcoal">{r.t}</h3>
-                  <p className="mt-1 text-[14px] leading-snug text-charcoal/70">{r.d}</p>
+                  <div className="text-2xl text-gold">{r.icon}</div>
+                  <h3 className="mt-3 font-display text-lg font-semibold text-ivory">{r.t}</h3>
+                  <p className="mt-1 text-[14px] leading-snug text-ivory/70">{r.d}</p>
                 </GlassCard>
               </RevealItem>
             ))}
@@ -319,8 +314,8 @@ export default function CompraIntensivo() {
         </Container>
       </Section>
 
-      {/* 9 · FAQ */}
-      <Section tone="ivory-dim">
+      {/* 8 · FAQ */}
+      <Section tone="ivory-dim" texture={sectionBg('03-compra-intensivo', 9)}>
         <Container>
           <SectionHeader kicker="Preguntas frecuentes" title="Antes de reservar" />
           <div className="mt-10">
@@ -329,8 +324,8 @@ export default function CompraIntensivo() {
         </Container>
       </Section>
 
-      {/* 10 · CTA final */}
-      <Section tone="charcoal" pad="lg" aura>
+      {/* 9 · CTA final */}
+      <Section tone="charcoal" pad="lg" aura texture={sectionBg('03-compra-intensivo', 10)}>
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Reserva tu asiento en la cohorte en vivo</DisplayHeading>
           <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-ivory/70">

@@ -12,16 +12,16 @@ import { cn } from '../lib/cn'
 
 export default function HubPage() {
   return (
-    <div className="min-h-screen bg-ivory">
+    <div className="min-h-screen bg-midnight">
       {/* Header del hub */}
-      <header className="sticky top-0 z-40 border-b border-charcoal/10 bg-ivory/80 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-midnight/80 backdrop-blur-md">
         <Container className="flex items-center justify-between py-3">
           <div className="flex items-center gap-2.5">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-petrol text-sm font-bold text-ivory">M</span>
-            <span className="font-display text-[15px] font-semibold text-charcoal">{BRAND.name}</span>
+            <span className="grid h-8 w-8 place-items-center rounded-md bg-gradient-to-b from-gold-bright to-gold-deep text-sm font-bold text-midnight">M</span>
+            <span className="font-display text-[15px] font-semibold text-ivory">{BRAND.name}</span>
             <Badge tone="smoke" className="hidden sm:inline-flex">Funnel local · demo</Badge>
           </div>
-          <a href={CONTACT.deckUrl} target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium text-charcoal/70 hover:text-charcoal">
+          <a href={CONTACT.deckUrl} target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium text-ivory/70 hover:text-ivory">
             Deck de la masterclass ↗
           </a>
         </Container>
@@ -46,7 +46,7 @@ export default function HubPage() {
               <Badge tone="ivory"><Icon.Check /> 10 lead magnets</Badge>
               <Badge tone="ivory"><Icon.Check /> Mobile-first</Badge>
             </div>
-            <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-olive/15 px-3.5 py-1.5 text-[12.5px] text-olive">
+            <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-gold/15 px-3.5 py-1.5 text-[12.5px] text-gold">
               <Icon.Lock /> {DEMO_NOTE}
             </p>
           </Reveal>
@@ -59,11 +59,11 @@ export default function HubPage() {
           <div className="flex items-end justify-between gap-4">
             <div>
               <Kicker>El recorrido</Kicker>
-              <h2 className="mt-2 font-display text-2xl font-semibold text-charcoal sm:text-3xl">
+              <h2 className="mt-2 font-display text-2xl font-semibold text-ivory sm:text-3xl">
                 Las 8 landings del funnel
               </h2>
             </div>
-            <span className="hidden text-[13px] text-smoke sm:inline">En orden de embudo →</span>
+            <span className="hidden text-[13px] text-ivory/55 sm:inline">En orden de embudo →</span>
           </div>
 
           <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -71,7 +71,7 @@ export default function HubPage() {
               <RevealItem key={l.slug}>
                 <Link
                   to={l.route}
-                  className="group block h-full overflow-hidden rounded-2xl border border-charcoal/10 bg-white shadow-glass transition-all hover:-translate-y-1 hover:shadow-cta"
+                  className="group block h-full overflow-hidden rounded-2xl border border-white/10 bg-navy-soft shadow-glass-dark transition-all hover:-translate-y-1 hover:shadow-cta"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Img
@@ -86,7 +86,7 @@ export default function HubPage() {
                       {l.num}
                     </span>
                     {l.price && (
-                      <span className="absolute right-3 top-3 rounded-full bg-petrol px-2.5 py-1 text-[12px] font-semibold text-ivory">
+                      <span className="absolute right-3 top-3 rounded-full bg-gold px-2.5 py-1 text-[12px] font-semibold text-midnight">
                         {l.price}
                       </span>
                     )}
@@ -95,9 +95,9 @@ export default function HubPage() {
                     </span>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-display text-lg font-semibold text-charcoal">{l.title}</h3>
-                    <p className="mt-1 text-[13.5px] leading-snug text-charcoal/65">{l.subtitle}</p>
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-petrol">
+                    <h3 className="font-display text-lg font-semibold text-ivory">{l.title}</h3>
+                    <p className="mt-1 text-[13.5px] leading-snug text-ivory/65">{l.subtitle}</p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-gold">
                       Ver landing <Icon.ArrowRight className="transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>
@@ -109,12 +109,12 @@ export default function HubPage() {
       </section>
 
       {/* Lead magnets */}
-      <section className="bg-ivory-dim py-16 sm:py-20">
+      <section className="bg-navy py-16 sm:py-20">
         <Container>
           <div className="flex items-end justify-between gap-4">
             <div>
               <Kicker>Tope del funnel</Kicker>
-              <h2 className="mt-2 font-display text-2xl font-semibold text-charcoal sm:text-3xl">
+              <h2 className="mt-2 font-display text-2xl font-semibold text-ivory sm:text-3xl">
                 10 lead magnets gratis
               </h2>
             </div>
@@ -126,11 +126,11 @@ export default function HubPage() {
             {LEAD_MAGNETS.map((m) => (
               <RevealItem key={m.id}>
                 <Link to="/lead-magnets" className="group block">
-                  <div className={cn('overflow-hidden rounded-xl border border-charcoal/10 bg-white shadow-glass', m.ratio === '4x5' ? 'aspect-[4/5]' : 'aspect-video')}>
+                  <div className={cn('overflow-hidden rounded-xl border border-white/10 bg-navy-soft shadow-glass-dark', m.ratio === '4x5' ? 'aspect-[4/5]' : 'aspect-video')}>
                     <Img src={lm(m.file)} alt={m.title} kenBurns={false} className="h-full w-full transition-transform duration-500 group-hover:scale-105" />
                   </div>
-                  <p className="mt-2 text-[12.5px] font-medium leading-snug text-charcoal/75">{m.title}</p>
-                  <span className={cn('text-[11px] font-semibold uppercase tracking-[0.1em]', m.autor === 'argenis' ? 'text-petrol' : 'text-olive')}>
+                  <p className="mt-2 text-[12.5px] font-medium leading-snug text-ivory/75">{m.title}</p>
+                  <span className={cn('text-[11px] font-semibold uppercase tracking-[0.1em]', m.autor === 'argenis' ? 'text-gold' : 'text-gold-bright')}>
                     {m.autor}
                   </span>
                 </Link>
@@ -143,7 +143,7 @@ export default function HubPage() {
       {/* Deck */}
       <section className="py-16">
         <Container>
-          <div className="relative overflow-hidden rounded-2xl border border-charcoal/10 bg-charcoal text-ivory">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-charcoal text-ivory">
             <div className="pointer-events-none absolute inset-0" aria-hidden>
               <img
                 src={bg('fondo__ledger-legal-oscuro-16x9.png')}

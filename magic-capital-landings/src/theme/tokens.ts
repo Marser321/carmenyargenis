@@ -10,6 +10,13 @@ export const palette = {
   petrol: '#0E3A4A',
   olive: '#5C6B4A',
   smoke: '#8A8F94',
+  // Sistema oscuro-lujo (look del flyer navy + dorado metálico).
+  midnight: '#0A1426',
+  navy: '#0F2036',
+  navySoft: '#16293F',
+  gold: '#C9A24B',
+  goldBright: '#E3C77A',
+  goldDeep: '#937234',
 } as const
 
 // Curvas de easing (cubic-bezier). `out` = entrada suave y decidida.

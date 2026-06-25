@@ -17,6 +17,7 @@ import { Hero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { FOUNDERS, CONTACT, COHORTE, waLink } from '../content/brand'
 import { img } from '../content/images'
+import { sectionBg } from '../content/section-backgrounds'
 import { FIGURE_LABELS } from '../content/compliance'
 
 // ── Mensaje precargado del WhatsApp flotante (lo renderiza LandingLayout). ──
@@ -130,7 +131,7 @@ export default function GraciasIntensivo() {
       </Hero>
 
       {/* 2 · Próximos pasos */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('04-gracias-compra-intensivo', 1)}>
         <Container>
           <SectionHeader
             kicker="Empieza por aquí"
@@ -142,13 +143,13 @@ export default function GraciasIntensivo() {
               <RevealItem key={p.t}>
                 <GlassCard tone="solid" className="flex h-full flex-col">
                   <div className="flex items-center gap-3">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-petrol/10 font-display text-sm font-semibold text-petrol">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold/10 font-display text-sm font-semibold text-gold">
                       {i + 1}
                     </span>
-                    <span className="text-xl text-petrol">{p.icon}</span>
+                    <span className="text-xl text-gold">{p.icon}</span>
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-charcoal">{p.t}</h3>
-                  <p className="mt-2 text-[14.5px] leading-snug text-charcoal/70">{p.d}</p>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-ivory">{p.t}</h3>
+                  <p className="mt-2 text-[14.5px] leading-snug text-ivory/70">{p.d}</p>
                   {p.wa && (
                     <div className="mt-4">
                       <CTAButton
@@ -174,13 +175,13 @@ export default function GraciasIntensivo() {
                 alt="Área de miembros con los 5 bonos del Intensivo"
                 kenBurns={false}
                 focal="50% 50%"
-                className="mx-auto w-full max-w-[220px] rounded-2xl ring-1 ring-charcoal/10 aspect-[9/16]"
+                className="mx-auto w-full max-w-[220px] rounded-2xl ring-1 ring-white/10 aspect-[9/16]"
               />
               <div>
-                <h3 className="font-display text-xl font-semibold text-charcoal">
+                <h3 className="font-display text-xl font-semibold text-ivory">
                   Tus 5 bonos ya están adentro
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-charcoal/70">
+                <p className="mt-3 text-[15px] leading-relaxed text-ivory/70">
                   Al entrar al área de miembros encontrarás los recursos que acompañan cada fase del método:
                   plantillas para tus números, checklists de filtrado y materiales de apoyo. Están listos
                   para usarse desde el primer día.
@@ -192,7 +193,7 @@ export default function GraciasIntensivo() {
       </Section>
 
       {/* 3 · Cómo prepararte */}
-      <Section tone="ivory-dim">
+      <Section tone="ivory-dim" texture={sectionBg('04-gracias-compra-intensivo', 2)}>
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
@@ -205,13 +206,13 @@ export default function GraciasIntensivo() {
                 {PREPARACION.map((b) => (
                   <RevealItem key={b} subtle>
                     <div className="flex gap-3">
-                      <Icon.Check className="mt-1 shrink-0 text-olive" />
-                      <p className="text-[15px] leading-snug text-charcoal/80">{b}</p>
+                      <Icon.Check className="mt-1 shrink-0 text-gold" />
+                      <p className="text-[15px] leading-snug text-ivory/80">{b}</p>
                     </div>
                   </RevealItem>
                 ))}
               </Stagger>
-              <p className="mt-6 text-[15px] italic leading-relaxed text-smoke">
+              <p className="mt-6 text-[15px] italic leading-relaxed text-ivory/55">
                 Lo primero que vemos es qué propiedades NO comprar — el filtro antes del apuro.
               </p>
             </div>
@@ -220,7 +221,7 @@ export default function GraciasIntensivo() {
                 src={img('04', '04-gracias-compra-intensivo__preparacion-escritorio-intensivo.png')}
                 alt="Escritorio preparado para la sesión del Intensivo"
                 focal="50% 50%"
-                className="w-full rounded-2xl ring-1 ring-charcoal/10 aspect-square"
+                className="w-full rounded-2xl ring-1 ring-white/10 aspect-square"
               />
             </Reveal>
           </div>
@@ -228,7 +229,7 @@ export default function GraciasIntensivo() {
       </Section>
 
       {/* 4 · OTO suave a la Mentoría 1:1 (honesto, sin presión) */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" texture={sectionBg('04-gracias-compra-intensivo', 3)}>
         <Container width="narrow">
           <Reveal>
             <GlassCard tone="dark" className="p-7 sm:p-10">
@@ -246,7 +247,7 @@ export default function GraciasIntensivo() {
               <ul className="mt-6 space-y-3">
                 {MENTORIA_BULLETS.map((b) => (
                   <li key={b} className="flex gap-3">
-                    <Icon.Check className="mt-1 shrink-0 text-olive" />
+                    <Icon.Check className="mt-1 shrink-0 text-gold" />
                     <span className="text-[14.5px] leading-snug text-ivory/85">{b}</span>
                   </li>
                 ))}
@@ -274,17 +275,17 @@ export default function GraciasIntensivo() {
       </Section>
 
       {/* 5 · Soporte */}
-      <Section tone="ivory" pad="md">
+      <Section tone="ivory" pad="md" texture={sectionBg('04-gracias-compra-intensivo', 4)}>
         <Container width="narrow">
           <Reveal>
             <GlassCard tone="solid" className="text-center">
-              <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-full bg-petrol/10 text-2xl text-petrol">
+              <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-full bg-gold/10 text-2xl text-gold">
                 <Icon.Whatsapp />
               </div>
-              <h3 className="font-display text-2xl font-semibold text-charcoal">
+              <h3 className="font-display text-2xl font-semibold text-ivory">
                 ¿Necesitas ayuda? Escríbenos
               </h3>
-              <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-charcoal/70">
+              <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ivory/70">
                 Si algo del acceso, el calendario o los bonos no te queda claro, estamos para resolverlo.
               </p>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
@@ -293,19 +294,19 @@ export default function GraciasIntensivo() {
                 </CTAButton>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="inline-flex items-center gap-2 text-[15px] font-medium text-petrol underline-offset-4 hover:underline"
+                  className="inline-flex items-center gap-2 text-[15px] font-medium text-gold underline-offset-4 hover:underline"
                 >
                   <Icon.Document /> {CONTACT.email}
                 </a>
               </div>
-              <p className="mt-5 text-[13px] text-smoke">Horario de atención: {HORARIO_SOPORTE}</p>
+              <p className="mt-5 text-[13px] text-ivory/55">Horario de atención: {HORARIO_SOPORTE}</p>
             </GlassCard>
           </Reveal>
         </Container>
       </Section>
 
       {/* 6 · FAQ */}
-      <Section tone="ivory-dim" pad="lg">
+      <Section tone="ivory-dim" pad="lg" texture={sectionBg('04-gracias-compra-intensivo', 5)}>
         <Container>
           <SectionHeader kicker="Antes de empezar" title="Preguntas frecuentes" />
           <div className="mt-10">

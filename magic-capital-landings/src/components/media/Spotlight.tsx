@@ -7,7 +7,7 @@ import { useIsCoarsePointer } from '../../lib/useIsCoarsePointer'
  * hype. Off en reduced-motion / touch (queda un glow estático centrado).
  */
 export function Spotlight({
-  color = 'rgba(92,107,74,0.18)',
+  color = 'rgba(201,162,75,0.14)',
   size = 460,
 }: {
   color?: string

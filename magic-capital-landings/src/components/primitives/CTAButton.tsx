@@ -7,12 +7,16 @@ type Variant = 'primary' | 'secondary' | 'whatsapp' | 'ghost' | 'light'
 type Size = 'md' | 'lg'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-petrol/60 disabled:opacity-60 disabled:pointer-events-none'
+  'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight focus-visible:ring-gold/60 disabled:opacity-60 disabled:pointer-events-none'
 
+// Sistema oscuro-lujo: primario = dorado metálico (look "RESERVA TU CUPO" del
+// flyer) con texto navy profundo; secundario = ring dorado; whatsapp conserva el
+// verde de marca por reconocibilidad.
 const variantClass: Record<Variant, string> = {
-  primary: 'bg-petrol text-ivory hover:bg-petrol-bright shadow-cta hover:-translate-y-0.5',
+  primary:
+    'bg-gradient-to-b from-gold-bright via-gold to-gold-deep text-midnight hover:brightness-105 shadow-cta hover:-translate-y-0.5',
   secondary:
-    'bg-transparent text-petrol ring-1 ring-petrol/30 hover:ring-petrol/60 hover:bg-petrol/[0.04]',
+    'bg-transparent text-gold ring-1 ring-gold/40 hover:ring-gold/70 hover:bg-gold/[0.06]',
   whatsapp: 'bg-olive text-ivory hover:brightness-110 shadow-cta hover:-translate-y-0.5',
   ghost: 'bg-transparent text-ivory/80 hover:text-ivory underline-offset-4 hover:underline',
   light: 'bg-ivory text-charcoal hover:bg-white shadow-glass hover:-translate-y-0.5',

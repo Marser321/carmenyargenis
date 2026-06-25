@@ -16,7 +16,8 @@ import type { RoadmapModule } from '../components/blocks'
 import { Hero, LandingLayout } from '../components/shell'
 import { CheckoutMock } from '../components/forms'
 import { waLink } from '../content/brand'
-import { img, bg } from '../content/images'
+import { img } from '../content/images'
+import { sectionBg } from '../content/section-backgrounds'
 import { FIGURE_LABELS } from '../content/compliance'
 
 const MODULES: RoadmapModule[] = [
@@ -116,8 +117,16 @@ export default function CompraMentoria() {
         </div>
       </Hero>
 
-      {/* 2 · Qué incluye — 3 módulos (PINNED) */}
-      <Section tone="charcoal" pad="sm">
+      {/* 2 · Qué incluye — 3 módulos (PINNED, nutrido con el roadmap de 12 semanas) */}
+      <Section
+        tone="charcoal"
+        pad="sm"
+        texture={{
+          src: img('05', '05-compra-mentoria__elite-roadmap-12-semanas--21x9--codex-v02.png'),
+          opacity: 0.1,
+          focal: '50% 50%',
+        }}
+      >
         <Container>
           <SectionHeader
             tone="dark"
@@ -145,7 +154,7 @@ export default function CompraMentoria() {
       </Section>
 
       {/* 3 · Salvaguarda — para ti / no para ti */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('05-compra-mentoria', 2)}>
         <Container>
           <SectionHeader kicker="Salvaguarda de confianza" title="Para ti si… / No para ti si…" />
           <div className="mt-10">
@@ -175,11 +184,15 @@ export default function CompraMentoria() {
         </Container>
       </Section>
 
-      {/* 4 · Transparencia de riesgo */}
+      {/* 4 · Lo que debes saber antes de pagar (riesgo + lo que NO prometemos, fusionados) */}
       <Section
         tone="charcoal"
         pad="lg"
-        texture={{ src: bg('fondo__ledger-legal-oscuro-16x9.png'), opacity: 0.1 }}
+        texture={{
+          src: img('05', '05-compra-mentoria__salvaguardas-transparencia-riesgos--16x9--codex-v01.png'),
+          opacity: 0.12,
+          focal: '50% 45%',
+        }}
       >
         <Container width="narrow">
           <SectionHeader
@@ -188,31 +201,41 @@ export default function CompraMentoria() {
             title="Reducimos la probabilidad de error; no prometemos que ganes"
             intro="El capital invertido en subastas tax deed puede perderse total o parcialmente. La mentoría no elimina ese riesgo: funciona como un seguro analítico contra errores costosos —propiedades tóxicas, gravámenes sobrevivientes, pujas sin tope—, no como una garantía de ganancia."
           />
+          <Stagger className="mt-8 space-y-3">
+            {NO_PROMETEMOS.map((n) => (
+              <RevealItem key={n} subtle>
+                <div className="flex gap-3">
+                  <Icon.X className="mt-0.5 shrink-0 text-ivory/55" />
+                  <p className="text-[15px] leading-snug text-ivory/80">{n}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </Stagger>
         </Container>
       </Section>
 
       {/* 5 · Ancla de precio */}
-      <Section tone="ivory-dim" pad="lg">
+      <Section tone="ivory-dim" pad="lg" texture={sectionBg('05-compra-mentoria', 4)}>
         <Container>
           <SectionHeader kicker="$3,997 en contexto" title="Mucho menos que la suma de sus partes" />
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <Reveal>
-              <div className="rounded-2xl border border-charcoal/10 bg-white p-6 shadow-glass">
-                <h3 className="font-display text-lg font-semibold text-charcoal">Valor de lo que recibes</h3>
-                <dl className="mt-4 divide-y divide-charcoal/10">
+              <div className="rounded-2xl border border-white/10 bg-navy-soft p-6 shadow-glass-dark">
+                <h3 className="font-display text-lg font-semibold text-ivory">Valor de lo que recibes</h3>
+                <dl className="mt-4 divide-y divide-white/10">
                   {VALUE_STACK.map((v) => (
                     <div key={v.label} className="flex items-baseline justify-between gap-4 py-2.5">
-                      <dt className="text-[14px] text-charcoal/80">{v.label}</dt>
-                      <dd className="font-display tabular-nums text-charcoal">{v.amount}</dd>
+                      <dt className="text-[14px] text-ivory/80">{v.label}</dt>
+                      <dd className="font-display tabular-nums text-ivory">{v.amount}</dd>
                     </div>
                   ))}
                   <div className="flex items-baseline justify-between gap-4 pt-3">
-                    <dt className="text-[13px] font-semibold uppercase tracking-[0.1em] text-smoke">Valor estimado</dt>
-                    <dd className="font-display text-xl font-semibold tabular-nums text-smoke line-through">$14,912</dd>
+                    <dt className="text-[13px] font-semibold uppercase tracking-[0.1em] text-ivory/55">Valor estimado</dt>
+                    <dd className="font-display text-xl font-semibold tabular-nums text-ivory/55 line-through">$14,912</dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-4 pt-3">
-                    <dt className="text-[13px] font-semibold uppercase tracking-[0.1em] text-petrol">Tu inversión</dt>
-                    <dd className="font-display text-3xl font-semibold tabular-nums text-charcoal">$3,997</dd>
+                    <dt className="text-[13px] font-semibold uppercase tracking-[0.1em] text-gold">Tu inversión</dt>
+                    <dd className="font-display text-3xl font-semibold tabular-nums text-ivory">$3,997</dd>
                   </div>
                 </dl>
                 <div className="mt-4">
@@ -221,7 +244,7 @@ export default function CompraMentoria() {
               </div>
             </Reveal>
             <div>
-              <h3 className="font-display text-lg font-semibold text-charcoal">Referencia de mercado</h3>
+              <h3 className="font-display text-lg font-semibold text-ivory">Referencia de mercado</h3>
               <DataTable
                 className="mt-4"
                 columns={[
@@ -235,7 +258,7 @@ export default function CompraMentoria() {
                 ]}
                 footnote="Referencias aproximadas de terceros, a modo de comparación."
               />
-              <p className="mt-4 rounded-xl bg-petrol/[0.05] px-4 py-3 text-[14px] leading-snug text-charcoal/75">
+              <p className="mt-4 rounded-xl bg-gold/[0.05] px-4 py-3 text-[14px] leading-snug text-ivory/75">
                 Esto es 1-a-1, personalizado, con dos expertos, a $3,997 — no un video que ves solo.
               </p>
             </div>
@@ -243,25 +266,8 @@ export default function CompraMentoria() {
         </Container>
       </Section>
 
-      {/* 6 · Lo que NO prometemos */}
-      <Section tone="ivory" pad="lg">
-        <Container width="narrow">
-          <SectionHeader align="left" kicker="Honestidad" title="Lo que no te prometemos" />
-          <Stagger className="mt-6 space-y-3">
-            {NO_PROMETEMOS.map((n) => (
-              <RevealItem key={n} subtle>
-                <div className="flex gap-3">
-                  <Icon.X className="mt-0.5 shrink-0 text-smoke" />
-                  <p className="text-[15px] leading-snug text-charcoal/80">{n}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </Stagger>
-        </Container>
-      </Section>
-
-      {/* 7 · Compromiso por hitos (NO resultados) */}
-      <Section tone="charcoal" pad="lg">
+      {/* 6 · Compromiso por hitos (NO resultados) */}
+      <Section tone="charcoal" pad="lg" texture={sectionBg('05-compra-mentoria', 6)}>
         <Container width="narrow">
           <SectionHeader
             tone="dark"
@@ -276,7 +282,7 @@ export default function CompraMentoria() {
           */}
           <Reveal className="mt-6">
             <GlassCard tone="dark">
-              <div className="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-olive">
+              <div className="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-gold">
                 <Icon.Shield /> Nuestro compromiso contigo
               </div>
               <p className="mt-3 text-[15px] leading-relaxed text-ivory/80">
@@ -293,14 +299,14 @@ export default function CompraMentoria() {
         </Container>
       </Section>
 
-      {/* 8 · Checkout directo */}
-      <Section tone="ivory-dim" pad="lg">
+      {/* 7 · Checkout directo */}
+      <Section tone="ivory-dim" pad="lg" texture={sectionBg('05-compra-mentoria', 7)}>
         <Container width="narrow" className="text-center">
           <SectionHeader kicker="Empieza hoy" title="Comienza tu mentoría" />
           <Reveal className="mt-8">
-            <div className="mx-auto max-w-md rounded-2xl border border-charcoal/10 bg-white p-7 shadow-glass">
-              <div className="font-display text-5xl font-semibold text-charcoal">$3,997</div>
-              <p className="mt-1 text-[13px] text-smoke">Pago único · planes de pago a definir aparte.</p>
+            <div className="mx-auto max-w-md rounded-2xl border border-white/10 bg-navy-soft p-7 shadow-glass-dark">
+              <div className="font-display text-5xl font-semibold text-ivory">$3,997</div>
+              <p className="mt-1 text-[13px] text-ivory/55">Pago único · planes de pago a definir aparte.</p>
               <div className="mt-6 flex flex-col gap-2">
                 <CTAButton onClick={() => setCheckout(true)} size="lg" className="w-full">
                   Empezar mi mentoría
@@ -309,7 +315,7 @@ export default function CompraMentoria() {
                   Mejor agenda una llamada de diagnóstico
                 </CTAButton>
               </div>
-              <p className="mt-3 text-[12px] text-smoke">
+              <p className="mt-3 text-[12px] text-ivory/55">
                 Pago seguro. Cupos limitados por la capacidad real del acompañamiento 1:1 — sin urgencia artificial.
               </p>
             </div>
@@ -317,8 +323,8 @@ export default function CompraMentoria() {
         </Container>
       </Section>
 
-      {/* 9 · FAQ */}
-      <Section tone="ivory">
+      {/* 8 · FAQ */}
+      <Section tone="ivory" texture={sectionBg('05-compra-mentoria', 8)}>
         <Container>
           <SectionHeader kicker="Preguntas frecuentes" title="Antes de empezar" />
           <div className="mt-10">
@@ -327,8 +333,8 @@ export default function CompraMentoria() {
         </Container>
       </Section>
 
-      {/* 10 · CTA final */}
-      <Section tone="charcoal" pad="lg" aura>
+      {/* 9 · CTA final */}
+      <Section tone="charcoal" pad="lg" aura texture={sectionBg('05-compra-mentoria', 9)}>
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Si estás listo para ejecutar con criterio, empecemos</DisplayHeading>
           <div className="mt-7 flex flex-wrap justify-center gap-3">

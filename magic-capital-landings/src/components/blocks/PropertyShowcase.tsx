@@ -45,7 +45,7 @@ export function PropertyShowcase({
           focal={focal}
           scrim={scrim}
           kenBurns={kenBurns}
-          className={cn(RATIO_CLASS[ratio], 'w-full rounded-2xl shadow-glass')}
+          className={cn(RATIO_CLASS[ratio], 'w-full rounded-2xl shadow-glass-dark gold-hairline')}
         />
         {regionLabel && (
           <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-charcoal/70 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-ivory ring-1 ring-white/15 backdrop-blur-sm">

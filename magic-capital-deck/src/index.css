@@ -4,10 +4,17 @@
 
 :root {
   --ivory: #f7f5f0;
-  --charcoal: #1a1c1e;
-  --petrol: #0e3a4a;
-  --olive: #5c6b4a;
+  --charcoal: #0a1426;
+  --petrol: #0f2036;
+  --olive: #c9a24b;
   --smoke: #8a8f94;
+  /* Sistema oscuro-lujo (navy + dorado metálico) — paridad con el funnel. */
+  --midnight: #0a1426;
+  --navy: #0f2036;
+  --navy-soft: #16293f;
+  --gold: #c9a24b;
+  --gold-bright: #e3c77a;
+  --gold-deep: #937234;
   color-scheme: light;
 }
 
@@ -19,12 +26,24 @@ body,
 
 body {
   margin: 0;
-  background: #0b0c0d;
+  background: var(--midnight);
   color: var(--charcoal);
   font-family: 'Inter Variable', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow: hidden; /* el deck gestiona su propio layout a pantalla completa */
+}
+
+/* Texto/borde dorado metálico (paridad con el funnel). */
+.text-gold-metallic {
+  background-image: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 52%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-hairline {
+  border: 1px solid rgba(201, 162, 75, 0.35);
 }
 
 /* Display editorial (Fraunces variable): óptico automático + leve suavidad/peso. */
@@ -60,7 +79,7 @@ body {
 }
 
 ::selection {
-  background: rgba(14, 58, 74, 0.18);
+  background: rgba(201, 162, 75, 0.28);
 }
 
 /* Scrollbar discreto en la vista overview */

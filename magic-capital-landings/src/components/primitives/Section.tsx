@@ -4,11 +4,15 @@ import { AuroraField } from '../media/AuroraField'
 
 export type Tone = 'ivory' | 'ivory-dim' | 'charcoal' | 'petrol'
 
+// Sistema oscuro-lujo: los 4 tonos siguen existiendo (las landings los usan tal
+// cual) pero ahora todos renderizan superficies NAVY escalonadas con texto ivory
+// — antes ivory/ivory-dim eran claras. Esto propaga el dark a todo el funnel sin
+// tocar los `tone=` de cada página.
 const toneClass: Record<Tone, string> = {
-  ivory: 'bg-ivory text-charcoal',
-  'ivory-dim': 'bg-ivory-dim text-charcoal',
-  charcoal: 'bg-charcoal text-ivory grain',
-  petrol: 'bg-petrol text-ivory grain',
+  ivory: 'bg-midnight text-ivory',
+  'ivory-dim': 'bg-navy text-ivory',
+  charcoal: 'bg-navy-soft text-ivory grain',
+  petrol: 'bg-navy text-ivory grain',
 }
 
 const padClass = {

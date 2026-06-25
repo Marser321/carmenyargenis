@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paleta exacta de marca (00-SISTEMA §5)
+        // Paleta exacta de marca (00-SISTEMA §5) — texto/acentos heredados.
         ivory: '#F7F5F0',
         charcoal: '#1A1C1E',
         petrol: '#0E3A4A',
@@ -14,6 +14,16 @@ export default {
         'ivory-dim': '#EAE7DF',
         'charcoal-soft': '#23262A',
         'petrol-bright': '#16566B',
+        // ── Sistema "oscuro-lujo" (giro 2026-06-24, look del flyer navy+dorado) ──
+        // Superficies navy escalonadas (de la más profunda a la elevada).
+        midnight: '#0A1426',
+        navy: '#0F2036',
+        'navy-soft': '#16293F',
+        'navy-line': '#24364E', // bordes/divisores tenues sobre navy
+        // Dorado METÁLICO SOBRIO (nunca neón/fluorescente — ver compliance).
+        gold: '#C9A24B',
+        'gold-bright': '#E3C77A',
+        'gold-deep': '#937234',
       },
       fontFamily: {
         // Display editorial (serif Fraunces variable). Body en Inter.
@@ -29,8 +39,9 @@ export default {
       },
       boxShadow: {
         glass: '0 1px 2px rgba(26,28,30,0.04), 0 8px 30px rgba(26,28,30,0.06)',
-        'glass-dark': '0 1px 2px rgba(0,0,0,0.2), 0 12px 40px rgba(0,0,0,0.35)',
-        cta: '0 10px 30px -8px rgba(14,58,74,0.45)',
+        'glass-dark': '0 1px 2px rgba(0,0,0,0.35), 0 18px 50px rgba(0,0,0,0.55)',
+        cta: '0 12px 30px -10px rgba(201,162,75,0.5)',
+        'gold-ring': '0 0 0 1px rgba(201,162,75,0.35), 0 14px 40px -16px rgba(201,162,75,0.4)',
       },
       keyframes: {
         'fade-up': {

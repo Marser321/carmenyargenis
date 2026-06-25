@@ -14,7 +14,7 @@ export function Kicker({
   return (
     <As
       className={cn(
-        'text-[11px] font-semibold uppercase tracking-[0.2em] text-olive',
+        'text-[11px] font-semibold uppercase tracking-[0.2em] text-gold',
         className,
       )}
     >

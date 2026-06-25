@@ -8,7 +8,7 @@ import { DEMO_NOTE } from '../../content/compliance'
 /** Pie de página común: marca, navegación del funnel, "no somos asesores" y el disclaimer íntegro. */
 export function Footer() {
   return (
-    <footer className="bg-charcoal text-ivory">
+    <footer className="bg-midnight text-ivory">
       <Container className="py-14">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
@@ -20,7 +20,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Funnel">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-olive">Recorrido</div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">Recorrido</div>
             <ul className="mt-3 space-y-1.5 text-[13.5px] text-ivory/70">
               {LANDINGS.map((l) => (
                 <li key={l.slug}>
@@ -34,7 +34,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-olive">Más</div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold">Más</div>
             <ul className="mt-3 space-y-1.5 text-[13.5px] text-ivory/70">
               <li>
                 <Link to="/" className="inline-block py-0.5 hover:text-ivory">

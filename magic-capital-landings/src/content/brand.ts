@@ -47,6 +47,21 @@ export const COHORTE = {
   soporteHorario: 'lunes a viernes, 9:00 a.m. a 6:00 p.m. (hora del Este)',
 } as const
 
+// Masterclass — fuente única para el banner-póster, el contador y la agenda.
+// ⚠ SUSTITUIR `fechaISO` por la fecha/hora REALES de la próxima sesión antes de
+// publicar. El default es la fecha del flyer oficial (martes 14 jul 2026, 8:00 p.m.
+// hora de Miami = America/New_York, que en julio es EDT, UTC−04:00). El contador
+// apunta a ese instante absoluto; al pasar, muestra un estado grácil (no reinicia).
+export const MASTERCLASS = {
+  /** Instante absoluto de inicio (ISO con offset). */
+  fechaISO: '2026-07-14T20:00:00-04:00',
+  /** Etiqueta legible de día/hora (para chips del póster). */
+  fechaLabel: 'Martes 14 de julio',
+  horaLabel: '8:00 p.m.',
+  zonaLabel: 'hora de Miami',
+  plataforma: 'Zoom',
+} as const
+
 /** Construye un enlace wa.me con mensaje precargado. */
 export function waLink(message: string): string {
   return `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(message)}`

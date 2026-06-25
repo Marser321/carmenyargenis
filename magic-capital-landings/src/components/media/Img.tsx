@@ -24,8 +24,8 @@ function Placeholder({ label }: { label: string }) {
         }}
       />
       <div className="relative z-10 max-w-[80%] px-4">
-        <div className="mx-auto mb-3 h-8 w-8 rounded-full border border-olive/50" />
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-olive/80">
+        <div className="mx-auto mb-3 h-8 w-8 rounded-full border border-gold/50" />
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold/80">
           Imagen pendiente
         </p>
         <p className="mt-1.5 text-[13px] leading-snug text-ivory/55">{label}</p>

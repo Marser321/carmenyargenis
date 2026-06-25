@@ -14,13 +14,13 @@ export function TrustBar({ items, tone = 'light' }: { items: TrustItem[]; tone?:
           <div
             className={cn(
               'flex h-full items-start gap-3 rounded-xl border px-4 py-3.5',
-              dark ? 'border-white/10 bg-white/[0.03]' : 'border-charcoal/10 bg-white/70',
+              dark ? 'border-white/10 bg-white/[0.03]' : 'border-gold/15 bg-navy-soft/60',
             )}
           >
             {it.icon && (
-              <span className={cn('mt-0.5 text-lg', dark ? 'text-olive' : 'text-petrol')}>{it.icon}</span>
+              <span className={cn('mt-0.5 text-lg', dark ? 'text-gold' : 'text-gold')}>{it.icon}</span>
             )}
-            <span className={cn('text-[13.5px] font-medium leading-snug', dark ? 'text-ivory/80' : 'text-charcoal/80')}>
+            <span className={cn('text-[13.5px] font-medium leading-snug', dark ? 'text-ivory/80' : 'text-ivory/80')}>
               {it.text}
             </span>
           </div>

@@ -45,3 +45,17 @@ export const FIGURE_LABELS = {
 /** Banner global del entorno: deja claro que es una demo sin cobros reales. */
 export const DEMO_NOTE =
   'Versión local de demostración — los formularios y pagos son simulados (sin cobro real).'
+
+// ─────────────────────────────────────────────────────────────────────────
+//  CARVE-OUT "oscuro-lujo" (decisión del cliente 2026-06-24). El sistema visual
+//  pasó a navy + DORADO METÁLICO sobrio (look del flyer oficial). Esto matiza —
+//  no anula — las reglas visuales de 00-SISTEMA §5/§6:
+//   · Dorado metálico sobrio SÍ · dorado neón/fluorescente NO.
+//   · Contador a una FECHA REAL (la próxima sesión) SÍ; countdown perpetuo o que
+//     se reinicia solo NO (eso sería "urgencia falsa"). Ver MASTERCLASS.fechaISO.
+//   · Toasts de actividad ("Fulano reservó") = SIMULADOS e ILUSTRATIVOS de la
+//     demo (content/social-proof.ts), cubiertos por DEMO_NOTE + su micro-nota.
+//     En producción deben alimentarse de registros REALES (no fabricar prueba
+//     social — implicación FTC).
+//  Las frases prohibidas (garantizado, sin riesgo, pre-aprobado…) siguen intactas.
+// ─────────────────────────────────────────────────────────────────────────

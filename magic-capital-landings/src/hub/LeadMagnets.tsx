@@ -23,7 +23,7 @@ export default function LeadMagnets() {
       <Stagger className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" gap={0.05}>
         {items.map((m) => (
           <RevealItem key={m.id}>
-            <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-charcoal/10 bg-white shadow-glass">
+            <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-navy-soft shadow-glass-dark">
               <div className={cn('overflow-hidden', m.ratio === '4x5' ? 'aspect-[4/5]' : 'aspect-video')}>
                 <Img src={lm(m.file)} alt={m.title} kenBurns={false} className="h-full w-full" />
               </div>
@@ -31,7 +31,7 @@ export default function LeadMagnets() {
                 <div className="flex items-center gap-2">
                   <Badge tone={m.autor === 'argenis' ? 'petrol' : 'olive'}>{m.formato}</Badge>
                 </div>
-                <h3 className="mt-2 font-display text-base font-semibold leading-snug text-charcoal">{m.title}</h3>
+                <h3 className="mt-2 font-display text-base font-semibold leading-snug text-ivory">{m.title}</h3>
                 {m.note && (
                   <div className="mt-2">
                     <Footnote>{m.note}</Footnote>
@@ -39,7 +39,7 @@ export default function LeadMagnets() {
                 )}
                 <div className="mt-auto pt-4">
                   {sent.has(m.id) ? (
-                    <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-olive">
+                    <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-gold">
                       <Icon.Check /> Enviado (demo)
                     </span>
                   ) : (
@@ -57,12 +57,12 @@ export default function LeadMagnets() {
   }
 
   return (
-    <div className="min-h-screen bg-ivory">
-      <header className="sticky top-0 z-40 border-b border-charcoal/10 bg-ivory/80 backdrop-blur-md">
+    <div className="min-h-screen bg-midnight">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-midnight/80 backdrop-blur-md">
         <Container className="flex items-center justify-between py-3">
-          <Link to="/" className="inline-flex items-center gap-2 text-[13px] font-semibold text-charcoal/80 hover:text-charcoal">
-            <span className="grid h-7 w-7 place-items-center rounded-md bg-petrol text-[13px] font-bold text-ivory">M</span>
-            <span className="text-smoke">·</span> Hub
+          <Link to="/" className="inline-flex items-center gap-2 text-[13px] font-semibold text-ivory/80 hover:text-ivory">
+            <span className="grid h-7 w-7 place-items-center rounded-md bg-gradient-to-b from-gold-bright to-gold-deep text-[13px] font-bold text-midnight">M</span>
+            <span className="text-ivory/55">·</span> Hub
           </Link>
         </Container>
       </header>
@@ -85,15 +85,15 @@ export default function LeadMagnets() {
       <section className="py-16">
         <Container>
           <Kicker>{FOUNDERS.argenis.name} · la oportunidad</Kicker>
-          <h2 className="mt-2 font-display text-2xl font-semibold text-charcoal">Subastas tax deed</h2>
+          <h2 className="mt-2 font-display text-2xl font-semibold text-ivory">Subastas tax deed</h2>
           <Grid items={argenis} />
         </Container>
       </section>
 
-      <section className="bg-ivory-dim py-16">
+      <section className="bg-navy py-16">
         <Container>
           <Kicker>{FOUNDERS.carmen.name} · el capital</Kicker>
-          <h2 className="mt-2 font-display text-2xl font-semibold text-charcoal">Crédito empresarial / financiamiento 0%</h2>
+          <h2 className="mt-2 font-display text-2xl font-semibold text-ivory">Crédito empresarial / financiamiento 0%</h2>
           <Grid items={carmen} />
         </Container>
       </section>

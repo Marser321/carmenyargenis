@@ -25,17 +25,17 @@ export function CapitalCalc({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
     <div
       className={cn(
         'rounded-2xl border p-6',
-        dark ? 'border-white/10 bg-white/[0.04]' : 'border-charcoal/10 bg-white shadow-glass',
+        dark ? 'border-white/10 bg-white/[0.04]' : 'border-gold/15 bg-navy-soft shadow-glass-dark',
       )}
     >
       <div className="space-y-4">
         {rows.map((r, i) => (
           <label key={r.key} className="block">
             <div className="flex items-baseline justify-between gap-4">
-              <span className={cn('text-[13.5px] font-medium', dark ? 'text-ivory/85' : 'text-charcoal/85')}>
+              <span className={cn('text-[13.5px] font-medium', dark ? 'text-ivory/85' : 'text-ivory/85')}>
                 {r.label}
               </span>
-              <span className={cn('font-display text-sm tabular-nums', dark ? 'text-ivory' : 'text-charcoal')}>
+              <span className={cn('font-display text-sm tabular-nums', dark ? 'text-ivory' : 'text-ivory')}>
                 ${r.value.toLocaleString('en-US')}
               </span>
             </div>
@@ -49,7 +49,7 @@ export function CapitalCalc({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
                 const v = Number(e.target.value)
                 setRows((prev) => prev.map((x, idx) => (idx === i ? { ...x, value: v } : x)))
               }}
-              className="mt-2 w-full accent-petrol"
+              className="mt-2 w-full accent-gold"
               aria-label={r.label}
             />
           </label>
@@ -59,13 +59,13 @@ export function CapitalCalc({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
       <div
         className={cn(
           'mt-5 flex items-baseline justify-between rounded-xl px-4 py-3',
-          dark ? 'bg-olive/15' : 'bg-petrol/[0.06]',
+          dark ? 'bg-gold/15' : 'bg-gold/[0.10]',
         )}
       >
-        <span className={cn('text-[13px] font-semibold uppercase tracking-[0.1em]', dark ? 'text-olive' : 'text-petrol')}>
+        <span className={cn('text-[13px] font-semibold uppercase tracking-[0.1em]', dark ? 'text-gold' : 'text-gold')}>
           Capital de entrada estimado
         </span>
-        <span className={cn('font-display text-2xl font-semibold tabular-nums', dark ? 'text-ivory' : 'text-charcoal')}>
+        <span className={cn('font-display text-2xl font-semibold tabular-nums', dark ? 'text-ivory' : 'text-ivory')}>
           ${total.toLocaleString('en-US')}
         </span>
       </div>

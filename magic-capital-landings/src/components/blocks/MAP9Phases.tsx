@@ -41,22 +41,10 @@ export function MAP9Phases({
       {phases.map((p, i) => {
         const isFilter = i >= FORENSIC_FROM
         const revealed = i <= upTo
-        const surface =
-          tone === 'dark'
-            ? isFilter
-              ? 'border-olive/40 bg-olive/[0.12]'
-              : 'border-white/10 bg-white/[0.04]'
-            : isFilter
-              ? 'border-petrol/25 bg-petrol/[0.06]'
-              : 'border-charcoal/10 bg-white/70'
-        const numColor = isFilter
-          ? tone === 'dark'
-            ? 'text-olive'
-            : 'text-petrol'
-          : tone === 'dark'
-            ? 'text-ivory/35'
-            : 'text-charcoal/35'
-        const labelColor = tone === 'dark' ? 'text-ivory/85' : 'text-charcoal/80'
+        // Oscuro-lujo: todo sobre navy; el filtro forense (corazón) se destaca en dorado.
+        const surface = isFilter ? 'border-gold/35 bg-gold/[0.09]' : 'border-white/10 bg-white/[0.04]'
+        const numColor = isFilter ? 'text-gold' : 'text-ivory/35'
+        const labelColor = 'text-ivory/85'
 
         const common = cn('rounded-xl border p-3 transition-all duration-500', surface)
 
@@ -114,7 +102,7 @@ function PhaseBody({
           <span
             className={cn(
               'rounded-full px-1.5 py-0.5 text-[8.5px] font-semibold uppercase tracking-[0.1em]',
-              tone === 'dark' ? 'bg-olive/20 text-olive' : 'bg-petrol/10 text-petrol',
+              'bg-gold/15 text-gold',
             )}
           >
             filtro

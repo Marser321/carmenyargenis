@@ -26,25 +26,21 @@ export function FunnelMap({ current, tone = 'light' }: { current?: string; tone?
               <div
                 className={cn(
                   'w-full rounded-xl border px-4 py-3 text-center transition-colors',
-                  active
-                    ? 'border-olive/50 bg-olive/12'
-                    : dark
-                      ? 'border-white/10 bg-white/[0.03]'
-                      : 'border-charcoal/10 bg-white/70',
+                  active ? 'border-gold/45 bg-gold/12' : 'border-white/10 bg-white/[0.03]',
                 )}
               >
                 <div
                   className={cn(
                     'text-[13px] font-semibold',
-                    active ? (dark ? 'text-ivory' : 'text-petrol') : dark ? 'text-ivory/75' : 'text-charcoal/80',
+                    active ? 'text-gold' : 'text-ivory/75',
                   )}
                 >
                   {s.name}
                 </div>
-                <div className={cn('text-[12px]', dark ? 'text-ivory/65' : 'text-smoke')}>{s.price}</div>
+                <div className={cn('text-[12px]', dark ? 'text-ivory/65' : 'text-ivory/55')}>{s.price}</div>
               </div>
               {i < STEPS.length - 1 && (
-                <span className={cn('shrink-0 px-1 sm:py-1', dark ? 'text-ivory/30' : 'text-smoke/60')} aria-hidden>
+                <span className={cn('shrink-0 px-1 sm:py-1', 'text-ivory/30')} aria-hidden>
                   <span className="hidden sm:inline">↓</span>
                   <span className="sm:hidden">→</span>
                 </span>

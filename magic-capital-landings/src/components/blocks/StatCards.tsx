@@ -14,13 +14,13 @@ export function StatCards({ stats, tone = 'light' }: { stats: Stat[]; tone?: 'li
           <div
             className={cn(
               'h-full rounded-2xl border p-5',
-              dark ? 'border-white/10 bg-white/[0.04]' : 'border-charcoal/10 bg-white shadow-glass',
+              dark ? 'border-white/10 bg-white/[0.04]' : 'border-gold/15 bg-navy-soft shadow-glass-dark',
             )}
           >
-            <div className={cn('font-display text-3xl font-semibold tracking-tightest', dark ? 'text-ivory' : 'text-petrol')}>
+            <div className={cn('font-display text-3xl font-semibold tracking-tightest', dark ? 'text-ivory' : 'text-gold')}>
               {s.value}
             </div>
-            <div className={cn('mt-1 text-[14px] leading-snug', dark ? 'text-ivory/70' : 'text-charcoal/75')}>
+            <div className={cn('mt-1 text-[14px] leading-snug', dark ? 'text-ivory/70' : 'text-ivory/75')}>
               {s.label}
             </div>
             {s.footnote && (

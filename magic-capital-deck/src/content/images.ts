@@ -26,7 +26,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 38%',
     reused: '07-autoridad-argenis__hero-fundadores-espacio-titular.png',
     prompt:
-      'Documentary editorial photograph of two Latino entrepreneurs (man and woman, 30s-40s), moderate professional attire, seen over-the-shoulder reviewing a U.S. county tax-deed auction website on a laptop in a real, modest home-office. Natural window light, muted ivory and slate tones, shallow depth of field, 35mm, candid serious and trustworthy mood. Color grade warm neutral with teal-navy and desaturated olive accents. Generous negative space on the left for a headline overlay. Faces not the focus. Ratio 16:9. ' +
+      'Documentary editorial photograph of two Latino entrepreneurs (man and woman, 30s-40s), moderate professional attire, seen over-the-shoulder reviewing a U.S. county tax-deed auction website on a laptop in a real, modest home-office. Natural window light, muted ivory and slate tones, shallow depth of field, 35mm, candid serious and trustworthy mood. Color grade warm neutral with navy and gold accents. Generous negative space on the left for a headline overlay. Faces not the focus. Ratio 16:9. ' +
       NEGATIVE,
   },
   encuadre: {
@@ -38,7 +38,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 50%',
     reused: 'asset dedicado generado 2026-06-21',
     prompt:
-      'Very light, high-key editorial texture for a LIGHT slide background: a faint U.S. county parcel map merged with a subtle tax-ledger grid, extremely low contrast, predominantly ivory/off-white with the faintest slate and teal-navy lines, calm and quiet, designed to sit at ~10-12% opacity behind dark charcoal text. Ratio 16:9. ' +
+      'Very light, high-key editorial texture for a LIGHT slide background: a faint U.S. county parcel map merged with a subtle tax-ledger grid, extremely low contrast, predominantly ivory/off-white with the faintest slate, navy and faint gold lines, calm and quiet, designed to sit at ~10-12% opacity behind dark charcoal text. Ratio 16:9. ' +
       NEGATIVE,
   },
   quienes: {
@@ -48,7 +48,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 50%',
     reused: '07-autoridad-argenis__mecanismo-dual-oportunidad-capital.png',
     prompt:
-      'Minimal editorial conceptual image of two complementary pillars forming one complete system: left pillar suggests a county auction listing / property opportunity motif; right pillar suggests business-credit / capital structure motif; both join in the center as a balanced system. Ivory background, slate linework, teal-navy and desaturated olive accents. Ratio 16:9. ' +
+      'Minimal editorial conceptual image of two complementary pillars forming one complete system: left pillar suggests a county auction listing / property opportunity motif; right pillar suggests business-credit / capital structure motif; both join in the center as a balanced system. Ivory background, slate linework, navy and gold accents. Ratio 16:9. ' +
       NEGATIVE,
   },
   problema: {
@@ -66,7 +66,7 @@ export const images: Record<string, ImageSlot> = {
     ratio: '16:9',
     focal: '50% 50%',
     prompt:
-      'Subtle editorial texture background: a faint U.S. county parcel map overlaid with a tax-ledger grid, very low contrast, muted slate and ivory tones with a faint teal-navy tint, no text artifacts, no logos, cinematic and quiet, meant to sit behind a dark scrim with overlaid type. Ratio 16:9. ' +
+      'Subtle editorial texture background: a faint U.S. county parcel map overlaid with a tax-ledger grid, very low contrast, muted slate and ivory tones with a faint navy and gold tint, no text artifacts, no logos, cinematic and quiet, meant to sit behind a dark scrim with overlaid type. Ratio 16:9. ' +
       NEGATIVE,
   },
   queEs: {
@@ -76,7 +76,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 50%',
     reused: '01-reserva-masterclass__agenda-portal-condado.png',
     prompt:
-      'Realistic clean mockup of a U.S. county tax-deed auction web portal on a phone screen held in hand, showing a calendar of sale dates and a list of properties with case numbers, government-style neutral UI, muted ivory/slate palette with teal-navy accents, no logos, no real names, Spanish-friendly layout, natural light. Ratio 9:16. ' +
+      'Realistic clean mockup of a U.S. county tax-deed auction web portal on a phone screen held in hand, showing a calendar of sale dates and a list of properties with case numbers, government-style neutral UI, muted ivory/slate palette with navy and gold accents, no logos, no real names, Spanish-friendly layout, natural light. Ratio 9:16. ' +
       NEGATIVE,
   },
   cambio1: {
@@ -86,7 +86,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 50%',
     reused: '03-compra-intensivo__map-9-nueve-fases-framework.png',
     prompt:
-      'Minimal editorial diagram of a 9-step methodology laid out as a clean numbered sequence from 01 to 09, each step as a small card, arranged as a calm grid flow on an ivory background. Government-clean, sober, Inter-style typography, teal-navy and desaturated olive accents, generous white space, no clutter. Ratio 16:9. ' +
+      'Minimal editorial diagram of a 9-step methodology laid out as a clean numbered sequence from 01 to 09, each step as a small card, arranged as a calm grid flow on an ivory background. Government-clean, sober, Inter-style typography, navy and gold accents, generous white space, no clutter. Ratio 16:9. ' +
       NEGATIVE,
   },
   cambio2: {
@@ -96,7 +96,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 50%',
     reused: '03-compra-intensivo__transparencia-costos-calculadora-capital.png',
     prompt:
-      'Minimal editorial UI mockup of a "total entry capital" worksheet: bid + county fees + title work + contingency + holding shown as clean cards with conservative numbers, ivory background, teal-navy and olive accents, Inter-style typography, generous white space, no clutter, no text artifacts. Ratio 1:1. ' +
+      'Minimal editorial UI mockup of a "total entry capital" worksheet: bid + county fees + title work + contingency + holding shown as clean cards with conservative numbers, ivory background, navy and gold accents, Inter-style typography, generous white space, no clutter, no text artifacts. Ratio 1:1. ' +
       NEGATIVE,
   },
   cambio3: {
@@ -106,7 +106,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 50%',
     reused: '07-autoridad-argenis__prueba-pericia-portal-condado.png',
     prompt:
-      'Realistic clean mockup of a U.S. county tax-deed auction web portal on a laptop screen, calendar of sale dates and property list with case numbers, government-style neutral UI, muted ivory/slate palette with teal-navy accents, modest desk, natural light, no logos, no real names. Ratio 4:5. ' +
+      'Realistic clean mockup of a U.S. county tax-deed auction web portal on a laptop screen, calendar of sale dates and property list with case numbers, government-style neutral UI, muted ivory/slate palette with navy and gold accents, modest desk, natural light, no logos, no real names. Ratio 4:5. ' +
       NEGATIVE,
   },
   caso: {
@@ -125,7 +125,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 45%',
     reused: '03-compra-intensivo__hero-fundadores-sesion-vivo.png',
     prompt:
-      'Documentary editorial photograph of two Latino entrepreneurs leading a small live working session over a laptop in a modest home-office, reviewing a county auction listing together, over-the-shoulder, faces not the focus. Natural window light, muted ivory and slate tones with teal-navy and olive accents, shallow depth of field, 35mm, candid and trustworthy. Ratio 4:5. ' +
+      'Documentary editorial photograph of two Latino entrepreneurs leading a small live working session over a laptop in a modest home-office, reviewing a county auction listing together, over-the-shoulder, faces not the focus. Natural window light, muted ivory and slate tones with navy and gold accents, shallow depth of field, 35mm, candid and trustworthy. Ratio 4:5. ' +
       NEGATIVE,
   },
   gracias: {
@@ -135,7 +135,7 @@ export const images: Record<string, ImageSlot> = {
     focal: '50% 40%',
     reused: '01-reserva-masterclass__hero-fundadores-trabajando.png',
     prompt:
-      'Documentary editorial photograph of two Latino entrepreneurs over-the-shoulder reviewing a U.S. county tax-auction website on a laptop in a modest home-office, calm and resolved mood, natural window light, muted ivory and slate tones with teal-navy and olive accents, shallow depth of field, 35mm. Ratio 16:9. ' +
+      'Documentary editorial photograph of two Latino entrepreneurs over-the-shoulder reviewing a U.S. county tax-auction website on a laptop in a modest home-office, calm and resolved mood, natural window light, muted ivory and slate tones with navy and gold accents, shallow depth of field, 35mm. Ratio 16:9. ' +
       NEGATIVE,
   },
 }

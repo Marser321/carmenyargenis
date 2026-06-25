@@ -34,33 +34,29 @@ export function FlowDiagram({
             <div
               className={cn(
                 'w-full rounded-xl border px-4 py-3 text-center',
-                s.active
-                  ? 'border-olive/50 bg-olive/12'
-                  : dark
-                    ? 'border-white/10 bg-white/[0.04]'
-                    : 'border-charcoal/10 bg-white/70',
+                s.active ? 'border-gold/45 bg-gold/12' : 'border-white/10 bg-white/[0.04]',
               )}
             >
               {s.icon && (
-                <span className={cn('mb-1 inline-flex text-base', dark ? 'text-olive' : 'text-petrol')} aria-hidden>
+                <span className="mb-1 inline-flex text-base text-gold" aria-hidden>
                   {s.icon}
                 </span>
               )}
               <div
                 className={cn(
                   'text-[13px] font-semibold',
-                  s.active ? (dark ? 'text-ivory' : 'text-petrol') : dark ? 'text-ivory/80' : 'text-charcoal/80',
+                  s.active ? 'text-gold' : 'text-ivory/80',
                 )}
               >
                 {s.label}
               </div>
               {s.sub && (
-                <div className={cn('mt-0.5 text-[12px]', dark ? 'text-ivory/65' : 'text-smoke')}>{s.sub}</div>
+                <div className={cn('mt-0.5 text-[12px]', dark ? 'text-ivory/65' : 'text-ivory/55')}>{s.sub}</div>
               )}
             </div>
             {i < steps.length - 1 && (
               <span
-                className={cn('shrink-0 px-1 text-sm sm:py-1', dark ? 'text-ivory/35' : 'text-smoke/60')}
+                className={cn('shrink-0 px-1 text-sm sm:py-1', 'text-ivory/35')}
                 aria-hidden
               >
                 {connector === 'plus' ? (

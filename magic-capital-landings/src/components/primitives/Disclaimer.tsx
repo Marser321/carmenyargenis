@@ -11,12 +11,13 @@ export function Disclaimer({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
     <div
       className={cn(
         'rounded-xl border p-4 text-[12px] leading-relaxed',
+        // Oscuro-lujo: ambos tonos sobre navy.
         tone === 'dark'
           ? 'border-white/10 bg-white/[0.03] text-ivory/60'
-          : 'border-charcoal/10 bg-charcoal/[0.02] text-smoke',
+          : 'border-gold/15 bg-white/[0.03] text-ivory/60',
       )}
     >
-      <p className="mb-1 font-semibold uppercase tracking-[0.14em] text-[10px] text-olive">
+      <p className="mb-1 font-semibold uppercase tracking-[0.14em] text-[10px] text-gold">
         Descargo de responsabilidad
       </p>
       {DISCLAIMER_FULL.replace('Descargo de responsabilidad: ', '')}

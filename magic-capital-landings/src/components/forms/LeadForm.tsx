@@ -53,13 +53,12 @@ export function LeadForm({
     if (redirectTo) window.setTimeout(() => navigate(redirectTo), 1400)
   }
 
+  // Oscuro-lujo: el formulario siempre vive sobre navy → campos oscuros, foco dorado.
   const fieldClass = cn(
     'mt-1 w-full rounded-xl border px-4 py-3 text-[15px] outline-none transition-colors',
-    dark
-      ? 'border-white/15 bg-white/[0.06] text-ivory placeholder:text-ivory/40 focus:border-olive'
-      : 'border-charcoal/15 bg-white text-charcoal placeholder:text-smoke/70 focus:border-petrol',
+    'border-white/15 bg-white/[0.06] text-ivory placeholder:text-ivory/40 focus:border-gold',
   )
-  const labelClass = cn('text-[12px] font-semibold uppercase tracking-[0.1em]', dark ? 'text-ivory/70' : 'text-charcoal/65')
+  const labelClass = cn('text-[12px] font-semibold uppercase tracking-[0.1em]', dark ? 'text-ivory/70' : 'text-ivory/70')
 
   if (done) {
     return (
@@ -69,21 +68,21 @@ export function LeadForm({
         transition={{ duration: 0.5, ease: ease.out }}
         className={cn(
           'rounded-2xl border p-6 text-center',
-          dark ? 'border-olive/40 bg-olive/[0.1]' : 'border-petrol/20 bg-petrol/[0.05]',
+          'border-gold/30 bg-gold/[0.08]',
         )}
       >
-        <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-olive/20 text-2xl text-olive">
+        <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-gold/15 text-2xl text-gold">
           <Check />
         </div>
-        <h3 className={cn('mt-3 font-display text-xl font-semibold', dark ? 'text-ivory' : 'text-charcoal')}>
+        <h3 className={cn('mt-3 font-display text-xl font-semibold', 'text-ivory')}>
           ¡Tu lugar está reservado!
         </h3>
-        <p className={cn('mt-1 text-[14px]', dark ? 'text-ivory/70' : 'text-charcoal/70')}>
+        <p className={cn('mt-1 text-[14px]', 'text-ivory/70')}>
           Te enviamos los detalles por WhatsApp y correo. {redirectTo && 'Te llevamos a los siguientes pasos…'}
         </p>
         {redirectTo && (
           <div className="mt-4">
-            <CTAButton to={redirectTo} variant={dark ? 'light' : 'primary'} size="md" icon={<ArrowRight />}>
+            <CTAButton to={redirectTo} variant="primary" size="md" icon={<ArrowRight />}>
               Continuar
             </CTAButton>
           </div>
@@ -135,10 +134,10 @@ export function LeadForm({
         />
         {errors.email && <p className="mt-1 text-[12px] text-red-700">{errors.email}</p>}
       </div>
-      <CTAButton type="submit" variant={dark ? 'light' : 'primary'} size="lg" className="w-full">
+      <CTAButton type="submit" variant="primary" size="lg" className="w-full">
         {ctaLabel}
       </CTAButton>
-      <p className={cn('text-center text-[12px]', dark ? 'text-ivory/55' : 'text-smoke')}>
+      <p className={cn('text-center text-[12px]', dark ? 'text-ivory/55' : 'text-ivory/55')}>
         Gratis · en vivo · en español · sin compromiso.
       </p>
     </form>

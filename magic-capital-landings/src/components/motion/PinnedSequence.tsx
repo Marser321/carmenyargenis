@@ -70,7 +70,7 @@ function PinnedActive({
 
   return (
     <div ref={ref} className="relative" style={{ height: `${count * vhPerStep + 20}vh` }}>
-      <div className={cn('sticky top-0 flex min-h-screen items-center', className)}>
+      <div className={cn('sticky top-[84px] flex min-h-[calc(100vh-84px)] items-center', className)}>
         <div className="w-full">{children(active)}</div>
       </div>
     </div>

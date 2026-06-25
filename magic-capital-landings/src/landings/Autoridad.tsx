@@ -21,7 +21,8 @@ import {
 import { Hero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { FOUNDERS, waLink } from '../content/brand'
-import { img, bg, founder } from '../content/images'
+import { img, founder } from '../content/images'
+import { sectionBg } from '../content/section-backgrounds'
 import { FIGURE_LABELS } from '../content/compliance'
 import { cn } from '../lib/cn'
 
@@ -84,33 +85,21 @@ export default function Autoridad() {
         </div>
       </Hero>
 
-      {/* 2 · Misión */}
-      <Section
-        tone="ivory"
-        pad="lg"
-        texture={{ src: bg('fondo__ledger-legal-claro-16x9.png'), opacity: 0.06 }}
-      >
-        <Container width="narrow">
-          <SectionHeader
-            align="left"
-            kicker="Por qué hacemos esto"
-            title="No vendemos sueños. Enseñamos un proceso público y verificable."
-            intro="Para muchos latinos en EE.UU., comprar propiedad se siente imposible: los precios y las tasas de la hipoteca tradicional los dejan fuera del juego. Nuestra misión es abrir el acceso al mercado secundario de liquidaciones fiscales —donde ocurre la transferencia real de patrimonio— y enseñar a entrar con método y capital responsable, no con suerte."
-          />
-        </Container>
-      </Section>
-
-      {/* 3 · Problema del ICP */}
-      <Section tone="ivory-dim">
+      {/* 2 · Misión + el problema del ICP (fusionados) */}
+      <Section tone="ivory" pad="lg" texture={sectionBg('07-autoridad-argenis', 1)}>
         <Container>
-          <SectionHeader kicker="El sistema te dejó fuera" title="Hay otra puerta" />
+          <SectionHeader
+            kicker="Por qué hacemos esto · hay otra puerta"
+            title="No vendemos sueños. Enseñamos un proceso público y verificable."
+            intro="Para muchos latinos en EE.UU., comprar propiedad se siente imposible: los precios y las tasas de la hipoteca tradicional los dejan fuera. Nuestra misión es abrir el acceso al mercado secundario de liquidaciones fiscales —donde ocurre la transferencia real de patrimonio— y enseñar a entrar con método y capital responsable, no con suerte."
+          />
           <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {PROBLEMAS.map((p) => (
               <RevealItem key={p.t}>
                 <GlassCard tone="solid" className="h-full">
-                  <div className="text-2xl text-petrol">{p.icon}</div>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-charcoal">{p.t}</h3>
-                  <p className="mt-2 text-[14.5px] leading-snug text-charcoal/70">{p.d}</p>
+                  <div className="text-2xl text-gold">{p.icon}</div>
+                  <h3 className="mt-3 font-display text-lg font-semibold text-ivory">{p.t}</h3>
+                  <p className="mt-2 text-[14.5px] leading-snug text-ivory/70">{p.d}</p>
                 </GlassCard>
               </RevealItem>
             ))}
@@ -118,8 +107,8 @@ export default function Autoridad() {
         </Container>
       </Section>
 
-      {/* 4 · El mecanismo dual (PINNED — la diferenciación de marca) */}
-      <Section tone="charcoal" pad="sm">
+      {/* 3 · El mecanismo dual (PINNED — la diferenciación de marca) */}
+      <Section tone="charcoal" pad="sm" texture={sectionBg('07-autoridad-argenis', 3)}>
         <Container>
           <SectionHeader
             tone="dark"
@@ -144,7 +133,7 @@ export default function Autoridad() {
                       <span
                         className={cn(
                           'grid h-7 w-7 place-items-center rounded-full text-[12px] ring-1',
-                          i <= active ? 'bg-olive/20 text-olive ring-olive/40' : 'text-ivory/30 ring-white/15',
+                          i <= active ? 'bg-gold/20 text-gold ring-gold/40' : 'text-ivory/30 ring-white/15',
                         )}
                       >
                         {i + 1}
@@ -173,8 +162,8 @@ export default function Autoridad() {
         </PinnedSequence>
       </Section>
 
-      {/* 5 · Prueba de pericia */}
-      <Section tone="ivory" pad="lg">
+      {/* 4 · Prueba de pericia */}
+      <Section tone="ivory" pad="lg" texture={sectionBg('07-autoridad-argenis', 4)}>
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
@@ -187,13 +176,13 @@ export default function Autoridad() {
                 {PERICIA.map((b) => (
                   <RevealItem key={b} subtle>
                     <div className="flex gap-3">
-                      <Icon.Check className="mt-1 shrink-0 text-olive" />
-                      <p className="text-[15px] leading-snug text-charcoal/80">{b}</p>
+                      <Icon.Check className="mt-1 shrink-0 text-gold" />
+                      <p className="text-[15px] leading-snug text-ivory/80">{b}</p>
                     </div>
                   </RevealItem>
                 ))}
               </Stagger>
-              <p className="mt-5 text-[14px] italic text-smoke">
+              <p className="mt-5 text-[14px] italic text-ivory/55">
                 Sin fajos de dinero. Sin autos. Solo el proceso público.
               </p>
             </div>
@@ -204,8 +193,8 @@ export default function Autoridad() {
         </Container>
       </Section>
 
-      {/* 6 · Esto SÍ / Esto NO */}
-      <Section tone="ivory-dim">
+      {/* 5 · Esto SÍ / Esto NO */}
+      <Section tone="ivory-dim" texture={sectionBg('07-autoridad-argenis', 5)}>
         <Container>
           <SectionHeader kicker="Cómo reconocer a alguien serio" title="Esto SÍ · Esto NO" />
           <div className="mt-10">
@@ -237,8 +226,8 @@ export default function Autoridad() {
         </Container>
       </Section>
 
-      {/* 7 · Caso $7,500 (con sus límites) */}
-      <Section tone="charcoal" pad="lg">
+      {/* 6 · Caso $7,500 (con sus límites) */}
+      <Section tone="charcoal" pad="lg" texture={sectionBg('07-autoridad-argenis', 6)}>
         <Container width="narrow">
           <div className="grid items-start gap-8 lg:grid-cols-2">
             <div>
@@ -279,8 +268,16 @@ export default function Autoridad() {
         </Container>
       </Section>
 
-      {/* 8 · Ejecutores, no influencers */}
-      <Section tone="petrol" pad="md">
+      {/* 7 · Ejecutores, no influencers (nutrido con el muro de prueba) */}
+      <Section
+        tone="petrol"
+        pad="md"
+        texture={{
+          src: img('07', '07-autoridad-argenis__proof-wall-ejecutores-no-influencers--16x9--codex-v02.png'),
+          opacity: 0.14,
+          focal: '50% 45%',
+        }}
+      >
         <Container width="narrow">
           <SectionHeader tone="dark" kicker="Señales de que somos reales" title="Exigimos que desconfíes" />
           <Stagger className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -292,7 +289,7 @@ export default function Autoridad() {
             ].map((s) => (
               <RevealItem key={s} subtle>
                 <div className="flex h-full items-start gap-3 rounded-xl bg-white/[0.06] px-4 py-3.5">
-                  <Icon.Shield className="mt-0.5 shrink-0 text-olive" />
+                  <Icon.Shield className="mt-0.5 shrink-0 text-gold" />
                   <span className="text-[14px] leading-snug text-ivory/85">{s}</span>
                 </div>
               </RevealItem>
@@ -306,8 +303,8 @@ export default function Autoridad() {
         </Container>
       </Section>
 
-      {/* 9 · CTA final */}
-      <Section tone="charcoal" pad="lg" aura>
+      {/* 8 · CTA final */}
+      <Section tone="charcoal" pad="lg" aura texture={sectionBg('07-autoridad-argenis', 8)}>
         <Container width="narrow" className="text-center">
           <div className="mx-auto mb-6 flex justify-center gap-3">
             <Img

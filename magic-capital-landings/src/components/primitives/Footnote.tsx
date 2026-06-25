@@ -19,11 +19,11 @@ export function Footnote({
     <p
       className={cn(
         'text-[12px] leading-snug',
-        tone === 'dark' ? 'text-ivory/70' : 'text-smoke',
+        tone === 'dark' ? 'text-ivory/70' : 'text-ivory/55',
         className,
       )}
     >
-      <span aria-hidden className="mr-1 text-olive">
+      <span aria-hidden className="mr-1 text-gold">
         ⁕
       </span>
       {children}

@@ -16,6 +16,7 @@ import { CalendarButton } from '../components/forms'
 import { Img } from '../components/media'
 import { FOUNDERS, waLink, FUNNEL } from '../content/brand'
 import { img } from '../content/images'
+import { sectionBg } from '../content/section-backgrounds'
 
 // Fecha/hora de ejemplo — editable. La masterclass es semanal, en vivo.
 const FECHA = 'Miércoles, 7:00 PM ET'
@@ -89,7 +90,7 @@ export default function GraciasReserva() {
       <Hero tone="petrol">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
-            <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-olive/20 text-3xl text-olive ring-1 ring-olive/40">
+            <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold/20 text-3xl text-gold ring-1 ring-gold/40">
               <Icon.Check />
             </span>
           </Reveal>
@@ -123,7 +124,7 @@ export default function GraciasReserva() {
       </Hero>
 
       {/* 2 · Tres pasos rápidos */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('02-gracias-reserva', 1)}>
         <Container>
           <SectionHeader
             kicker="Listo, ahora solo falta esto"
@@ -134,13 +135,13 @@ export default function GraciasReserva() {
               <RevealItem key={p.t}>
                 <GlassCard tone="solid" className="flex h-full flex-col">
                   <div className="flex items-center gap-3">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-petrol/10 font-display text-sm font-semibold text-petrol">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold/10 font-display text-sm font-semibold text-gold">
                       {i + 1}
                     </span>
-                    <span className="text-xl text-petrol">{p.icon}</span>
+                    <span className="text-xl text-gold">{p.icon}</span>
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-charcoal">{p.t}</h3>
-                  <p className="mt-2 text-[14.5px] leading-snug text-charcoal/70">{p.d}</p>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-ivory">{p.t}</h3>
+                  <p className="mt-2 text-[14.5px] leading-snug text-ivory/70">{p.d}</p>
                   {i === 1 && (
                     <div className="mt-4">
                       <CalendarMasterclassButton variant="secondary" />
@@ -166,7 +167,7 @@ export default function GraciasReserva() {
       </Section>
 
       {/* 3 · Cómo conectarte */}
-      <Section tone="ivory-dim">
+      <Section tone="ivory-dim" texture={sectionBg('02-gracias-reserva', 2)}>
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.85fr]">
             <div>
@@ -178,11 +179,11 @@ export default function GraciasReserva() {
               <Stagger className="mt-8 grid gap-4 sm:grid-cols-2">
                 {CONEXION.map((c) => (
                   <RevealItem key={c.t} subtle>
-                    <div className="flex h-full items-start gap-3 rounded-xl bg-white/60 px-4 py-3.5 ring-1 ring-charcoal/5">
-                      <span className="mt-0.5 shrink-0 text-lg text-petrol">{c.icon}</span>
+                    <div className="flex h-full items-start gap-3 rounded-xl bg-navy-soft/60 px-4 py-3.5 ring-1 ring-white/5">
+                      <span className="mt-0.5 shrink-0 text-lg text-gold">{c.icon}</span>
                       <div>
-                        <h3 className="font-display text-[15px] font-semibold text-charcoal">{c.t}</h3>
-                        <p className="mt-1 text-[13.5px] leading-snug text-charcoal/70">{c.d}</p>
+                        <h3 className="font-display text-[15px] font-semibold text-ivory">{c.t}</h3>
+                        <p className="mt-1 text-[13.5px] leading-snug text-ivory/70">{c.d}</p>
                       </div>
                     </div>
                   </RevealItem>
@@ -193,7 +194,7 @@ export default function GraciasReserva() {
               <Img
                 src={img('02', '02-gracias-reserva__recordatorio-calendario-masterclass.png')}
                 alt="Recordatorio de la masterclass en el calendario"
-                className="aspect-[9/16] w-full rounded-2xl shadow-glass"
+                className="aspect-[9/16] w-full rounded-2xl shadow-glass-dark"
                 focal="50% 40%"
               />
             </Reveal>
@@ -202,7 +203,7 @@ export default function GraciasReserva() {
       </Section>
 
       {/* 4 · Cómo prepararte (editorial) */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" texture={sectionBg('02-gracias-reserva', 3)}>
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <Reveal className="order-last lg:order-first">
@@ -224,14 +225,14 @@ export default function GraciasReserva() {
                 {PREPARACION.map((b) => (
                   <RevealItem key={b} subtle>
                     <div className="flex gap-3">
-                      <Icon.Check className="mt-1 shrink-0 text-olive" />
+                      <Icon.Check className="mt-1 shrink-0 text-gold" />
                       <p className="text-[15px] leading-snug text-ivory/80">{b}</p>
                     </div>
                   </RevealItem>
                 ))}
               </Stagger>
               <Reveal className="mt-6">
-                <p className="border-l-2 border-olive/50 pl-4 font-display text-lg italic text-ivory/85">
+                <p className="border-l-2 border-gold/50 pl-4 font-display text-lg italic text-ivory/85">
                   No te pediremos pujar por intuición. Primero, criterio.
                 </p>
               </Reveal>
@@ -241,7 +242,7 @@ export default function GraciasReserva() {
       </Section>
 
       {/* 5 · Tu siguiente paso, sin presión */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('02-gracias-reserva', 4)}>
         <Container width="narrow">
           <SectionHeader
             kicker="Después de la masterclass"
@@ -252,13 +253,13 @@ export default function GraciasReserva() {
             <RevealItem>
               <GlassCard tone="light" className="flex h-full flex-col">
                 <div className="flex items-center gap-2">
-                  <Icon.Users className="text-petrol" />
+                  <Icon.Users className="text-gold" />
                   <Badge tone="petrol">{FUNNEL.comunidad.price}/mes</Badge>
                 </div>
-                <h3 className="mt-3 font-display text-lg font-semibold text-charcoal">
+                <h3 className="mt-3 font-display text-lg font-semibold text-ivory">
                   {FUNNEL.comunidad.name}
                 </h3>
-                <p className="mt-2 flex-1 text-[14.5px] leading-snug text-charcoal/70">
+                <p className="mt-2 flex-1 text-[14.5px] leading-snug text-ivory/70">
                   Acompañamiento continuo y comunidad para seguir aprendiendo a tu ritmo. Cancela cuando
                   quieras.
                 </p>
@@ -272,13 +273,13 @@ export default function GraciasReserva() {
             <RevealItem>
               <GlassCard tone="light" className="flex h-full flex-col">
                 <div className="flex items-center gap-2">
-                  <Icon.Compass className="text-petrol" />
+                  <Icon.Compass className="text-gold" />
                   <Badge tone="petrol">{FUNNEL.intensivo.price}</Badge>
                 </div>
-                <h3 className="mt-3 font-display text-lg font-semibold text-charcoal">
+                <h3 className="mt-3 font-display text-lg font-semibold text-ivory">
                   {FUNNEL.intensivo.name}
                 </h3>
-                <p className="mt-2 flex-1 text-[14.5px] leading-snug text-charcoal/70">
+                <p className="mt-2 flex-1 text-[14.5px] leading-snug text-ivory/70">
                   Dos días en vivo para implementar las 9 fases del método y la parte de financiamiento, con
                   cupo limitado por cohorte.
                 </p>
@@ -291,7 +292,7 @@ export default function GraciasReserva() {
             </RevealItem>
           </Stagger>
           <Reveal className="mt-6">
-            <p className="text-center text-[13px] text-smoke">
+            <p className="text-center text-[13px] text-ivory/55">
               Sin compromiso. Primero la masterclass; lo demás, solo si tiene sentido para ti.
             </p>
           </Reveal>
@@ -299,10 +300,10 @@ export default function GraciasReserva() {
       </Section>
 
       {/* 6 · Mini credibilidad */}
-      <Section tone="petrol" pad="md">
+      <Section tone="petrol" pad="md" texture={sectionBg('02-gracias-reserva', 5)}>
         <Container width="narrow" className="text-center">
           <Reveal>
-            <Icon.Shield className="mx-auto text-3xl text-olive" />
+            <Icon.Shield className="mx-auto text-3xl text-gold" />
             <p className="mx-auto mt-4 max-w-2xl text-[16px] leading-relaxed text-ivory/80">
               Magic Capital es una firma educativa de {FOUNDERS.argenis.name} y {FOUNDERS.carmen.name}.
               Enseñamos tax deed en Florida y Pennsylvania trabajando con los portales públicos del condado,
@@ -313,7 +314,7 @@ export default function GraciasReserva() {
       </Section>
 
       {/* 7 · FAQ */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('02-gracias-reserva', 6)}>
         <Container>
           <SectionHeader kicker="Preguntas frecuentes" title="Antes de vernos en vivo" />
           <div className="mt-10">

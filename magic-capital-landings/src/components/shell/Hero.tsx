@@ -26,8 +26,9 @@ export function Hero({
   className?: string
 }) {
   const dark = tone !== 'ivory'
+  // Oscuro-lujo: todos los tonos del hero son superficies oscuras (navy/midnight).
   const toneClass =
-    tone === 'charcoal' ? 'bg-charcoal text-ivory' : tone === 'petrol' ? 'bg-petrol text-ivory' : 'bg-ivory text-charcoal'
+    tone === 'charcoal' ? 'bg-midnight text-ivory' : tone === 'petrol' ? 'bg-navy text-ivory' : 'bg-navy text-ivory'
 
   // Drop-in: VideoBackground muestra el poster (la imagen) hoy; cuando se generen
   // los loops M1–M5 basta con pasar `image.video` y reproduce el bucle cinematográfico.
@@ -53,7 +54,7 @@ export function Hero({
           <div className="absolute inset-0">{bg}</div>
         ))}
       {dark && <Spotlight />}
-      <Container className="pt-28 pb-16 sm:pt-32 sm:pb-24">{children}</Container>
+      <Container className="pt-36 pb-16 sm:pt-40 sm:pb-24">{children}</Container>
     </section>
   )
 }

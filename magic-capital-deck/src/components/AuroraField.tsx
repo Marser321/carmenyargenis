@@ -3,11 +3,11 @@ import { cn } from '../lib/cn'
 
 type Tone = 'petrol' | 'olive' | 'mixed'
 
-// Manchas de luz en color de marca (petróleo / oliva), MUY tenues y difusas.
+// Manchas de luz en color de marca (dorado / navy), MUY tenues y difusas.
 const palettes: Record<Tone, string[]> = {
-  petrol: ['rgba(22,86,107,0.38)', 'rgba(14,58,74,0.36)'],
-  olive: ['rgba(92,107,74,0.34)', 'rgba(14,58,74,0.32)'],
-  mixed: ['rgba(22,86,107,0.36)', 'rgba(92,107,74,0.30)', 'rgba(14,58,74,0.34)'],
+  petrol: ['rgba(201,162,75,0.20)', 'rgba(15,32,54,0.55)'],
+  olive: ['rgba(147,114,52,0.22)', 'rgba(15,32,54,0.50)'],
+  mixed: ['rgba(201,162,75,0.20)', 'rgba(147,114,52,0.18)', 'rgba(15,32,54,0.55)'],
 }
 
 const spots = [

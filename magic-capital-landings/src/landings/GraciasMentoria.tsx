@@ -15,6 +15,7 @@ import { Hero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { FOUNDERS, CONTACT, waLink } from '../content/brand'
 import { img } from '../content/images'
+import { sectionBg } from '../content/section-backgrounds'
 
 const PASOS = [
   {
@@ -83,7 +84,7 @@ export default function GraciasMentoria() {
             {FOUNDERS.carmen.short}— directamente, en sesiones 1:1, con un plan a tu medida y sin adivinar.
           </p>
           <div className="mt-5 flex items-start gap-2.5 rounded-xl bg-white/[0.06] px-4 py-3 text-[14px] leading-snug text-ivory/80">
-            <Icon.Check className="mt-0.5 shrink-0 text-olive" />
+            <Icon.Check className="mt-0.5 shrink-0 text-gold" />
             <span>
               Recibirás un correo de confirmación con tu recibo en minutos.{' '}
               <strong className="text-ivory">Revisa spam o promociones</strong> si no lo ves enseguida.
@@ -109,7 +110,7 @@ export default function GraciasMentoria() {
       </Hero>
 
       {/* 2 · Próximos pasos */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('06-gracias-compra-mentoria', 1)}>
         <Container>
           <SectionHeader
             kicker="Por dónde empezar"
@@ -121,13 +122,13 @@ export default function GraciasMentoria() {
               <RevealItem key={p.t}>
                 <GlassCard tone="solid" className="h-full">
                   <div className="flex items-center gap-3">
-                    <span className="grid h-9 w-9 place-items-center rounded-full bg-petrol/10 font-display text-base font-semibold text-petrol">
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-gold/10 font-display text-base font-semibold text-gold">
                       {p.n}
                     </span>
-                    <div className="text-xl text-petrol">{p.icon}</div>
+                    <div className="text-xl text-gold">{p.icon}</div>
                   </div>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-charcoal">{p.t}</h3>
-                  <p className="mt-2 text-[14.5px] leading-snug text-charcoal/70">{p.d}</p>
+                  <h3 className="mt-3 font-display text-lg font-semibold text-ivory">{p.t}</h3>
+                  <p className="mt-2 text-[14.5px] leading-snug text-ivory/70">{p.d}</p>
                 </GlassCard>
               </RevealItem>
             ))}
@@ -135,12 +136,12 @@ export default function GraciasMentoria() {
 
           <Reveal className="mt-6">
             <GlassCard tone="light" className="flex items-start gap-4">
-              <div className="mt-0.5 text-2xl text-petrol">
+              <div className="mt-0.5 text-2xl text-gold">
                 <Icon.Clock />
               </div>
               <div>
-                <h3 className="font-display text-base font-semibold text-charcoal">Tiempos de respuesta</h3>
-                <p className="mt-1.5 text-[14.5px] leading-snug text-charcoal/70">
+                <h3 className="font-display text-base font-semibold text-ivory">Tiempos de respuesta</h3>
+                <p className="mt-1.5 text-[14.5px] leading-snug text-ivory/70">
                   Atendemos en días hábiles (L–V) y normalmente respondemos dentro de 24 horas hábiles. No es una
                   línea de emergencia 24/7: es acompañamiento estructurado, pensado para que avances con criterio.
                 </p>
@@ -151,7 +152,7 @@ export default function GraciasMentoria() {
       </Section>
 
       {/* 3 · Qué preparar */}
-      <Section tone="ivory-dim">
+      <Section tone="ivory-dim" texture={sectionBg('06-gracias-compra-mentoria', 2)}>
         <Container>
           <div className="grid items-start gap-10 lg:grid-cols-2">
             <div>
@@ -165,12 +166,12 @@ export default function GraciasMentoria() {
                 {PREPARAR.map((item) => (
                   <RevealItem key={item.t} subtle>
                     <div className="flex gap-3">
-                      <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-olive/20 text-[13px] text-olive">
+                      <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold/20 text-[13px] text-gold">
                         <Icon.Check />
                       </span>
                       <div>
-                        <p className="font-display text-[15.5px] font-semibold text-charcoal">{item.t}</p>
-                        <p className="mt-0.5 text-[14px] leading-snug text-charcoal/70">{item.d}</p>
+                        <p className="font-display text-[15.5px] font-semibold text-ivory">{item.t}</p>
+                        <p className="mt-0.5 text-[14px] leading-snug text-ivory/70">{item.d}</p>
                       </div>
                     </div>
                   </RevealItem>
@@ -181,7 +182,7 @@ export default function GraciasMentoria() {
               <Img
                 src={img('06', '06-gracias-compra-mentoria__que-preparar-primera-sesion.png')}
                 alt="Qué preparar para tu primera sesión de mentoría"
-                className="aspect-square w-full rounded-2xl shadow-glass"
+                className="aspect-square w-full rounded-2xl shadow-glass-dark"
                 focal="50% 50%"
               />
             </Reveal>
@@ -190,7 +191,7 @@ export default function GraciasMentoria() {
       </Section>
 
       {/* 4 · Expectativas y límites */}
-      <Section tone="charcoal" pad="lg">
+      <Section tone="charcoal" pad="lg" texture={sectionBg('06-gracias-compra-mentoria', 3)}>
         <Container>
           <SectionHeader
             tone="dark"
@@ -228,7 +229,7 @@ export default function GraciasMentoria() {
       </Section>
 
       {/* 5 · Soporte y contacto */}
-      <Section tone="ivory" pad="lg">
+      <Section tone="ivory" pad="lg" texture={sectionBg('06-gracias-compra-mentoria', 4)}>
         <Container width="narrow">
           <GlassCard tone="solid">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
@@ -238,14 +239,14 @@ export default function GraciasMentoria() {
                     <Icon.Shield /> Soporte
                   </Badge>
                 </div>
-                <h3 className="font-display text-xl font-semibold text-charcoal">
+                <h3 className="font-display text-xl font-semibold text-ivory">
                   ¿Necesitas ayuda antes de empezar?
                 </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-charcoal/70">
+                <p className="mt-2 text-[15px] leading-relaxed text-ivory/70">
                   Si no llegó el correo, no encuentras el enlace para agendar, o tienes problemas para entrar al
                   canal, escríbenos. Estamos para ayudarte a arrancar sin fricción.
                 </p>
-                <p className="mt-3 text-[13px] italic text-smoke">
+                <p className="mt-3 text-[13px] italic text-ivory/55">
                   Respondemos en horario hábil (L–V).
                 </p>
               </div>
