@@ -4,7 +4,7 @@ import { cn } from '../lib/cn'
 export function Disclaimer({
   text,
   variant = 'inline',
-  tone = 'light',
+  tone = 'dark',
   className,
 }: {
   text: string

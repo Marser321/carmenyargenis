@@ -21,23 +21,23 @@ export function SiNo() {
         </Reveal>
 
         <div className="mt-9 grid grid-cols-2 gap-6">
-          <Step at={1} className="rounded-2xl border border-petrol/20 bg-petrol/5 p-7">
+          <Step at={1} className="rounded-2xl border border-gold/20 bg-gold/5 p-7">
             <div className="flex items-center gap-3">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-petrol/12 text-[18px] text-petrol">
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-gold/12 text-[18px] text-gold">
                 <Check />
               </span>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-petrol">Esto sí</p>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-gold">Esto sí</p>
             </div>
             <ul className="mt-4 space-y-3">
               {c.si.map((s) => (
-                <li key={s} className="flex gap-3 text-[15px] leading-snug text-charcoal/85">
-                  <span className="mt-0.5 text-petrol">✓</span>
+                <li key={s} className="flex gap-3 text-[15px] leading-snug text-ivory/85">
+                  <span className="mt-0.5 text-gold">✓</span>
                   {s}
                 </li>
               ))}
             </ul>
           </Step>
-          <Step at={2} className="rounded-2xl border border-charcoal/10 bg-white/50 p-7">
+          <Step at={2} className="rounded-2xl border border-white/10 bg-white/[0.05] p-7">
             <div className="flex items-center gap-3">
               <span className="grid h-9 w-9 place-items-center rounded-full bg-charcoal/8 text-[18px] text-smoke">
                 <Close />
@@ -46,7 +46,7 @@ export function SiNo() {
             </div>
             <ul className="mt-4 space-y-3">
               {c.no.map((s) => (
-                <li key={s} className="flex gap-3 text-[15px] leading-snug text-charcoal/65">
+                <li key={s} className="flex gap-3 text-[15px] leading-snug text-ivory/65">
                   <span className="mt-0.5 text-smoke">✕</span>
                   {s}
                 </li>

@@ -20,21 +20,21 @@ export function Perfiles() {
           </DisplayHeading>
         </Reveal>
         <Reveal>
-          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-charcoal/70">{c.body}</p>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ivory/70">{c.body}</p>
         </Reveal>
       </Stagger>
 
       <div className="mt-9 grid grid-cols-3 gap-6">
         {c.items.map((it, i) => (
           <Step at={i + 1} key={it.n}>
-            <div className="h-full rounded-2xl border border-charcoal/10 bg-white/60 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-petrol/25 hover:shadow-glass">
-              <div className="font-display text-4xl font-semibold tabular-nums text-petrol/35">
+            <div className="h-full rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/25 hover:shadow-glass">
+              <div className="font-display text-4xl font-semibold tabular-nums text-gold/35">
                 {it.n}
               </div>
-              <div className="mt-4 font-display text-xl font-semibold leading-tight text-charcoal">
+              <div className="mt-4 font-display text-xl font-semibold leading-tight text-ivory">
                 {it.t}
               </div>
-              <p className="mt-2 text-[15px] leading-snug text-charcoal/65">{it.d}</p>
+              <p className="mt-2 text-[15px] leading-snug text-ivory/65">{it.d}</p>
             </div>
           </Step>
         ))}

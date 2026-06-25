@@ -31,16 +31,16 @@ export function Encuadre() {
           </DisplayHeading>
         </Reveal>
         <Reveal>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal/70">{c.body}</p>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ivory/70">{c.body}</p>
         </Reveal>
 
         <Reveal className="mt-9 grid grid-cols-2 gap-5">
           <GlassCard>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-petrol">Esto sí</p>
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-gold">Esto sí</p>
             <ul className="mt-3 space-y-2.5">
               {c.si.map((s) => (
-                <li key={s} className="flex gap-3 text-[15px] text-charcoal/85">
-                  <span className="mt-0.5 text-petrol">✓</span>
+                <li key={s} className="flex gap-3 text-[15px] text-ivory/85">
+                  <span className="mt-0.5 text-gold">✓</span>
                   {s}
                 </li>
               ))}
@@ -50,7 +50,7 @@ export function Encuadre() {
             <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-smoke">Esto no</p>
             <ul className="mt-3 space-y-2.5">
               {c.no.map((s) => (
-                <li key={s} className="flex gap-3 text-[15px] text-charcoal/70">
+                <li key={s} className="flex gap-3 text-[15px] text-ivory/70">
                   <span className="mt-0.5 text-smoke">✕</span>
                   {s}
                 </li>
@@ -60,7 +60,7 @@ export function Encuadre() {
         </Reveal>
 
         <Reveal subtle>
-          <p className="mt-7 text-sm text-charcoal/55">{c.note}</p>
+          <p className="mt-7 text-sm text-ivory/55">{c.note}</p>
         </Reveal>
       </Stagger>
     </Slide>

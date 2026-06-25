@@ -15,7 +15,7 @@
   --gold: #c9a24b;
   --gold-bright: #e3c77a;
   --gold-deep: #937234;
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html,
@@ -27,7 +27,7 @@ body,
 body {
   margin: 0;
   background: var(--midnight);
-  color: var(--charcoal);
+  color: var(--ivory);
   font-family: 'Inter Variable', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

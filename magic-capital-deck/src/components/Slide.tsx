@@ -31,14 +31,16 @@ export function Slide({
   className,
   children,
 }: Props) {
+  // Oscuro-lujo: TODAS las slides son superficies oscuras (paridad con el funnel).
+  // `variant` solo marca un ritmo sutil de profundidad (midnight vs navy); el texto
+  // siempre es ivory y la atmósfera (aura/spotlight) aplica en ambas.
   const dark = variant === 'dark'
-  // Atmósfera sólo en slides oscuras planas (sin fondo propio que se ensucie).
-  const showAura = aura && dark && !background
+  const showAura = aura && !background
   return (
     <div
       className={cn(
-        'relative h-full w-full overflow-hidden',
-        dark ? 'bg-charcoal text-ivory' : 'bg-ivory text-charcoal',
+        'relative h-full w-full overflow-hidden text-ivory',
+        dark ? 'bg-midnight' : 'bg-navy',
         grain && 'grain',
         className,
       )}
@@ -50,20 +52,16 @@ export function Slide({
           aria-hidden
           className="pointer-events-none absolute inset-0 z-[1]"
           style={{
-            background: dark
-              ? 'radial-gradient(120% 90% at 50% 42%, transparent 45%, rgba(11,12,13,0.55) 100%)'
-              : 'radial-gradient(120% 90% at 50% 42%, transparent 55%, rgba(26,28,30,0.10) 100%)',
+            background:
+              'radial-gradient(120% 90% at 50% 42%, transparent 45%, rgba(7,14,28,0.55) 100%)',
           }}
         />
       )}
-      {dark && spotlight && <Spotlight />}
+      {spotlight && <Spotlight />}
       <div className="absolute inset-0 z-10 flex flex-col justify-center px-24 py-16">{children}</div>
       {footnote && (
         <div
-          className={cn(
-            'pointer-events-none absolute inset-x-24 bottom-5 z-20 text-[11px] leading-snug',
-            dark ? 'text-ivory/60' : 'text-charcoal/60',
-          )}
+          className="pointer-events-none absolute inset-x-24 bottom-5 z-20 text-[11px] leading-snug text-ivory/60"
         >
           {footnote}
         </div>

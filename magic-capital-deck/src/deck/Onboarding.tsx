@@ -17,21 +17,21 @@ export function Onboarding({ onDismiss }: { onDismiss: () => void }) {
         animate={{ y: 0, opacity: 1, scale: 1 }}
         exit={{ y: 10, opacity: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-md rounded-2xl bg-ivory p-8 text-charcoal shadow-2xl"
+        className="w-full max-w-md rounded-2xl bg-navy-soft p-8 text-ivory shadow-glass-dark ring-1 ring-white/10"
       >
-        <p className="text-[12px] font-semibold uppercase tracking-[0.2em] text-petrol">Magic Capital</p>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.2em] text-gold">Magic Capital</p>
         <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight">{c.title}</h2>
         <ul className="mt-5 space-y-3">
           {c.lines.map((l, i) => (
-            <li key={i} className="flex gap-3 text-[15px] leading-snug text-charcoal/80">
-              <span className="mt-0.5 text-petrol">→</span>
+            <li key={i} className="flex gap-3 text-[15px] leading-snug text-ivory/80">
+              <span className="mt-0.5 text-gold">→</span>
               {l}
             </li>
           ))}
         </ul>
         <button
           onClick={onDismiss}
-          className="mt-7 w-full rounded-xl bg-petrol px-6 py-3.5 font-medium text-ivory transition-colors hover:bg-petrol-bright"
+          className="mt-7 w-full rounded-xl bg-gold px-6 py-3.5 font-medium text-midnight transition-colors hover:bg-gold-bright"
         >
           {c.cta}
         </button>

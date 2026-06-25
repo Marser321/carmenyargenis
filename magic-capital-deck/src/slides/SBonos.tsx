@@ -30,15 +30,15 @@ export function Bonos() {
           return (
             <Reveal
               key={it.t}
-              className="h-full rounded-2xl border border-charcoal/10 bg-white/60 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-petrol/25 hover:shadow-glass"
+              className="h-full rounded-2xl border border-white/10 bg-white/[0.05] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/25 hover:shadow-glass"
             >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-petrol/8 text-[20px] text-petrol">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-gold/8 text-[20px] text-gold">
                 <Icon />
               </span>
-              <div className="mt-4 font-display text-[16px] font-semibold leading-tight text-charcoal">
+              <div className="mt-4 font-display text-[16px] font-semibold leading-tight text-ivory">
                 {it.t}
               </div>
-              <p className="mt-1.5 text-[13.5px] leading-snug text-charcoal/65">{it.d}</p>
+              <p className="mt-1.5 text-[13.5px] leading-snug text-ivory/65">{it.d}</p>
             </Reveal>
           )
         })}

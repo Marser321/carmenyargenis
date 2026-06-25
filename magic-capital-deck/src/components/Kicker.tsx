@@ -6,8 +6,8 @@ import { ease } from '../theme/tokens'
 type Tone = 'petrol' | 'olive' | 'smoke' | 'ivory'
 
 const tones: Record<Tone, string> = {
-  petrol: 'text-petrol',
-  olive: 'text-olive',
+  petrol: 'text-gold', // oscuro-lujo: el eyebrow por defecto va dorado sobre slides oscuras
+  olive: 'text-gold',
   smoke: 'text-smoke',
   ivory: 'text-ivory/70',
 }

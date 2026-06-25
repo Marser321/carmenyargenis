@@ -20,7 +20,7 @@ export function Capital() {
             </DisplayHeading>
           </Reveal>
           <Reveal subtle>
-            <p className="mt-6 border-l-2 border-petrol/40 pl-4 text-[15px] leading-relaxed text-charcoal/65">
+            <p className="mt-6 border-l-2 border-gold/40 pl-4 text-[15px] leading-relaxed text-ivory/65">
               {c.note}
             </p>
           </Reveal>

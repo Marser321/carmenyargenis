@@ -38,10 +38,12 @@ export function DeckChrome({
   onFullscreen,
 }: Props) {
   const nav = copy.ui.nav
+  // Oscuro-lujo: todas las slides son oscuras → la chrome siempre va con texto claro
+  // y relleno dorado. (Se conserva `bg` por si vuelve una slide clara en el futuro.)
   const onDark = bg === 'dark'
-  const labelColor = onDark ? 'text-ivory/70' : 'text-charcoal/60'
-  const segTrack = onDark ? 'bg-ivory/15' : 'bg-charcoal/12'
-  const segFill = onDark ? 'bg-olive' : 'bg-petrol'
+  const labelColor = onDark ? 'text-ivory/70' : 'text-ivory/65'
+  const segTrack = onDark ? 'bg-ivory/15' : 'bg-ivory/12'
+  const segFill = 'bg-gold'
 
   // Fracción de avance de la slide actual: con pasos, el progreso del acto crece con cada →.
   const stepFrac = maxSteps > 0 ? step / maxSteps : 1
@@ -144,7 +146,7 @@ export function DeckChrome({
           </span>
 
           <button
-            className="flex items-center gap-2 rounded-full bg-petrol px-4 py-2 text-[13px] font-medium text-ivory transition-colors hover:bg-petrol-bright disabled:opacity-30"
+            className="flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-[13px] font-medium text-midnight transition-colors hover:bg-gold-bright disabled:opacity-30"
             onClick={onNext}
             disabled={atEnd}
           >

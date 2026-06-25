@@ -6,7 +6,7 @@ import { ease } from '../theme/tokens'
 /** Tarjeta glass controlada. `interactive` añade lift + borde más claro al hover. */
 export function GlassCard({
   children,
-  variant = 'light',
+  variant = 'dark',
   interactive = false,
   className,
 }: {

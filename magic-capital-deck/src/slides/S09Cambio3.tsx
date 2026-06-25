@@ -24,13 +24,13 @@ export function Cambio3() {
             </DisplayHeading>
           </Reveal>
           <Reveal>
-            <p className="mt-5 text-lg leading-relaxed text-charcoal/70">{c.body}</p>
+            <p className="mt-5 text-lg leading-relaxed text-ivory/70">{c.body}</p>
           </Reveal>
           <div className="mt-7 space-y-3">
             {c.bullets.map((b, i) => (
               <Step at={i + 1} key={b} className="flex items-start gap-3">
-                <span className="mt-0.5 text-petrol">✓</span>
-                <span className="text-[15px] leading-snug text-charcoal/80">{b}</span>
+                <span className="mt-0.5 text-gold">✓</span>
+                <span className="text-[15px] leading-snug text-ivory/80">{b}</span>
               </Step>
             ))}
           </div>
@@ -44,7 +44,7 @@ export function Cambio3() {
                 alt={img.alt}
                 label={img.alt}
                 focal={img.focal}
-                className="aspect-[4/5] w-full rounded-2xl shadow-glass ring-1 ring-charcoal/10"
+                className="aspect-[4/5] w-full rounded-2xl shadow-glass ring-1 ring-white/10"
               />
               <div className="absolute bottom-4 left-4 rounded-lg bg-charcoal/90 px-3 py-1.5 font-display text-xl font-semibold tracking-tight text-ivory shadow-lg">
                 .gov

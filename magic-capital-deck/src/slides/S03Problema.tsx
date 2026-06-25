@@ -25,22 +25,22 @@ export function Problema() {
             </DisplayHeading>
           </Reveal>
           <Reveal>
-            <p className="mt-4 text-[16px] leading-relaxed text-charcoal/70">{c.lead}</p>
+            <p className="mt-4 text-[16px] leading-relaxed text-ivory/70">{c.lead}</p>
           </Reveal>
 
           <Reveal className="mt-7 grid grid-cols-3 gap-4">
             {c.stats.map((s, i) => (
               <GlassCard key={s.label} interactive>
-                <div className="font-display text-2xl font-semibold tracking-tight text-petrol">
+                <div className="font-display text-2xl font-semibold tracking-tight text-gold">
                   {i === 0 ? <CountUp to={47} prefix="+" suffix="%" delay={0.45} /> : s.value}
                 </div>
-                <p className="mt-2 text-[13px] leading-snug text-charcoal/65">{s.label}</p>
+                <p className="mt-2 text-[13px] leading-snug text-ivory/65">{s.label}</p>
               </GlassCard>
             ))}
           </Reveal>
 
           <Reveal subtle>
-            <p className="mt-7 font-display text-xl text-charcoal/85">{c.closing}</p>
+            <p className="mt-7 font-display text-xl text-ivory/85">{c.closing}</p>
           </Reveal>
         </Stagger>
 
@@ -51,7 +51,7 @@ export function Problema() {
               alt={img.alt}
               label={img.alt}
               focal={img.focal}
-              className="aspect-square w-full rounded-2xl shadow-glass ring-1 ring-charcoal/8"
+              className="aspect-square w-full rounded-2xl shadow-glass ring-1 ring-white/8"
             />
           </Tilt>
         </Reveal>

@@ -22,7 +22,7 @@ export function CapitalCalc({
   // `width` no es transform → MotionConfig reducedMotion no lo neutraliza. Lo gateamos aquí.
   const reduce = useReducedMotion()
   return (
-    <div className="w-full rounded-2xl bg-white p-7 shadow-glass ring-1 ring-charcoal/8">
+    <div className="w-full rounded-2xl bg-navy-soft p-7 shadow-glass-dark ring-1 ring-white/10">
       <motion.div
         initial="hidden"
         animate="show"
@@ -39,12 +39,12 @@ export function CapitalCalc({
             className="flex items-center gap-4"
           >
             <div className="w-56 shrink-0">
-              <div className="text-[15px] font-medium text-charcoal">{it.label}</div>
-              <div className="text-[12px] text-smoke">{it.hint}</div>
+              <div className="text-[15px] font-medium text-ivory">{it.label}</div>
+              <div className="text-[12px] text-ivory/55">{it.hint}</div>
             </div>
-            <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-charcoal/6">
+            <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-white/10">
               <motion.div
-                className="h-full rounded-full bg-petrol/70"
+                className="h-full rounded-full bg-gold/70"
                 initial={reduce ? false : { width: 0 }}
                 animate={{ width: widths[i % widths.length] }}
                 transition={reduce ? { duration: 0 } : { duration: 0.7, ease: ease.out, delay: 0.4 + i * 0.12 }}
@@ -58,7 +58,7 @@ export function CapitalCalc({
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: ease.out, delay: 0.4 + items.length * 0.12 }}
-        className="mt-6 flex items-center justify-between rounded-xl bg-petrol px-6 py-4 text-ivory"
+        className="mt-6 flex items-center justify-between rounded-xl bg-gold px-6 py-4 text-midnight"
       >
         <span className="text-[15px] font-medium opacity-90">{totalLabel}</span>
         <span className="font-display text-2xl font-semibold tracking-tight">

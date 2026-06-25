@@ -19,10 +19,10 @@ export function DisclaimerSlide() {
           </DisplayHeading>
         </Reveal>
         <Reveal>
-          <p className="mt-5 text-[15px] font-medium text-charcoal/75">{c.notAdvisors}</p>
+          <p className="mt-5 text-[15px] font-medium text-ivory/75">{c.notAdvisors}</p>
         </Reveal>
-        <Reveal className="mt-6 rounded-2xl border border-charcoal/10 bg-white/55 p-7">
-          <Disclaimer text={c.full} variant="full" tone="light" />
+        <Reveal className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-7">
+          <Disclaimer text={c.full} variant="full" tone="dark" />
         </Reveal>
       </Stagger>
     </Slide>

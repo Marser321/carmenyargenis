@@ -31,15 +31,15 @@ export function Objeciones() {
               <Step
                 at={i + 1}
                 key={item.q}
-                className="rounded-2xl border border-charcoal/10 bg-white/55 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-charcoal/25 hover:shadow-glass"
+                className="rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-glass"
               >
                 <div className="flex items-start gap-3.5">
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-petrol/8 text-[20px] text-petrol">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gold/8 text-[20px] text-gold">
                     <Icon />
                   </span>
                   <div>
-                    <p className="font-display text-lg font-semibold text-charcoal">{item.q}</p>
-                    <p className="mt-2 text-[14.5px] leading-relaxed text-charcoal/70">{item.a}</p>
+                    <p className="font-display text-lg font-semibold text-ivory">{item.q}</p>
+                    <p className="mt-2 text-[14.5px] leading-relaxed text-ivory/70">{item.a}</p>
                   </div>
                 </div>
               </Step>

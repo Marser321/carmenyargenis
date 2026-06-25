@@ -31,19 +31,19 @@ export function MAP9Phases({
             className={
               'rounded-xl border p-3 transition-colors ' +
               (isFilter
-                ? 'border-petrol/25 bg-petrol/[0.06]'
-                : 'border-charcoal/10 bg-white/60')
+                ? 'border-gold/30 bg-gold/[0.08]'
+                : 'border-white/10 bg-white/[0.04]')
             }
           >
             <div
               className={
                 'font-display text-lg font-semibold tabular-nums ' +
-                (isFilter ? 'text-petrol' : 'text-charcoal/40')
+                (isFilter ? 'text-gold' : 'text-ivory/40')
               }
             >
               {String(i + 1).padStart(2, '0')}
             </div>
-            <div className="mt-1 text-[12.5px] font-medium leading-tight text-charcoal/80">{p}</div>
+            <div className="mt-1 text-[12.5px] font-medium leading-tight text-ivory/80">{p}</div>
           </motion.div>
         )
       })}
