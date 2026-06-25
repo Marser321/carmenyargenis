@@ -51,9 +51,9 @@ export const USE_LANDING_BANNER = false
 
 // Banner de VIDEO en el hero (entre el H1 y el CTA). El flyer animado de la
 // masterclass, en dos orientaciones: vertical en móvil, horizontal en desktop.
-// `BannerVideoCycle` reproduce el del dispositivo una vez, se queda 15 s en el
-// último fotograma (estático) y reinicia. Mismo video en todas las landings
-// principales por ahora; cambiar la fuente por landing cuando existan otros.
+// `BannerVideoCycle` reproduce el del dispositivo en bucle continuo. Mismo video
+// en todas las landings principales por ahora; cambiar la fuente por landing
+// cuando existan otros.
 export const BANNER_VIDEO = {
   horizontal: '/video/banner-horizontal.mp4',
   vertical: '/video/banner-vertical.mp4',
