@@ -13,18 +13,18 @@ import {
 } from '../components/primitives'
 import { Reveal, Stagger, RevealItem } from '../components/motion'
 import { MAP9Phases, YesNoColumns, CaseBreakdown, CapitalCalc, FAQAccordion } from '../components/blocks'
-import { Hero, LandingLayout } from '../components/shell'
+import { LandingHero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { CheckoutMock } from '../components/forms'
-import { MAP9_PHASES, waLink } from '../content/brand'
-import { img } from '../content/images'
+import { MAP9_PHASES, COHORTE, waLink } from '../content/brand'
+import { img, LANDING_BANNER } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
 import { FIGURE_LABELS } from '../content/compliance'
 import { cn } from '../lib/cn'
 
 const VIERNES = [
   'Estructura de negocio: cómo montarla bien en EE.UU.',
-  'Protección y seguridad: protección legal, seguros, compliance básico.',
+  'Protección y seguridad: protección legal, seguros y cumplir las reglas básicas.',
   'Crédito empresarial: cómo preparar tu perfil de crédito de negocio.',
   'Financiamiento 0%: cómo acceder a líneas con APR promocional, con criterio (elegibilidad, garantía personal, salida).',
   'Preguntas y respuestas en vivo.',
@@ -46,7 +46,7 @@ const RISK_REDUCERS = [
 ]
 
 const FAQ = [
-  { q: '¿Es un curso grabado?', a: 'No. Es implementación en vivo, en cohorte. Construyes el proceso con nosotros en tiempo real; si habilitamos repetición, es para repasar, no para reemplazar el en vivo.' },
+  { q: '¿Es un curso grabado?', a: 'No. Es en vivo y en grupo. Construyes el proceso con nosotros en tiempo real; si habilitamos repetición, es para repasar, no para reemplazar el en vivo.' },
   { q: '¿Garantizan que gane dinero?', a: 'No. Te damos el sistema y la claridad para decidir con criterio. No prometemos ingresos, montos ni resultados; dependen del mercado, el condado y tu ejecución.' },
   { q: '¿Incluye el capital para comprar?', a: 'No. El intensivo no incluye el capital de entrada; te enseña a estimarlo y a no sobre-extenderte.' },
   { q: '¿Aprueban el crédito 0%?', a: 'No. Describimos cómo funciona: tarjetas de negocio con APR promocional sujeto a elegibilidad del emisor y posible garantía personal. No prometemos montos ni aprobación.' },
@@ -58,8 +58,8 @@ export default function CompraIntensivo() {
 
   return (
     <LandingLayout waMessage="Hola, tengo una pregunta sobre el Intensivo MAP-9 ($297) antes de comprar.">
-      {/* 1 · Hero */}
-      <Hero
+      {/* 1 · Hero: contador arriba → H1 → banner → CTAs */}
+      <LandingHero
         tone="charcoal"
         image={{
           src: img('03', '03-compra-intensivo__hero-fundadores-sesion-vivo.png'),
@@ -67,28 +67,28 @@ export default function CompraIntensivo() {
           focal: '50% 35%',
           scrim: 'left',
         }}
-      >
-        <div className="max-w-2xl">
-          <Kicker>Intensivo MAP-9 · viernes + sábado · en vivo · cupo limitado</Kicker>
-          <DisplayHeading as="h1" size="xl" className="mt-4">
-            De mirar listados a ejecutar tu primera subasta con criterio.
-          </DisplayHeading>
-          <p className="mt-5 text-[17px] leading-relaxed text-ivory/75">
-            Un fin de semana de implementación guiada. Viernes: el capital con Carmen. Sábado: las 9 fases del
-            MAP-9 con Argenis. No es un curso grabado: construyes el proceso con nosotros, en vivo, y te llevas
-            la Guía MAP-9.
-          </p>
-          <p className="mt-3 text-[14px] text-ivory/55">Cupos limitados por la capacidad real de la cohorte en vivo.</p>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+        countdown={{ targetISO: COHORTE.intensivoISO, label: 'El intensivo en vivo empieza en' }}
+        banner={{ src: LANDING_BANNER['03'], alt: 'Intensivo MAP-9 — viernes y sábado en vivo con Argenis y Carmen', ratio: '4x5' }}
+        kicker={<Kicker>Intensivo MAP-9 · viernes + sábado · en vivo</Kicker>}
+        title={<>De mirar listados a ejecutar tu primera subasta con criterio.</>}
+        sub={
+          <>
+            Un fin de semana en vivo: el viernes, el capital con Carmen; el sábado, las 9 fases del Método MAP-9
+            con Argenis. No es un curso grabado — lo construyes con nosotros y te llevas la Guía MAP-9. Cupos
+            limitados.
+          </>
+        }
+        actions={
+          <>
             <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>
               Reservar mi asiento ($297)
             </CTAButton>
             <CTAButton href={waLink('Hola, tengo una pregunta sobre el Intensivo MAP-9 antes de comprar.')} variant="ghost">
               Preguntar por WhatsApp
             </CTAButton>
-          </div>
-        </div>
-      </Hero>
+          </>
+        }
+      />
 
       {/* 2 · Qué ES / qué NO ES */}
       <Section tone="ivory" pad="lg" texture={sectionBg('03-compra-intensivo', 1)}>
@@ -100,7 +100,7 @@ export default function CompraIntensivo() {
                 heading: 'Qué ES',
                 variant: 'positive',
                 items: [
-                  'Implementación en vivo, en cohorte.',
+                  'En vivo y en grupo, con nosotros.',
                   'Plantillas y herramientas que usas durante la sesión.',
                   'Casos reales desglosados.',
                   'Espacio para preguntar y aplicar.',
@@ -167,7 +167,7 @@ export default function CompraIntensivo() {
                 El MAP-9 con Argenis: primero, qué NO comprar
               </h3>
               <p className="mt-2 text-[14px] leading-snug text-ivory/70">
-                El filtrado forense (fases 5–9) descarta propiedades tóxicas antes de pujar.
+                El filtro de seguridad (fases 5–9) descarta propiedades problemáticas antes de pujar.
               </p>
               <div className="mt-5">
                 <MAP9Phases phases={MAP9_PHASES} tone="dark" />
@@ -229,7 +229,7 @@ export default function CompraIntensivo() {
               lines={[
                 { label: 'Adjudicación en subasta', amount: '$7,500', hint: 'La puja abre en la deuda fiscal' },
                 { label: 'Fees del condado', amount: '$820' },
-                { label: 'Title work / saneamiento', amount: '$1,500' },
+                { label: 'Revisión del título', amount: '$1,500' },
                 { label: 'Contingencia', amount: '$1,800' },
               ]}
               total="$11,620"
@@ -245,7 +245,7 @@ export default function CompraIntensivo() {
           <SectionHeader
             kicker="Te lo decimos antes de que pagues"
             title="Cuánto necesitas y cuánto cuesta"
-            intro="El capital de entrada va por tu cuenta; el asiento en la cohorte en vivo es lo que reservas aquí."
+            intro="El capital de entrada va por tu cuenta; lo que reservas aquí es tu lugar en el grupo en vivo."
           />
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
             {/* Capital de entrada */}
@@ -266,7 +266,7 @@ export default function CompraIntensivo() {
             <Reveal>
               <div className="rounded-2xl border border-white/10 bg-navy-soft p-7 shadow-glass-dark">
                 <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-gold">
-                  Tu asiento en la cohorte en vivo
+                  Tu lugar en el grupo en vivo
                 </div>
                 <div className="mt-3 flex items-center gap-3 text-ivory/55">
                   <span className="text-lg line-through">$1,000</span>
@@ -293,24 +293,24 @@ export default function CompraIntensivo() {
               </div>
             </Reveal>
           </div>
-        </Container>
-      </Section>
 
-      {/* 7 · Reductores de riesgo */}
-      <Section tone="ivory" pad="md" texture={sectionBg('03-compra-intensivo', 8)}>
-        <Container>
-          <SectionHeader kicker="Reservamos tu confianza, no solo tu asiento" title="Si algo no encaja, no te dejamos colgado" />
-          <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
-            {RISK_REDUCERS.map((r) => (
-              <RevealItem key={r.t}>
-                <GlassCard tone="solid" className="h-full">
-                  <div className="text-2xl text-gold">{r.icon}</div>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-ivory">{r.t}</h3>
-                  <p className="mt-1 text-[14px] leading-snug text-ivory/70">{r.d}</p>
-                </GlassCard>
-              </RevealItem>
-            ))}
-          </Stagger>
+          {/* Reductores de riesgo (fusionados aquí: cuidamos tu confianza, no solo tu lugar) */}
+          <div className="mt-12">
+            <h3 className="text-center font-display text-lg font-semibold text-ivory">
+              Si algo no encaja, no te dejamos solo
+            </h3>
+            <Stagger className="mt-6 grid gap-5 md:grid-cols-3">
+              {RISK_REDUCERS.map((r) => (
+                <RevealItem key={r.t}>
+                  <GlassCard tone="solid" className="h-full">
+                    <div className="text-2xl text-gold">{r.icon}</div>
+                    <h4 className="mt-3 font-display text-base font-semibold text-ivory">{r.t}</h4>
+                    <p className="mt-1 text-[14px] leading-snug text-ivory/70">{r.d}</p>
+                  </GlassCard>
+                </RevealItem>
+              ))}
+            </Stagger>
+          </div>
         </Container>
       </Section>
 
@@ -327,10 +327,10 @@ export default function CompraIntensivo() {
       {/* 9 · CTA final */}
       <Section tone="charcoal" pad="lg" aura texture={sectionBg('03-compra-intensivo', 10)}>
         <Container width="narrow" className="text-center">
-          <DisplayHeading size="lg">Reserva tu asiento en la cohorte en vivo</DisplayHeading>
+          <DisplayHeading size="lg">Reserva tu lugar en el grupo en vivo</DisplayHeading>
           <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-ivory/70">
             Dos días para pasar de mirar listados a ejecutar con criterio. Cupo limitado por la capacidad real
-            de la cohorte.
+            del grupo en vivo.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>
@@ -350,7 +350,7 @@ export default function CompraIntensivo() {
         product={{
           name: 'Intensivo MAP-9',
           price: '$297',
-          priceNote: 'viernes + sábado · en vivo · cohorte limitada',
+          priceNote: 'viernes + sábado · en vivo · cupos limitados',
           bullets: ['2 días en vivo', 'Guía PDF del MAP-9 + 5 herramientas', 'Caso real desglosado', 'Repetición + sesión de seguimiento'],
         }}
       />

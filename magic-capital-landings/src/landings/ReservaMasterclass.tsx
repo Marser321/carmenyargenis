@@ -1,12 +1,10 @@
 import {
   Section,
   Container,
-  Kicker,
   DisplayHeading,
   SectionHeader,
   GlassCard,
   CTAButton,
-  Badge,
   Icon,
 } from '../components/primitives'
 import { Reveal, Stagger, RevealItem } from '../components/motion'
@@ -19,7 +17,7 @@ import {
   PropertyShowcase,
   CountdownTimer,
 } from '../components/blocks'
-import { Hero, LandingLayout } from '../components/shell'
+import { LandingHero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { LeadForm } from '../components/forms'
 import { MAP9_PHASES, MASTERCLASS, waLink } from '../content/brand'
@@ -27,14 +25,14 @@ import { img, MASTERCLASS_FLYER, USE_FLYER_IMAGE } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
 
 const CAMBIOS = [
-  { from: 'Adivinar qué comprar', to: 'Filtrado forense', icon: <Icon.Filter /> },
+  { from: 'Adivinar qué comprar', to: 'Filtro de seguridad', icon: <Icon.Filter /> },
   { from: 'Vaciar tus ahorros', to: 'Estructurar capital', icon: <Icon.Percent /> },
   { from: 'Contactos secretos', to: 'Portales públicos', icon: <Icon.Globe /> },
 ]
 
 const APRENDERAS = [
   'Las 9 fases del Método MAP-9 para analizar una subasta.',
-  'Cómo descartar propiedades tóxicas (filtrado forense).',
+  'Cómo descartar las propiedades problemáticas antes de comprar.',
   'Cómo fondear con crédito empresarial al 0% (APR promocional).',
   'Cómo calcular el capital total de entrada antes de pujar.',
 ]
@@ -55,8 +53,8 @@ const FAQ = [
 export default function ReservaMasterclass() {
   return (
     <LandingLayout waMessage="Hola, quiero reservar mi lugar en la masterclass gratis.">
-      {/* 1 · Hero-póster (banner + contador + formulario) */}
-      <Hero
+      {/* 1 · Hero-póster: contador arriba → H1 → datos → formulario */}
+      <LandingHero
         tone="charcoal"
         image={{
           src: img('01', '01-reserva-masterclass__hero-fundadores-trabajando.png'),
@@ -64,56 +62,41 @@ export default function ReservaMasterclass() {
           focal: '50% 35%',
           scrim: 'full',
         }}
-      >
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-          {/* Lado póster */}
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-gold/12 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold gold-hairline">
-              <Icon.Sparkles /> Masterclass gratis · en vivo
-            </span>
-            <DisplayHeading as="h1" size="xl" className="mt-4 uppercase">
-              Cómo adquirir{' '}
-              <span className="text-gold-metallic">propiedades en subasta</span>{' '}
-              <span className="block text-[0.62em] font-medium tracking-[0.04em] text-ivory/85">paso a paso</span>
-            </DisplayHeading>
-            <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-ivory/75">
-              Las dos piezas que casi nadie enseña juntas: el <strong className="text-ivory">Método MAP-9</strong>{' '}
-              para analizar y descartar propiedades antes de pujar, y cómo estructurar{' '}
-              <strong className="text-ivory">crédito empresarial al 0%</strong> (APR promocional) para fondear sin
-              liquidar tus ahorros.
-            </p>
-
-            {/* Chips de fecha/hora (estilo póster) */}
-            <div className="mt-6 flex flex-wrap gap-2.5">
+        countdown={{ targetISO: MASTERCLASS.fechaISO, label: 'La próxima clase en vivo empieza en' }}
+        kicker={
+          <span className="inline-flex items-center gap-2 self-start rounded-full bg-gold/12 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold gold-hairline">
+            <Icon.Sparkles /> Masterclass gratis · en vivo
+          </span>
+        }
+        title={
+          <span className="uppercase">
+            Cómo adquirir <span className="text-gold-metallic">propiedades en subasta</span>{' '}
+            <span className="block text-[0.62em] font-medium tracking-[0.04em] text-ivory/85">paso a paso</span>
+          </span>
+        }
+        sub={
+          <>
+            Aprende las dos piezas que casi nadie enseña juntas: el{' '}
+            <strong className="text-ivory">Método MAP-9</strong> para descartar propiedades antes de pujar, y el{' '}
+            <strong className="text-ivory">crédito empresarial al 0%</strong> (APR promocional) para comprar sin
+            vaciar tus ahorros.
+            <span className="mt-4 flex flex-wrap gap-2.5">
               <span className="inline-flex items-center gap-2 rounded-xl bg-navy-soft/70 px-3.5 py-2 text-[13px] font-medium text-ivory gold-hairline">
                 <Icon.Calendar className="text-gold" /> {MASTERCLASS.fechaLabel}
               </span>
               <span className="inline-flex items-center gap-2 rounded-xl bg-navy-soft/70 px-3.5 py-2 text-[13px] font-medium text-ivory gold-hairline">
-                <Icon.Clock className="text-gold" /> {MASTERCLASS.horaLabel} · {MASTERCLASS.zonaLabel} · {MASTERCLASS.plataforma}
+                <Icon.Clock className="text-gold" /> {MASTERCLASS.horaLabel} · {MASTERCLASS.zonaLabel}
               </span>
-            </div>
-
-            {/* Contador a fecha fija real */}
-            <CountdownTimer
-              targetISO={MASTERCLASS.fechaISO}
-              label="La próxima sesión empieza en"
-              className="mt-6"
-            />
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              <Badge tone="ivory"><Icon.Check /> En vivo</Badge>
-              <Badge tone="ivory"><Icon.Check /> En español</Badge>
-              <Badge tone="ivory"><Icon.Check /> Sin compromiso</Badge>
-            </div>
-          </div>
-
-          {/* Formulario / opcional swap por el flyer */}
+            </span>
+          </>
+        }
+        aside={
           <Reveal>
             {USE_FLYER_IMAGE ? (
               <div className="overflow-hidden rounded-2xl shadow-glass-dark gold-hairline">
                 <Img
                   src={MASTERCLASS_FLYER}
-                  alt="Flyer de la masterclass: Cómo adquirir propiedades en subasta paso a paso"
+                  alt="Flyer de la masterclass: cómo adquirir propiedades en subasta paso a paso"
                   className="aspect-[4/5] w-full"
                   kenBurns={false}
                   priority
@@ -122,15 +105,15 @@ export default function ReservaMasterclass() {
             ) : (
               <div className="rounded-2xl border border-gold/25 bg-midnight/75 p-6 shadow-gold-ring backdrop-blur-md">
                 <h2 className="font-display text-xl font-semibold text-ivory">Reserva tu cupo gratis</h2>
-                <p className="mt-1 text-[13.5px] text-ivory/60">Nombre y WhatsApp. Te enviamos el enlace de acceso.</p>
+                <p className="mt-1 text-[13.5px] text-ivory/60">Tu nombre y WhatsApp. Te enviamos el enlace de acceso.</p>
                 <div className="mt-4">
                   <LeadForm ctaLabel="Reserva tu cupo gratis" redirectTo="/l/02-gracias-reserva" tone="dark" />
                 </div>
               </div>
             )}
           </Reveal>
-        </div>
-      </Hero>
+        }
+      />
 
       {/* 2 · Qué aprenderás (problema + cambios + 9 fases, fusionado) */}
       <Section tone="ivory" pad="lg" texture={sectionBg('01-reserva-masterclass', 1)}>
@@ -188,7 +171,7 @@ export default function ReservaMasterclass() {
                 <MAP9Phases phases={MAP9_PHASES} tone="dark" />
               </Reveal>
               <p className="mt-5 rounded-xl bg-white/[0.05] px-4 py-3 text-[14px] text-ivory/70">
-                El filtrado forense (fases 5–9) es el corazón: primero, qué <strong className="text-ivory">NO</strong>{' '}
+                El filtro de seguridad (fases 5–9) es el corazón: primero, qué <strong className="text-ivory">NO</strong>{' '}
                 comprar. No prometemos resultados — te damos el <strong className="text-ivory">sistema</strong> y la{' '}
                 <strong className="text-ivory">claridad</strong> para decidir.
               </p>

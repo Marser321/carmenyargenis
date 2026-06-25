@@ -70,9 +70,7 @@ export function RoadmapTimeline({
                 'absolute -left-8 top-1 grid h-6 w-6 place-items-center rounded-full font-display text-[11px] font-semibold ring-2 transition-colors',
                 isCurrent
                   ? 'bg-gold text-midnight ring-gold/40'
-                  : dark
-                    ? 'bg-charcoal text-ivory/70 ring-white/15'
-                    : 'bg-navy-soft text-ivory/70 ring-white/15',
+                  : 'bg-navy-soft text-ivory/85 ring-white/15',
               )}
             >
               {m.n}

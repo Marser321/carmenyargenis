@@ -32,6 +32,23 @@ export function founder(file: string): string {
 export const MASTERCLASS_FLYER = '/img/01/01-reserva-masterclass__flyer-poster--4x5.png'
 export const USE_FLYER_IMAGE = false
 
+// Banner-póster por landing (fundadores / oferta) que va tras el H1 en el hero.
+// Mismo patrón de "slot de swap" que el flyer: el cliente sube el PNG a
+// public/img/<NN>/ con este nombre y, mientras no exista, <Img> muestra el
+// placeholder elegante. Ratio 4x5 (móvil-first; igual que el flyer oficial).
+export const LANDING_BANNER: Record<string, string> = {
+  '01': '/img/01/01-reserva-masterclass__banner-fundadores--4x5.png',
+  '03': '/img/03/03-compra-intensivo__banner-cohorte--4x5.png',
+  '07': '/img/07/07-autoridad-argenis__banner-fundadores--4x5.png',
+  '05': '/img/05/05-compra-mentoria__banner-fundadores--4x5.png',
+  '09': '/img/09/09-comunidad__banner-fundadores--4x5.png',
+}
+
+// Interruptor global (paralelo a USE_FLYER_IMAGE): mientras esté en false, el hero
+// NO reserva el marco del banner (evita marcos de placeholder vacíos en la demo).
+// Ponlo en true cuando existan los PNG reales en public/img/<NN>/.
+export const USE_LANDING_BANNER = false
+
 export type Ratio = '16x9' | '4x5' | '1x1' | '9x16' | '21x9' | '3x2'
 
 export const RATIO_CLASS: Record<Ratio, string> = {

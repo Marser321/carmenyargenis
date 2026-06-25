@@ -281,7 +281,7 @@ export default function GraciasReserva() {
                 </h3>
                 <p className="mt-2 flex-1 text-[14.5px] leading-snug text-ivory/70">
                   Dos días en vivo para implementar las 9 fases del método y la parte de financiamiento, con
-                  cupo limitado por cohorte.
+                  cupos limitados.
                 </p>
                 <div className="mt-5">
                   <CTAButton to="/l/03-intensivo" variant="secondary" size="md" icon={<Icon.ArrowRight />}>

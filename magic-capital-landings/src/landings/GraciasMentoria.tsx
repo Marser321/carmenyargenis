@@ -206,8 +206,8 @@ export default function GraciasMentoria() {
                 heading: 'Qué haremos',
                 variant: 'positive',
                 items: [
-                  'Aplicar MAP-9 para filtrar y descartar propiedades tóxicas antes de pujar.',
-                  'Construir contigo un plan de due diligence para tu condado.',
+                  'Aplicar el MAP-9 para filtrar y descartar propiedades problemáticas antes de pujar.',
+                  'Construir contigo, paso a paso, un plan de revisión para tu condado.',
                   'Estructurar tu crédito empresarial / financiamiento 0% con Carmen, evaluándolo con criterio.',
                   'Acompañar tus decisiones con sesiones estructuradas y soporte por canal.',
                 ],

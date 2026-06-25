@@ -38,7 +38,7 @@ export default function HubPage() {
             </DisplayHeading>
             <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-ivory/75">
               Las 8 landings del recorrido —de la autoridad a la masterclass, la comunidad, el intensivo y la
-              mentoría— construidas como código, con imágenes reales, animación sobria y compliance embebido.
+              mentoría— construidas como código, con imágenes reales, animación sobria y hecho según las reglas.
               Elige una para recorrerla.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">

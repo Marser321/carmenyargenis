@@ -52,7 +52,7 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <p className="mt-4 text-[12px] leading-snug text-ivory/45">
+            <p className="mt-4 text-[12px] leading-snug text-ivory/60">
               No somos asesores de inversión registrados, abogados ni asesores fiscales.
             </p>
           </div>
@@ -61,7 +61,7 @@ export function Footer() {
         <div className="mt-10">
           <Disclaimer tone="dark" />
         </div>
-        <p className="mt-4 text-center text-[11.5px] text-ivory/40">{DEMO_NOTE}</p>
+        <p className="mt-4 text-center text-[11.5px] text-ivory/55">{DEMO_NOTE}</p>
       </Container>
     </footer>
   )

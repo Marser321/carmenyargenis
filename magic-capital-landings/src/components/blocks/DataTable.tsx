@@ -79,7 +79,7 @@ export function DataTable({
                         : dark
                           ? 'text-ivory/85'
                           : 'text-ivory/85',
-                      r.struck && 'text-ivory/45 line-through',
+                      r.struck && 'text-ivory/55 line-through',
                     )}
                   >
                     {r[c.key]}

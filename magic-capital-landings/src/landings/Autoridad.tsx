@@ -18,7 +18,7 @@ import {
   PortalMock,
   PropertyShowcase,
 } from '../components/blocks'
-import { Hero, LandingLayout } from '../components/shell'
+import { LandingHero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { FOUNDERS, waLink } from '../content/brand'
 import { img, founder } from '../content/images'
@@ -35,7 +35,7 @@ const PROBLEMAS = [
   {
     icon: <Icon.Filter />,
     t: 'La oportunidad real es menos visible',
-    d: 'Cuando alguien no paga los impuestos de su propiedad, el condado la subasta (tax deed). Activos subvalorados, proceso público — pero lleno de trampas si no sabes filtrar.',
+    d: 'Cuando alguien no paga los impuestos de su casa, el condado la subasta (tax deed). Precios por debajo del mercado y proceso público — pero con trampas si no sabes qué mirar.',
   },
   {
     icon: <Icon.Percent />,
@@ -47,14 +47,14 @@ const PROBLEMAS = [
 const PERICIA = [
   'Análisis en vivo de portales públicos de subastas del condado: calendarios de venta, números de caso, listados.',
   'Hojas de cálculo con márgenes conservadores: puja + fees + title + contingencia, no proyecciones infladas.',
-  'Discusión abierta de riesgos: redención, gravámenes sobrevivientes, notificación y fees que varían por estado y condado.',
+  'Hablamos sin rodeos de los riesgos reales: deudas viejas pegadas a la propiedad, plazos y costos que cambian según el estado y el condado.',
 ]
 
 export default function Autoridad() {
   return (
     <LandingLayout waMessage="Hola, vi la página de Argenis y Carmen y quiero saber más.">
       {/* 1 · Hero editorial */}
-      <Hero
+      <LandingHero
         tone="charcoal"
         image={{
           src: img('07', '07-autoridad-argenis__hero-fundadores-espacio-titular.png'),
@@ -62,28 +62,29 @@ export default function Autoridad() {
           focal: '50% 30%',
           scrim: 'left',
         }}
-      >
-        <div className="max-w-2xl">
-          <Kicker>Magic Capital · {FOUNDERS.argenis.name} &amp; {FOUNDERS.carmen.name}</Kicker>
-          <DisplayHeading as="h1" size="xl" className="mt-4 text-ivory">
-            Ejecutores, no influencers. Pujamos en los mismos condados que te enseñamos.
-          </DisplayHeading>
-          <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
-            Operamos subastas tax deed reales en Florida y Pennsylvania, y financiamos con criterio. Te
-            mostramos el proceso público —incluido qué <strong className="text-ivory">NO</strong> deberías
+        kicker={<Kicker>Magic Capital · {FOUNDERS.argenis.name} &amp; {FOUNDERS.carmen.name}</Kicker>}
+        title={<>Ejecutores, no influencers. Pujamos en los mismos condados que te enseñamos.</>}
+        sub={
+          <>
+            Operamos subastas tax deed (subastas por impuestos) reales en Florida y Pennsylvania, y financiamos
+            con criterio. Te mostramos el proceso público —incluido qué <strong className="text-ivory">NO</strong>{' '}
             comprar— antes de que arriesgues un dólar.
-          </p>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <span className="mt-3 block text-[13px] text-ivory/55">
+              Gratis · en vivo · en español. Sin pagos, sin trucos.
+            </span>
+          </>
+        }
+        actions={
+          <>
             <CTAButton to="/l/01-reserva" icon={<Icon.ArrowRight />} magnetic>
               Ver la masterclass gratis
             </CTAButton>
             <CTAButton href="https://instagram.com" variant="ghost">
               Seguir su trabajo
             </CTAButton>
-          </div>
-          <p className="mt-4 text-[13px] text-ivory/55">Gratis · en vivo · en español. Sin pagos, sin trucos.</p>
-        </div>
-      </Hero>
+          </>
+        }
+      />
 
       {/* 2 · Misión + el problema del ICP (fusionados) */}
       <Section tone="ivory" pad="lg" texture={sectionBg('07-autoridad-argenis', 1)}>
@@ -91,7 +92,7 @@ export default function Autoridad() {
           <SectionHeader
             kicker="Por qué hacemos esto · hay otra puerta"
             title="No vendemos sueños. Enseñamos un proceso público y verificable."
-            intro="Para muchos latinos en EE.UU., comprar propiedad se siente imposible: los precios y las tasas de la hipoteca tradicional los dejan fuera. Nuestra misión es abrir el acceso al mercado secundario de liquidaciones fiscales —donde ocurre la transferencia real de patrimonio— y enseñar a entrar con método y capital responsable, no con suerte."
+            intro="Para muchos latinos en EE.UU., comprar una casa se siente imposible: los precios y las tasas de la hipoteca los dejan fuera. Te abrimos otra puerta —las subastas por impuestos— y te enseñamos a entrar con método y criterio, no con suerte."
           />
           <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {PROBLEMAS.map((p) => (
@@ -147,14 +148,14 @@ export default function Autoridad() {
                   left={{
                     eyebrow: 'La oportunidad · Argenis',
                     title: 'Método MAP-9',
-                    sub: '9 fases para analizar y depurar subastas tax deed. El filtrado forense descarta propiedades tóxicas antes de pujar. Primero, qué NO comprar.',
+                    sub: '9 fases para analizar y filtrar subastas tax deed. El filtro de seguridad descarta propiedades problemáticas antes de pujar. Primero, qué NO comprar.',
                   }}
                   right={{
                     eyebrow: 'El capital · Carmen',
                     title: 'Crédito empresarial / 0%',
                     sub: 'Estructurar tu empresa y perfil de crédito para fondear con líneas al 0% (APR promocional), con criterio: elegibilidad, garantía personal, salida.',
                   }}
-                  center="Activos subvalorados + arquitectura de liquidez para fondearlos."
+                  center="Propiedades baratas en subasta + el dinero para comprarlas, sin vaciar tus ahorros."
                 />
               </div>
             </Container>
@@ -258,7 +259,7 @@ export default function Autoridad() {
               lines={[
                 { label: 'Adjudicación en subasta', amount: '$7,500', hint: 'La puja abre en la deuda fiscal' },
                 { label: 'Fees del condado', amount: '$820' },
-                { label: 'Title work / saneamiento', amount: '$1,500' },
+                { label: 'Revisión del título', amount: '$1,500' },
                 { label: 'Contingencia', amount: '$1,800' },
               ]}
               total="$11,620"

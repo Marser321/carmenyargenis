@@ -52,7 +52,7 @@ const PASOS: readonly Paso[] = [
   {
     icon: <Icon.Calendar />,
     t: 'Agenda la fecha',
-    d: `Tu cohorte es el ${FECHA_INTENSIVO}. Anótala y bloquea el calendario completo: el Intensivo es en vivo y se aprovecha asistiendo.`,
+    d: `Tu grupo empieza el ${FECHA_INTENSIVO}. Anótalo y bloquea el calendario completo: el Intensivo es en vivo y se aprovecha asistiendo.`,
   },
   {
     icon: <Icon.Sparkles />,
@@ -77,7 +77,7 @@ const MENTORIA_BULLETS: readonly string[] = [
 const FAQ: readonly QA[] = [
   {
     q: '¿Cuándo es el Intensivo?',
-    a: `Tu cohorte está programada para el ${FECHA_INTENSIVO}. La fecha, la hora y el enlace de acceso te llegan por correo y por el grupo de WhatsApp. Es en vivo: te recomendamos reservar el bloque completo en tu calendario.`,
+    a: `Tu grupo está programado para el ${FECHA_INTENSIVO}. La fecha, la hora y el enlace de acceso te llegan por correo y por el grupo de WhatsApp. Es en vivo: te recomendamos reservar el bloque completo en tu calendario.`,
   },
   {
     q: '¿Queda grabado?',

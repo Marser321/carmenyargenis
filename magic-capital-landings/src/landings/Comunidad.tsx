@@ -12,11 +12,11 @@ import {
 import { Reveal, Stagger, RevealItem } from '../components/motion'
 import { FunnelMap, YesNoColumns, FAQAccordion } from '../components/blocks'
 import type { QA } from '../components/blocks'
-import { Hero, LandingLayout } from '../components/shell'
+import { LandingHero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { CheckoutMock } from '../components/forms'
 import { FUNNEL, waLink } from '../content/brand'
-import { img } from '../content/images'
+import { img, LANDING_BANNER } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
 
 const INCLUYE = [
@@ -81,8 +81,8 @@ export default function Comunidad() {
 
   return (
     <LandingLayout waMessage="Hola, tengo dudas sobre la Comunidad Magic Capital ($27/mes) antes de suscribirme.">
-      {/* 1 · Hero */}
-      <Hero
+      {/* 1 · Hero (sin contador: la comunidad es mensual, sin fecha límite) */}
+      <LandingHero
         tone="ivory"
         image={{
           src: '/img/09/09-comunidad__hero-pertenencia-sobria.png',
@@ -90,18 +90,21 @@ export default function Comunidad() {
           focal: '50% 35%',
           scrim: 'left',
         }}
-      >
-        <div className="max-w-2xl">
-          <Kicker>Comunidad Magic Capital · membresía mensual · en español</Kicker>
-          <DisplayHeading as="h1" size="xl" className="mt-4">
-            Sigue avanzando, con criterio y en comunidad
-          </DisplayHeading>
-          <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
-            Por $27/mes te mantienes cerca de las dos piezas que casi nadie enseña juntas: la
-            oportunidad (Método MAP-9 de Argenis) y el capital (crédito empresarial 0% de Carmen).
-            Contenido nuevo, preguntas respondidas, gente recorriendo el mismo camino.
-          </p>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+        banner={{ src: LANDING_BANNER['09'], alt: 'Comunidad Magic Capital — membresía mensual', ratio: '4x5' }}
+        kicker={<Kicker>Comunidad Magic Capital · membresía mensual · en español</Kicker>}
+        title={<>Sigue avanzando, con criterio y en comunidad</>}
+        sub={
+          <>
+            Por $27/mes te mantienes cerca de las dos piezas que casi nadie enseña juntas: la oportunidad
+            (Método MAP-9 de Argenis) y el capital (crédito empresarial 0% de Carmen). Contenido nuevo, tus
+            preguntas respondidas y gente que recorre el mismo camino.
+            <span className="mt-3 block text-[13px] text-ivory/55">
+              $27/mes · cancela cuando quieras · sin compromiso.
+            </span>
+          </>
+        }
+        actions={
+          <>
             <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />}>
               {FUNNEL.comunidad.cta}
             </CTAButton>
@@ -112,12 +115,9 @@ export default function Comunidad() {
             >
               Escríbenos por WhatsApp
             </CTAButton>
-          </div>
-          <p className="mt-4 text-[13px] text-ivory/55">
-            $27/mes · cancela cuando quieras · sin compromiso.
-          </p>
-        </div>
-      </Hero>
+          </>
+        }
+      />
 
       {/* 2 · Qué incluye */}
       <Section tone="ivory" pad="lg" texture={sectionBg('09-comunidad', 1)}>
@@ -125,7 +125,7 @@ export default function Comunidad() {
           <SectionHeader
             kicker="Qué incluye"
             title="Acompañamiento mensual, sin promesas"
-            intro="Cinco cosas concretas que recibes cada mes. Todo es proceso y educación: te ayudamos a mantener el ritmo y el criterio, no a perseguir un resultado prometido."
+            intro="Cinco cosas concretas cada mes. Todo es educación y acompañamiento — para mantener el ritmo y el criterio, sin promesas de dinero."
           />
           <div className="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <Reveal>

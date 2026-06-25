@@ -43,6 +43,11 @@ export const CONTACT = {
 export const COHORTE = {
   /** Fecha y hora del Intensivo (viernes + sábado). */
   intensivoFecha: 'viernes 10 y sábado 11 de julio de 2026, 10:00 a.m. (hora del Este)',
+  /** Instante absoluto de inicio del Intensivo (ISO con offset), para el contador.
+   *  ⚠ PLACEHOLDER — sustituir por el inicio REAL de la próxima cohorte (debe
+   *  coincidir con `intensivoFecha`). Derivado del label: vie 10 jul 2026, 10:00 a.m.
+   *  hora del Este = EDT (UTC−04:00). Al pasar, el contador muestra estado grácil. */
+  intensivoISO: '2026-07-10T10:00:00-04:00',
   /** Horario de atención de soporte. */
   soporteHorario: 'lunes a viernes, 9:00 a.m. a 6:00 p.m. (hora del Este)',
 } as const
@@ -65,6 +70,36 @@ export const MASTERCLASS = {
 /** Construye un enlace wa.me con mensaje precargado. */
 export function waLink(message: string): string {
   return `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(message)}`
+}
+
+// Deadlines por ruta — fuente única para el contador del hero Y la barra superior
+// (UrgencyBar). Solo van aquí las ofertas con FECHA REAL (masterclass, intensivo);
+// las atemporales (mentoría, comunidad) y las gracias NO tienen entrada → sin
+// contador ni barra (evita urgencia falsa, regla de marca). Compliance: el conteo
+// apunta a un instante fijo, sin reinicio.
+export type Deadline = {
+  targetISO: string
+  /** Texto de la barra superior (p. ej. "Masterclass gratis · Martes 14 de julio"). */
+  barLabel: string
+  /** CTA de la barra. */
+  barCta: { to: string; label: string }
+  /** Texto que precede al contador en el hero (p. ej. "La próxima sesión empieza en"). */
+  heroLabel: string
+}
+
+export const DEADLINES: Record<string, Deadline> = {
+  '/l/01-reserva': {
+    targetISO: MASTERCLASS.fechaISO,
+    barLabel: `Masterclass gratis · ${MASTERCLASS.fechaLabel}`,
+    barCta: { to: '/l/01-reserva', label: 'Reservar gratis' },
+    heroLabel: 'La próxima clase en vivo empieza en',
+  },
+  '/l/03-intensivo': {
+    targetISO: COHORTE.intensivoISO,
+    barLabel: 'Intensivo MAP-9 · cupo limitado',
+    barCta: { to: '/l/03-intensivo', label: 'Ver el intensivo' },
+    heroLabel: 'El intensivo en vivo empieza en',
+  },
 }
 
 // Las 9 fases del Método MAP-9 — ORDEN OPERATIVO NUEVO (doc 2026-06-23).
@@ -109,7 +144,7 @@ export const FUNNEL: Record<string, Tier> = {
     id: 'intensivo',
     name: 'Intensivo MAP-9',
     price: '$297',
-    priceNote: 'viernes + sábado · en vivo · cupo limitado por cohorte',
+    priceNote: 'viernes + sábado · en vivo · cupos limitados',
     cta: 'Reservar mi asiento del intensivo ($297)',
   },
   mentoria: {

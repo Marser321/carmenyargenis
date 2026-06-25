@@ -13,10 +13,10 @@ import {
 import { Reveal, Stagger, RevealItem, PinnedSequence } from '../components/motion'
 import { RoadmapTimeline, YesNoColumns, FAQAccordion, DataTable } from '../components/blocks'
 import type { RoadmapModule } from '../components/blocks'
-import { Hero, LandingLayout } from '../components/shell'
+import { LandingHero, LandingLayout } from '../components/shell'
 import { CheckoutMock } from '../components/forms'
 import { waLink } from '../content/brand'
-import { img } from '../content/images'
+import { img, LANDING_BANNER } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
 import { FIGURE_LABELS } from '../content/compliance'
 
@@ -85,8 +85,8 @@ export default function CompraMentoria() {
 
   return (
     <LandingLayout waMessage="Hola, quiero saber más sobre la Mentoría 1:1 ($3,997).">
-      {/* 1 · Hero */}
-      <Hero
+      {/* 1 · Hero: H1 → banner → CTAs (sin contador: 1:1 no tiene fecha fija) */}
+      <LandingHero
         tone="charcoal"
         image={{
           src: img('05', '05-compra-mentoria__hero-fundadores-revisando-portal.png'),
@@ -94,28 +94,30 @@ export default function CompraMentoria() {
           focal: '50% 35%',
           scrim: 'left',
         }}
-      >
-        <div className="max-w-2xl">
-          <Kicker>Mentoría 1:1 · Magic Capital · acompañamiento privado</Kicker>
-          <DisplayHeading as="h1" size="xl" className="mt-4">
-            Acompañamiento 1:1 hasta tu primera subasta — con criterio, sin improvisar.
-          </DisplayHeading>
-          <p className="mt-5 text-[17px] leading-relaxed text-ivory/75">
-            No vendemos un curso para ver solo. Trabajamos contigo, paso a paso, en sesiones privadas 1:1:
-            Argenis te guía por el MAP-9 y tu primera operación tax deed; Carmen estructura tu empresa y tu
-            crédito empresarial 0% para fondearla. Dos expertos, tu caso, hasta tu primera subasta.
-          </p>
-          <p className="mt-3 text-[14px] text-ivory/55">Inversión: $3,997 (pago único; planes de pago a definir).</p>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+        banner={{ src: LANDING_BANNER['05'], alt: 'Mentoría 1:1 Magic Capital con Argenis y Carmen', ratio: '4x5' }}
+        kicker={<Kicker>Mentoría 1:1 · Magic Capital · acompañamiento privado</Kicker>}
+        title={<>Acompañamiento 1:1 hasta tu primera subasta — con criterio, sin improvisar.</>}
+        sub={
+          <>
+            No es un curso para ver solo. Trabajamos contigo en sesiones privadas 1:1: Argenis te guía por el
+            Método MAP-9 y tu primera subasta tax deed; Carmen estructura tu empresa y tu crédito empresarial 0%
+            para fondearla.
+            <span className="mt-3 block text-[14px] text-ivory/60">
+              Inversión: $3,997 (pago único; planes de pago a definir).
+            </span>
+          </>
+        }
+        actions={
+          <>
             <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>
               Empezar mi mentoría
             </CTAButton>
             <CTAButton href={waLink('Hola, ¿podríamos agendar una llamada de diagnóstico de la mentoría?')} variant="ghost">
               ¿No estás seguro? Agenda una llamada de diagnóstico
             </CTAButton>
-          </div>
-        </div>
-      </Hero>
+          </>
+        }
+      />
 
       {/* 2 · Qué incluye — 3 módulos (PINNED, nutrido con el roadmap de 12 semanas) */}
       <Section
@@ -156,7 +158,7 @@ export default function CompraMentoria() {
       {/* 3 · Salvaguarda — para ti / no para ti */}
       <Section tone="ivory" pad="lg" texture={sectionBg('05-compra-mentoria', 2)}>
         <Container>
-          <SectionHeader kicker="Salvaguarda de confianza" title="Para ti si… / No para ti si…" />
+          <SectionHeader kicker="Para que decidas con confianza" title="Para ti si… / No para ti si…" />
           <div className="mt-10">
             <YesNoColumns
               left={{
@@ -199,7 +201,7 @@ export default function CompraMentoria() {
             tone="dark"
             kicker="Lo que debes saber antes de pagar"
             title="Reducimos la probabilidad de error; no prometemos que ganes"
-            intro="El capital invertido en subastas tax deed puede perderse total o parcialmente. La mentoría no elimina ese riesgo: funciona como un seguro analítico contra errores costosos —propiedades tóxicas, gravámenes sobrevivientes, pujas sin tope—, no como una garantía de ganancia."
+            intro="El dinero que inviertes en una subasta tax deed (subasta por impuestos) puede perderse en parte o por completo. La mentoría no elimina ese riesgo: ayuda a evitar errores caros —propiedades problemáticas, deudas viejas pegadas a la propiedad, pujar sin un tope claro—, pero no es una garantía de ganancia."
           />
           <Stagger className="mt-8 space-y-3">
             {NO_PROMETEMOS.map((n) => (

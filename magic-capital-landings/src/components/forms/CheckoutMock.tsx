@@ -136,7 +136,7 @@ export function CheckoutMock({
                     Pagar {product.price} (simulado)
                   </CTAButton>
                   <p className="mt-2 text-center text-[12px] text-ivory/55">
-                    Cupo limitado por capacidad real de la cohorte — sin urgencia artificial.
+                    Cupos limitados por el tamaño real del grupo — sin urgencia artificial.
                   </p>
                 </div>
               </div>
