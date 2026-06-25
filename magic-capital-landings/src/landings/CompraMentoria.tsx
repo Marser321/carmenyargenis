@@ -66,14 +66,13 @@ const VALUE_STACK = [
 ]
 
 const NO_PROMETEMOS = [
-  'No prometemos que recuperes la inversión en tu primera operación.',
-  'No prometemos resultados, montos ni plazos — dependen del mercado, el condado y tu ejecución.',
+  'No prometemos resultados, montos, plazos ni recuperar la inversión — dependen del mercado, el condado y tu ejecución.',
   'No prometemos aprobación de crédito, límites ni un "título limpio".',
   'No usamos cuentas regresivas ni urgencia fabricada.',
 ]
 
 const FAQ = [
-  { q: '¿Por qué $3,997?', a: 'Son sesiones privadas 1:1 con dos expertos (Argenis y Carmen), un plan de inversión y análisis de propiedades a tu caso, acompañamiento en tu crédito empresarial 0% y, sobre todo, vamos contigo hasta tu primera subasta. Programas comparables en inglés cuestan $6k–$19k y muchas veces no son 1:1.' },
+  { q: '¿Por qué $3,997?', a: 'Sesiones privadas 1:1 con Argenis y Carmen, plan de inversión y análisis a tu caso, acompañamiento en tu crédito 0% y vamos contigo hasta tu primera subasta. Programas comparables en inglés cuestan $6k–$19k y rara vez son 1:1.' },
   { q: '¿Hay garantía?', a: 'Nuestro compromiso está atado a hitos de ejecución (los 3 módulos), no a resultados de mercado. Lo explicamos en la sección de compromiso.' },
   { q: '¿Puedo pagar en cuotas?', a: 'El pago único es $3,997. Si habilitamos planes de pago, son pagos fraccionados de la mentoría —sin crédito ni interés de nuestra parte—; pregúntanos los montos vigentes por WhatsApp.' },
   { q: '¿Y si no califico?', a: 'Durante el diagnóstico podemos concluir que aún no es tu momento; si es así, te lo decimos y exploramos opciones (Intensivo MAP-9, Comunidad, o esperar a tener reservas).' },
@@ -99,9 +98,8 @@ export default function CompraMentoria() {
         title={<>Acompañamiento 1:1 hasta tu primera subasta — con criterio, sin improvisar.</>}
         sub={
           <>
-            No es un curso para ver solo. Trabajamos contigo en sesiones privadas 1:1: Argenis te guía por el
-            Método MAP-9 y tu primera subasta tax deed; Carmen estructura tu empresa y tu crédito empresarial 0%
-            para fondearla.
+            Sesiones privadas 1:1: Argenis te guía por el Método MAP-9 y tu primera subasta tax deed; Carmen
+            estructura tu empresa y tu crédito empresarial 0% para fondearla.
             <span className="mt-3 block text-[14px] text-ivory/60">
               Inversión: $3,997 (pago único; planes de pago a definir).
             </span>
@@ -134,7 +132,7 @@ export default function CompraMentoria() {
             tone="dark"
             kicker="Qué incluye"
             title="3 módulos, sesiones privadas 1:1"
-            intro="El camino completo, módulo a módulo. Argenis lleva la oportunidad; Carmen, el capital."
+            intro="Argenis lleva la oportunidad; Carmen, el capital."
           />
         </Container>
         <PinnedSequence count={MODULES.length} vhPerStep={70}>
@@ -147,9 +145,8 @@ export default function CompraMentoria() {
         <Container width="narrow">
           <Reveal>
             <p className="mt-4 rounded-xl bg-white/[0.05] px-4 py-3 text-[13.5px] text-ivory/70">
-              Soporte: respuesta por WhatsApp en máx. 24 h hábiles (L–V), grabación de todas tus sesiones 1:1 y
-              acceso a la Comunidad Magic Capital. El soporte corre hasta el hito de tu primera operación, no
-              para siempre.
+              Soporte: WhatsApp en máx. 24 h hábiles (L–V), grabación de tus sesiones 1:1 y acceso a la
+              Comunidad Magic Capital — hasta el hito de tu primera operación, no para siempre.
             </p>
           </Reveal>
         </Container>
@@ -201,7 +198,7 @@ export default function CompraMentoria() {
             tone="dark"
             kicker="Lo que debes saber antes de pagar"
             title="Reducimos la probabilidad de error; no prometemos que ganes"
-            intro="El dinero que inviertes en una subasta tax deed (subasta por impuestos) puede perderse en parte o por completo. La mentoría no elimina ese riesgo: ayuda a evitar errores caros —propiedades problemáticas, deudas viejas pegadas a la propiedad, pujar sin un tope claro—, pero no es una garantía de ganancia."
+            intro="El dinero en una subasta tax deed (subasta por impuestos) puede perderse en parte o del todo. La mentoría no lo elimina: ayuda a evitar errores caros —propiedades problemáticas, deudas viejas pegadas a la propiedad, pujar sin tope—, pero no es una garantía de ganancia."
           />
           <Stagger className="mt-8 space-y-3">
             {NO_PROMETEMOS.map((n) => (
@@ -275,7 +272,7 @@ export default function CompraMentoria() {
             tone="dark"
             kicker="Nuestro compromiso"
             title="Atado a tu ejecución, no a tu resultado"
-            intro="Si completas los hitos de los 3 módulos —diagnóstico (M1), 9 fases aplicadas a tu caso (M2) y tu plan de capital con preparación de tu primera subasta (M3)—, asistiendo a tus sesiones 1:1, y aun así sientes que no recibiste el acompañamiento prometido…"
+            intro="Si completas los hitos de los 3 módulos asistiendo a tus sesiones 1:1, y aun así sientes que no recibiste el acompañamiento prometido…"
           />
           {/*
             ⚠ COMPLIANCE: validar la REDACCIÓN EXACTA de este remedio con asesoría legal

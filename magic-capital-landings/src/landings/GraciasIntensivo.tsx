@@ -41,23 +41,23 @@ const PASOS: readonly Paso[] = [
   {
     icon: <Icon.Document />,
     t: 'Revisa tu correo',
-    d: 'En minutos te llega el acceso completo al área de miembros. Si no lo ves, revisa spam o promociones y márcalo como seguro.',
+    d: 'En minutos te llega el acceso al área de miembros. Si no lo ves, revisa spam.',
   },
   {
     icon: <Icon.Whatsapp />,
     t: 'Únete al grupo de WhatsApp',
-    d: 'Ahí van los recordatorios, el enlace de la sesión en vivo y el soporte rápido entre alumnos del Intensivo.',
+    d: 'Recordatorios, el enlace de la sesión en vivo y soporte entre alumnos del Intensivo.',
     wa: true,
   },
   {
     icon: <Icon.Calendar />,
     t: 'Agenda la fecha',
-    d: `Tu grupo empieza el ${FECHA_INTENSIVO}. Anótalo y bloquea el calendario completo: el Intensivo es en vivo y se aprovecha asistiendo.`,
+    d: `Tu grupo empieza el ${FECHA_INTENSIVO}. Bloquea el calendario: el Intensivo es en vivo y se aprovecha asistiendo.`,
   },
   {
     icon: <Icon.Sparkles />,
     t: 'Encuentra tus 5 bonos',
-    d: 'En el área de miembros ya tienes tus recursos de apoyo: plantillas, checklists y materiales para acompañar cada fase del método.',
+    d: 'Plantillas, checklists y materiales para cada fase del método — ya en el área de miembros.',
   },
 ]
 
@@ -119,8 +119,7 @@ export default function GraciasIntensivo() {
             Tu lugar está reservado. El acceso completo llega a tu correo en minutos.
           </p>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ivory/60">
-            Tomaste una buena decisión: aprenderás a entrar en tax deed con criterio antes de arriesgar un
-            dólar.
+            Aprenderás a entrar en tax deed con criterio antes de arriesgar un dólar.
           </p>
           <div className="mt-7">
             <Badge tone="ivory">
@@ -182,9 +181,8 @@ export default function GraciasIntensivo() {
                   Tus 5 bonos ya están adentro
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-ivory/70">
-                  Al entrar al área de miembros encontrarás los recursos que acompañan cada fase del método:
-                  plantillas para tus números, checklists de filtrado y materiales de apoyo. Están listos
-                  para usarse desde el primer día.
+                  Recursos para cada fase del método: plantillas para tus números, checklists de filtrado
+                  y materiales de apoyo. Listos desde el primer día.
                 </p>
               </div>
             </div>
@@ -238,10 +236,9 @@ export default function GraciasIntensivo() {
                 ¿Quieres acompañamiento personalizado hasta tu primera subasta?
               </DisplayHeading>
               <p className="mt-4 text-[15.5px] leading-relaxed text-ivory/75">
-                El Intensivo te da el método completo para empezar por tu cuenta. Algunos alumnos prefieren
-                hacerlo acompañados: revisar TUS condados, TUS números y TU primera puja con nosotros, paso a
-                paso. Eso es la Mentoría 1:1: tres módulos de trabajo directo con {FOUNDERS.argenis.short} y{' '}
-                {FOUNDERS.carmen.short}.
+                El Intensivo te da el método completo para empezar solo. Si prefieres ir acompañado —revisar
+                TUS condados, TUS números y TU primera puja con nosotros— eso es la Mentoría 1:1: tres módulos
+                con {FOUNDERS.argenis.short} y {FOUNDERS.carmen.short}.
               </p>
 
               <ul className="mt-6 space-y-3">

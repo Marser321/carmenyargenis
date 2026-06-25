@@ -21,7 +21,7 @@ import { LandingHero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { LeadForm } from '../components/forms'
 import { MAP9_PHASES, MASTERCLASS, waLink } from '../content/brand'
-import { img, MASTERCLASS_FLYER, USE_FLYER_IMAGE } from '../content/images'
+import { img, MASTERCLASS_FLYER, USE_FLYER_IMAGE, LANDING_BANNER } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
 
 const CAMBIOS = [
@@ -44,8 +44,8 @@ const QUE_ESPERAR = [
 ]
 
 const FAQ = [
-  { q: '¿Esto es una estafa?', a: 'Tienes razón en dudar. Por eso te mostramos el proceso público del condado: calendarios, números de caso y listados que cualquiera puede verificar. Exigimos que desconfíes.' },
-  { q: '¿Cuánto dinero necesito?', a: 'Para operar con criterio solemos hablar de un capital de entrada razonable (puja + fees + title + contingencia). En la masterclass te enseñamos a estimarlo; no te pediremos pujar por intuición.' },
+  { q: '¿Esto es una estafa?', a: 'Tienes razón en dudar. Te mostramos el proceso público del condado —calendarios, números de caso, listados verificables por cualquiera. Exigimos que desconfíes.' },
+  { q: '¿Cuánto dinero necesito?', a: 'Hablamos de un capital de entrada razonable (puja + fees + revisión del título + contingencia). En la masterclass te enseñamos a estimarlo; nunca a pujar por intuición.' },
   { q: '¿Necesito inglés o papeles?', a: 'Todo es en español neutro. Es una sesión educativa sobre un proceso público; para operar y estructurar crédito, los requisitos varían por estado, condado y emisor, y siempre recomendamos verificación local.' },
   { q: '¿Queda grabada?', a: 'Es una experiencia en vivo. Si habilitamos una repetición, te avisamos por WhatsApp y correo.' },
 ]
@@ -63,6 +63,7 @@ export default function ReservaMasterclass() {
           scrim: 'full',
         }}
         countdown={{ targetISO: MASTERCLASS.fechaISO, label: 'La próxima clase en vivo empieza en' }}
+        banner={{ src: LANDING_BANNER['01'], alt: 'Masterclass gratis — Cómo adquirir propiedades en subasta, paso a paso, con Argenis y Carmen', ratio: '4x5' }}
         kicker={
           <span className="inline-flex items-center gap-2 self-start rounded-full bg-gold/12 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold gold-hairline">
             <Icon.Sparkles /> Masterclass gratis · en vivo
@@ -76,8 +77,8 @@ export default function ReservaMasterclass() {
         }
         sub={
           <>
-            Aprende las dos piezas que casi nadie enseña juntas: el{' '}
-            <strong className="text-ivory">Método MAP-9</strong> para descartar propiedades antes de pujar, y el{' '}
+            Las dos piezas que casi nadie enseña juntas: el{' '}
+            <strong className="text-ivory">Método MAP-9</strong> para filtrar antes de pujar, y el{' '}
             <strong className="text-ivory">crédito empresarial al 0%</strong> (APR promocional) para comprar sin
             vaciar tus ahorros.
             <span className="mt-4 flex flex-wrap gap-2.5">
@@ -121,7 +122,6 @@ export default function ReservaMasterclass() {
           <SectionHeader
             kicker="De adivinar a decidir con criterio"
             title="La hipoteca tradicional se cierra. Te mostramos la otra puerta."
-            intro="La transferencia real de patrimonio ocurre en el mercado secundario de liquidaciones fiscales. Aquí no se adivina: se filtra, se verifica y se financia con método."
           />
 
           {/* Tres cambios */}

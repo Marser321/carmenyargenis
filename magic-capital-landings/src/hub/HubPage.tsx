@@ -37,9 +37,8 @@ export default function HubPage() {
               El funnel completo de Magic Capital, en un solo lugar.
             </DisplayHeading>
             <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-ivory/75">
-              Las 8 landings del recorrido —de la autoridad a la masterclass, la comunidad, el intensivo y la
-              mentoría— construidas como código, con imágenes reales, animación sobria y hecho según las reglas.
-              Elige una para recorrerla.
+              Las 8 landings del recorrido: de la autoridad a la masterclass, la comunidad, el intensivo y la
+              mentoría. Elige una para recorrerla.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Badge tone="ivory"><Icon.Check /> 8 landings</Badge>
@@ -161,9 +160,8 @@ export default function HubPage() {
                 <Kicker>Proyecto hermano</Kicker>
                 <h2 className="mt-2 font-display text-2xl font-semibold">Deck de la masterclass</h2>
                 <p className="mt-2 max-w-xl text-[14.5px] leading-snug text-ivory/70">
-                  La presentación en vivo de la masterclass (23 slides, 5 actos) corre como app aparte. Inícialo
-                  con <code className="rounded bg-white/10 px-1.5 py-0.5 text-[13px]">npm run dev</code> en{' '}
-                  <code className="rounded bg-white/10 px-1.5 py-0.5 text-[13px]">magic-capital-deck</code> (puerto 5180).
+                  La presentación en vivo de la masterclass (23 slides, 5 actos) corre como app aparte, en el
+                  puerto 5180.
                 </p>
               </div>
               <CTAButton href={CONTACT.deckUrl} variant="light" icon={<Icon.ArrowUpRight />}>

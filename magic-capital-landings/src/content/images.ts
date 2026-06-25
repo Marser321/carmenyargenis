@@ -49,6 +49,20 @@ export const LANDING_BANNER: Record<string, string> = {
 // Ponlo en true cuando existan los PNG reales en public/img/<NN>/.
 export const USE_LANDING_BANNER = false
 
+// Banner de VIDEO en el hero (entre el H1 y el CTA). El flyer animado de la
+// masterclass, en dos orientaciones: vertical en móvil, horizontal en desktop.
+// `BannerVideoCycle` reproduce el del dispositivo una vez, se queda 15 s en el
+// último fotograma (estático) y reinicia. Mismo video en todas las landings
+// principales por ahora; cambiar la fuente por landing cuando existan otros.
+export const BANNER_VIDEO = {
+  horizontal: '/video/banner-horizontal.mp4',
+  vertical: '/video/banner-vertical.mp4',
+}
+
+// Interruptor global del banner de video. Si se pone en false, el hero vuelve al
+// placeholder de <Img> (espejo de USE_LANDING_BANNER).
+export const USE_BANNER_VIDEO = true
+
 export type Ratio = '16x9' | '4x5' | '1x1' | '9x16' | '21x9' | '3x2'
 
 export const RATIO_CLASS: Record<Ratio, string> = {

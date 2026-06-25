@@ -59,7 +59,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10">
-          <Disclaimer tone="dark" />
+          <Disclaimer tone="dark" collapsible defaultOpen={false} />
         </div>
         <p className="mt-4 text-center text-[11.5px] text-ivory/55">{DEMO_NOTE}</p>
       </Container>

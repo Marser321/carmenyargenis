@@ -43,7 +43,7 @@ const CONEXION = [
   {
     icon: <Icon.Globe />,
     t: '100% online por Zoom',
-    d: 'No necesitas instalar nada complicado: se abre desde el navegador o la app de Zoom.',
+    d: 'Desde el navegador o la app de Zoom — sin instalar nada complicado.',
   },
   {
     icon: <Icon.Document />,
@@ -58,7 +58,7 @@ const CONEXION = [
   {
     icon: <Icon.Whatsapp />,
     t: 'Si algo falla, escríbenos',
-    d: 'Si no te llega el enlace o tienes dudas técnicas, mándanos un mensaje por WhatsApp y te ayudamos.',
+    d: '¿No te llega el enlace o tienes dudas técnicas? Escríbenos por WhatsApp y te ayudamos.',
   },
 ]
 
@@ -247,7 +247,7 @@ export default function GraciasReserva() {
           <SectionHeader
             kicker="Después de la masterclass"
             title="Tu siguiente paso, sin presión"
-            intro="En la masterclass verás el panorama completo: qué es el tax deed, cómo se filtra una propiedad y por dónde empezar. No hace falta decidir nada hoy. Si más adelante quieres seguir cerca con poco compromiso, está la Comunidad; y si quieres profundizar en el método, el Intensivo. A tu ritmo."
+            intro="No hace falta decidir nada hoy. Si quieres seguir cerca con poco compromiso, está la Comunidad; si quieres profundizar en el método, el Intensivo. A tu ritmo."
           />
           <Stagger className="mt-10 grid gap-5 sm:grid-cols-2">
             <RevealItem>
@@ -305,9 +305,9 @@ export default function GraciasReserva() {
           <Reveal>
             <Icon.Shield className="mx-auto text-3xl text-gold" />
             <p className="mx-auto mt-4 max-w-2xl text-[16px] leading-relaxed text-ivory/80">
-              Magic Capital es una firma educativa de {FOUNDERS.argenis.name} y {FOUNDERS.carmen.name}.
-              Enseñamos tax deed en Florida y Pennsylvania trabajando con los portales públicos del condado,
-              con foco en el criterio antes que en la promesa.
+              Magic Capital es la firma educativa de {FOUNDERS.argenis.name} y {FOUNDERS.carmen.name}.
+              Enseñamos tax deed en Florida y Pennsylvania con los portales públicos del condado — criterio
+              antes que promesa.
             </p>
           </Reveal>
         </Container>

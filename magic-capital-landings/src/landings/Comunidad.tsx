@@ -23,27 +23,27 @@ const INCLUYE = [
   {
     icon: <Icon.Landmark />,
     t: 'Contenido nuevo de las dos líneas, cada mes',
-    d: 'Sesiones y material sobre subastas tax deed con Argenis (Método MAP-9) y sobre crédito empresarial / financiamiento al 0% con Carmen. Nada de teoría suelta: el proceso, paso a paso.',
+    d: 'Sesiones y material: tax deed con Argenis (MAP-9) y crédito 0% con Carmen. El proceso, paso a paso — nada de teoría suelta.',
   },
   {
     icon: <Icon.Whatsapp />,
     t: 'Un espacio para preguntar y resolver dudas',
-    d: 'No te quedas solo entre masterclasses. Traes tus preguntas, las pones sobre la mesa y avanzas con la comunidad que recorre el mismo camino.',
+    d: 'Traes tus preguntas y avanzas con gente en el mismo camino — no te quedas solo entre masterclasses.',
   },
   {
     icon: <Icon.Filter />,
     t: 'Recursos educativos, organizados en un lugar',
-    d: 'Guías y grabaciones reunidas y ordenadas, para que encuentres lo que buscas sin perderte entre archivos sueltos.',
+    d: 'Guías y grabaciones ordenadas en un lugar, para que encuentres lo que buscas.',
   },
   {
     icon: <Icon.MapPin />,
     t: 'Recordatorios del calendario y novedades',
-    d: 'Avisos del calendario de subastas y de las próximas sesiones, para que mantengas el ritmo sin estar pendiente de todo.',
+    d: 'Avisos del calendario de subastas y de las próximas sesiones, para que no pierdas el ritmo.',
   },
   {
     icon: <Icon.Shield />,
     t: 'Un entorno sobrio y honesto',
-    d: 'Educación y criterio, sin hype ni promesas de dinero. Aprendes a pensar el proceso, no a perseguir un resultado prometido.',
+    d: 'Educación y criterio, sin hype ni promesas de dinero. A pensar el proceso, no a perseguir un resultado.',
   },
 ]
 
@@ -56,7 +56,7 @@ const OFERTA = [
 const FAQ: QA[] = [
   {
     q: '¿Qué es exactamente la comunidad?',
-    a: 'Es una membresía mensual de acompañamiento educativo: contenido y sesiones nuevas de las dos líneas (subastas tax deed con Argenis y crédito empresarial / financiamiento al 0% con Carmen), un espacio para preguntar y resolver dudas, recursos organizados y recordatorios del calendario. Es el puente entre la masterclass gratis y el Intensivo.',
+    a: 'Una membresía mensual de acompañamiento educativo: contenido y sesiones nuevas de las dos líneas (tax deed con Argenis y crédito 0% con Carmen), un espacio para preguntar, recursos organizados y recordatorios del calendario. Es el puente entre la masterclass gratis y el Intensivo.',
   },
   {
     q: '¿Garantiza resultados?',
@@ -95,9 +95,8 @@ export default function Comunidad() {
         title={<>Sigue avanzando, con criterio y en comunidad</>}
         sub={
           <>
-            Por $27/mes te mantienes cerca de las dos piezas que casi nadie enseña juntas: la oportunidad
-            (Método MAP-9 de Argenis) y el capital (crédito empresarial 0% de Carmen). Contenido nuevo, tus
-            preguntas respondidas y gente que recorre el mismo camino.
+            Por $27/mes sigues cerca de las dos piezas: la oportunidad (MAP-9 de Argenis) y el capital
+            (crédito 0% de Carmen). Contenido nuevo, tus dudas respondidas y gente en el mismo camino.
             <span className="mt-3 block text-[13px] text-ivory/55">
               $27/mes · cancela cuando quieras · sin compromiso.
             </span>
@@ -125,7 +124,7 @@ export default function Comunidad() {
           <SectionHeader
             kicker="Qué incluye"
             title="Acompañamiento mensual, sin promesas"
-            intro="Cinco cosas concretas cada mes. Todo es educación y acompañamiento — para mantener el ritmo y el criterio, sin promesas de dinero."
+            intro="Cinco cosas concretas cada mes. Educación y acompañamiento, sin promesas de dinero."
           />
           <div className="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <Reveal>
@@ -201,9 +200,8 @@ export default function Comunidad() {
           </div>
           <Reveal>
             <p className="mx-auto mt-8 max-w-2xl text-center text-[15px] leading-relaxed text-ivory/70">
-              Masterclass gratis → Comunidad $27/mes → Intensivo MAP-9 $297 → Mentoría 1:1 $3,997.
-              La comunidad es el puente: te mantiene cerca y con criterio hasta que decidas —si
-              decides— dar el siguiente paso. Sin presión.
+              Masterclass gratis → Comunidad $27/mes → Intensivo $297 → Mentoría 1:1 $3,997. El puente
+              que te mantiene cerca y con criterio hasta que decidas dar el siguiente paso. Sin presión.
             </p>
           </Reveal>
         </Container>
@@ -261,8 +259,8 @@ export default function Comunidad() {
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Quédate cerca. Sigue avanzando.</DisplayHeading>
           <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-ivory/70">
-            Una membresía honesta que te mantiene cerca de la oportunidad y del capital, con criterio
-            y en español. Sin hype, sin presión: avanzas a tu ritmo y cancelas cuando quieras.
+            Una membresía honesta: cerca de la oportunidad y del capital, con criterio y en español.
+            Avanzas a tu ritmo y cancelas cuando quieras.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <CTAButton onClick={() => setCheckout(true)} icon={<Icon.ArrowRight />} magnetic>

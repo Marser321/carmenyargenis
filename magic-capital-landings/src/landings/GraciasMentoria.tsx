@@ -22,19 +22,19 @@ const PASOS = [
     n: '1',
     icon: <Icon.Calendar />,
     t: 'Agenda tu sesión de diagnóstico',
-    d: 'Reserva tu primera sesión 1:1 (~60 min). Aquí entendemos tu punto de partida y trazamos contigo un plan a tu medida, sin adivinar.',
+    d: 'Reserva tu primera sesión 1:1 (~60 min): entendemos tu punto de partida y trazamos un plan a tu medida.',
   },
   {
     n: '2',
     icon: <Icon.Users />,
     t: 'Entra al canal privado Voxer/WhatsApp',
-    d: 'Tu línea directa con Argenis y Carmen entre sesiones. Para dudas concretas mientras avanzas, sin esperar a la próxima llamada.',
+    d: 'Tu línea directa con Argenis y Carmen entre sesiones, para dudas concretas mientras avanzas.',
   },
   {
     n: '3',
     icon: <Icon.Document />,
     t: 'Prepara tu sesión',
-    d: 'Ten lista la información de la siguiente sección. Cuanto más claro llegues, más aprovechamos cada minuto de tu mentoría.',
+    d: 'Ten lista la información de la siguiente sección: cuanto más claro llegues, más rinde cada sesión.',
   },
 ]
 
@@ -81,13 +81,13 @@ export default function GraciasMentoria() {
           </DisplayHeading>
           <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
             Acabas de dar un paso serio. En 3 módulos trabajamos contigo —{FOUNDERS.argenis.short} y{' '}
-            {FOUNDERS.carmen.short}— directamente, en sesiones 1:1, con un plan a tu medida y sin adivinar.
+            {FOUNDERS.carmen.short}— en sesiones 1:1, con un plan a tu medida.
           </p>
           <div className="mt-5 flex items-start gap-2.5 rounded-xl bg-white/[0.06] px-4 py-3 text-[14px] leading-snug text-ivory/80">
             <Icon.Check className="mt-0.5 shrink-0 text-gold" />
             <span>
-              Recibirás un correo de confirmación con tu recibo en minutos.{' '}
-              <strong className="text-ivory">Revisa spam o promociones</strong> si no lo ves enseguida.
+              Tu recibo de confirmación llega en minutos.{' '}
+              <strong className="text-ivory">Revisa spam o promociones</strong> si no lo ves.
             </span>
           </div>
           <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -142,8 +142,8 @@ export default function GraciasMentoria() {
               <div>
                 <h3 className="font-display text-base font-semibold text-ivory">Tiempos de respuesta</h3>
                 <p className="mt-1.5 text-[14.5px] leading-snug text-ivory/70">
-                  Atendemos en días hábiles (L–V) y normalmente respondemos dentro de 24 horas hábiles. No es una
-                  línea de emergencia 24/7: es acompañamiento estructurado, pensado para que avances con criterio.
+                  Atendemos en días hábiles (L–V), normalmente dentro de 24 h. No es una línea 24/7: es
+                  acompañamiento estructurado para que avances con criterio.
                 </p>
               </div>
             </GlassCard>
@@ -197,7 +197,7 @@ export default function GraciasMentoria() {
             tone="dark"
             kicker="Expectativas y límites"
             title="Qué haremos · Qué NO haremos"
-            intro="La honestidad es parte del método. Esto es exactamente lo que puedes esperar de tu mentoría —y lo que no."
+            intro="Esto es exactamente lo que puedes esperar de tu mentoría —y lo que no."
           />
           <div className="mt-10">
             <YesNoColumns
@@ -243,8 +243,8 @@ export default function GraciasMentoria() {
                   ¿Necesitas ayuda antes de empezar?
                 </h3>
                 <p className="mt-2 text-[15px] leading-relaxed text-ivory/70">
-                  Si no llegó el correo, no encuentras el enlace para agendar, o tienes problemas para entrar al
-                  canal, escríbenos. Estamos para ayudarte a arrancar sin fricción.
+                  ¿No llegó el correo, no encuentras el enlace o no puedes entrar al canal? Escríbenos: te
+                  ayudamos a arrancar sin fricción.
                 </p>
                 <p className="mt-3 text-[13px] italic text-ivory/55">
                   Respondemos en horario hábil (L–V).

@@ -46,7 +46,7 @@ const RISK_REDUCERS = [
 ]
 
 const FAQ = [
-  { q: '¿Es un curso grabado?', a: 'No. Es en vivo y en grupo. Construyes el proceso con nosotros en tiempo real; si habilitamos repetición, es para repasar, no para reemplazar el en vivo.' },
+  { q: '¿Es un curso grabado?', a: 'No. Es en vivo y en grupo: lo construyes con nosotros en tiempo real. Si hay repetición, es para repasar.' },
   { q: '¿Garantizan que gane dinero?', a: 'No. Te damos el sistema y la claridad para decidir con criterio. No prometemos ingresos, montos ni resultados; dependen del mercado, el condado y tu ejecución.' },
   { q: '¿Incluye el capital para comprar?', a: 'No. El intensivo no incluye el capital de entrada; te enseña a estimarlo y a no sobre-extenderte.' },
   { q: '¿Aprueban el crédito 0%?', a: 'No. Describimos cómo funciona: tarjetas de negocio con APR promocional sujeto a elegibilidad del emisor y posible garantía personal. No prometemos montos ni aprobación.' },
@@ -73,9 +73,8 @@ export default function CompraIntensivo() {
         title={<>De mirar listados a ejecutar tu primera subasta con criterio.</>}
         sub={
           <>
-            Un fin de semana en vivo: el viernes, el capital con Carmen; el sábado, las 9 fases del Método MAP-9
-            con Argenis. No es un curso grabado — lo construyes con nosotros y te llevas la Guía MAP-9. Cupos
-            limitados.
+            Viernes, el capital con Carmen; sábado, las 9 fases del MAP-9 con Argenis. En vivo: lo construyes
+            con nosotros y te llevas la Guía MAP-9.
           </>
         }
         actions={
@@ -129,7 +128,6 @@ export default function CompraIntensivo() {
             tone="dark"
             kicker="Viernes + sábado · en vivo"
             title="El fin de semana, paso a paso"
-            intro="Dos días, dos mitades del sistema: el capital con Carmen y el método con Argenis. Construyes ambos con nosotros, en vivo."
           />
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             {/* Día 1 · Viernes — el capital */}
@@ -252,11 +250,11 @@ export default function CompraIntensivo() {
             <div>
               <h3 className="font-display text-xl font-semibold text-ivory">Cuánto capital necesitas de verdad</h3>
               <p className="mt-3 text-[15px] leading-relaxed text-ivory/75">
-                Para operar con criterio recomendamos ~$5k–$15k de capital de entrada total: puja + fees del condado +
-                title work + contingencia + holding. El intensivo no incluye este capital; te enseña a estimarlo.
+                Recomendamos ~$5k–$15k de entrada en total: puja + fees del condado + revisión del título +
+                contingencia + holding. El intensivo no lo incluye; te enseña a estimarlo.
               </p>
               <p className="mt-4 rounded-xl bg-white/[0.04] px-4 py-3 text-[14px] text-ivory/75">
-                Si hoy no tienes un rango razonable de capital, preferimos decírtelo ahora a que compres a ciegas.
+                Si aún no tienes un rango razonable, mejor saberlo hoy que pujar a ciegas.
               </p>
               <Reveal className="mt-5">
                 <CapitalCalc />

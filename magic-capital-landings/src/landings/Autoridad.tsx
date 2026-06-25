@@ -21,7 +21,7 @@ import {
 import { LandingHero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { FOUNDERS, waLink } from '../content/brand'
-import { img, founder } from '../content/images'
+import { img, founder, LANDING_BANNER } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
 import { FIGURE_LABELS } from '../content/compliance'
 import { cn } from '../lib/cn'
@@ -30,24 +30,24 @@ const PROBLEMAS = [
   {
     icon: <Icon.Landmark />,
     t: 'La hipoteca tradicional te excluye',
-    d: 'Precios altos, tasas altas y requisitos que castigan al inmigrante con poco historial. La puerta principal está casi cerrada.',
+    d: 'Precios altos, tasas altas y requisitos que castigan al inmigrante con poco historial: la puerta principal está casi cerrada.',
   },
   {
     icon: <Icon.Filter />,
     t: 'La oportunidad real es menos visible',
-    d: 'Cuando alguien no paga los impuestos de su casa, el condado la subasta (tax deed). Precios por debajo del mercado y proceso público — pero con trampas si no sabes qué mirar.',
+    d: 'Cuando alguien no paga los impuestos de su casa, el condado la subasta (tax deed): precios bajo mercado y proceso público — pero con trampas si no sabes qué mirar.',
   },
   {
     icon: <Icon.Percent />,
     t: 'Sin inmovilizar tu propio capital',
-    d: 'El crédito empresarial al 0% (APR promocional) fondea la operación con criterio —elegibilidad, garantía personal, salida— sin vaciar el ahorro familiar. Esta es la pieza de Carmen.',
+    d: 'El crédito empresarial al 0% (APR promocional) fondea la operación con criterio —elegibilidad, garantía personal, salida— sin vaciar el ahorro familiar.',
   },
 ]
 
 const PERICIA = [
   'Análisis en vivo de portales públicos de subastas del condado: calendarios de venta, números de caso, listados.',
   'Hojas de cálculo con márgenes conservadores: puja + fees + title + contingencia, no proyecciones infladas.',
-  'Hablamos sin rodeos de los riesgos reales: deudas viejas pegadas a la propiedad, plazos y costos que cambian según el estado y el condado.',
+  'Hablamos sin rodeos de los riesgos reales: deudas viejas pegadas a la propiedad, plazos y costos que cambian por estado y condado.',
 ]
 
 export default function Autoridad() {
@@ -62,12 +62,13 @@ export default function Autoridad() {
           focal: '50% 30%',
           scrim: 'left',
         }}
+        banner={{ src: LANDING_BANNER['07'], alt: 'Masterclass gratis — Cómo adquirir propiedades en subasta, paso a paso, con Argenis y Carmen', ratio: '4x5' }}
         kicker={<Kicker>Magic Capital · {FOUNDERS.argenis.name} &amp; {FOUNDERS.carmen.name}</Kicker>}
         title={<>Ejecutores, no influencers. Pujamos en los mismos condados que te enseñamos.</>}
         sub={
           <>
-            Operamos subastas tax deed (subastas por impuestos) reales en Florida y Pennsylvania, y financiamos
-            con criterio. Te mostramos el proceso público —incluido qué <strong className="text-ivory">NO</strong>{' '}
+            Operamos subastas tax deed (subastas por impuestos) reales en Florida y Pennsylvania. Te mostramos
+            el proceso público —incluido qué <strong className="text-ivory">NO</strong>{' '}
             comprar— antes de que arriesgues un dólar.
             <span className="mt-3 block text-[13px] text-ivory/55">
               Gratis · en vivo · en español. Sin pagos, sin trucos.
@@ -92,7 +93,7 @@ export default function Autoridad() {
           <SectionHeader
             kicker="Por qué hacemos esto · hay otra puerta"
             title="No vendemos sueños. Enseñamos un proceso público y verificable."
-            intro="Para muchos latinos en EE.UU., comprar una casa se siente imposible: los precios y las tasas de la hipoteca los dejan fuera. Te abrimos otra puerta —las subastas por impuestos— y te enseñamos a entrar con método y criterio, no con suerte."
+            intro="Para muchos latinos en EE.UU., comprar una casa se siente imposible: los precios y las tasas los dejan fuera. Te abrimos otra puerta —las subastas por impuestos— para entrar con método, no con suerte."
           />
           <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {PROBLEMAS.map((p) => (
@@ -237,7 +238,7 @@ export default function Autoridad() {
                 tone="dark"
                 kicker="Un ejemplo, con sus límites"
                 title="Un caso real, con números a la vista"
-                intro="En Washington County, Pennsylvania, trabajamos una operación que partió de una propiedad adquirida alrededor de $7,500. La usamos para enseñar el proceso completo: filtrar, verificar, decidir."
+                intro="En Washington County, Pennsylvania, trabajamos una operación que partió de una propiedad de ~$7,500. La usamos para enseñar el proceso completo: filtrar, verificar, decidir."
               />
               <div className="mt-5 flex items-center gap-2">
                 <Badge tone="ivory">

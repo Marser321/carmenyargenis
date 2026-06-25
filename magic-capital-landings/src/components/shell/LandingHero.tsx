@@ -1,10 +1,16 @@
 import type { ReactNode } from 'react'
 import { Hero } from './Hero'
 import { CountdownTimer } from '../blocks'
-import { Img, type Scrim } from '../media'
+import { Img, BannerVideoCycle, type Scrim } from '../media'
 import { DisplayHeading } from '../primitives'
 import { Reveal } from '../motion'
-import { RATIO_CLASS, USE_LANDING_BANNER, type Ratio } from '../../content/images'
+import {
+  RATIO_CLASS,
+  USE_LANDING_BANNER,
+  USE_BANNER_VIDEO,
+  BANNER_VIDEO,
+  type Ratio,
+} from '../../content/images'
 import { cn } from '../../lib/cn'
 
 type HeroImage = { src: string; alt: string; focal?: string; scrim?: Scrim; video?: string; webm?: string }
@@ -57,19 +63,31 @@ export function LandingHero({
   const twoCol = Boolean(aside) && !centered
 
   const bannerNode = banner && (
-    <Reveal className={cn('w-full max-w-sm', centered && 'mx-auto')}>
-      <div className="overflow-hidden rounded-2xl gold-hairline shadow-glass-dark">
-        <Img
-          src={USE_LANDING_BANNER ? banner.src : undefined}
+    USE_BANNER_VIDEO ? (
+      // Banner de video (flyer animado): vertical en móvil, horizontal en desktop.
+      // Más ancho en desktop para que el 16:9 no quede diminuto.
+      <Reveal className={cn('w-full max-w-sm lg:max-w-xl', centered && 'mx-auto')}>
+        <BannerVideoCycle
+          horizontal={BANNER_VIDEO.horizontal}
+          vertical={BANNER_VIDEO.vertical}
           alt={banner.alt}
-          label={banner.alt}
-          focal={banner.focal}
-          kenBurns={false}
-          priority
-          className={RATIO_CLASS[banner.ratio ?? '4x5']}
         />
-      </div>
-    </Reveal>
+      </Reveal>
+    ) : (
+      <Reveal className={cn('w-full max-w-sm', centered && 'mx-auto')}>
+        <div className="overflow-hidden rounded-2xl gold-hairline shadow-glass-dark">
+          <Img
+            src={USE_LANDING_BANNER ? banner.src : undefined}
+            alt={banner.alt}
+            label={banner.alt}
+            focal={banner.focal}
+            kenBurns={false}
+            priority
+            className={RATIO_CLASS[banner.ratio ?? '4x5']}
+          />
+        </div>
+      </Reveal>
+    )
   )
 
   const spine = (
