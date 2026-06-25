@@ -64,33 +64,38 @@ const PREPARAR = [
 export default function GraciasMentoria() {
   return (
     <LandingLayout waMessage="Hola, acabo de adquirir la Mentoría 1:1 y quiero coordinar mis próximos pasos.">
-      {/* 1 · Confirmación premium */}
+      {/* 1 · Confirmación premium (hero a fondo, centrado — pareja con 02/04) */}
       <Hero
         tone="charcoal"
         image={{
           src: img('06', '06-gracias-compra-mentoria__hero-recibimiento-premium.png'),
           alt: 'Recibimiento premium a la Mentoría 1:1 de Magic Capital',
           focal: '50% 35%',
-          scrim: 'left',
+          scrim: 'full',
         }}
       >
-        <div className="max-w-2xl">
-          <Kicker>Pago confirmado · Mentoría 1:1</Kicker>
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold/20 text-3xl text-gold ring-1 ring-gold/40">
+              <Icon.Check />
+            </span>
+          </Reveal>
+          <Kicker className="mt-6">Pago confirmado · Mentoría 1:1</Kicker>
           <DisplayHeading as="h1" size="xl" className="mt-4">
             Bienvenido a tu Mentoría 1:1
           </DisplayHeading>
-          <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
+          <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
             Acabas de dar un paso serio. En 3 módulos trabajamos contigo —{FOUNDERS.argenis.short} y{' '}
             {FOUNDERS.carmen.short}— en sesiones 1:1, con un plan a tu medida.
           </p>
-          <div className="mt-5 flex items-start gap-2.5 rounded-xl bg-white/[0.06] px-4 py-3 text-[14px] leading-snug text-ivory/80">
+          <div className="mx-auto mt-5 flex max-w-xl items-start gap-2.5 rounded-xl bg-white/[0.06] px-4 py-3 text-left text-[14px] leading-snug text-ivory/80">
             <Icon.Check className="mt-0.5 shrink-0 text-gold" />
             <span>
               Tu recibo de confirmación llega en minutos.{' '}
               <strong className="text-ivory">Revisa spam o promociones</strong> si no lo ves.
             </span>
           </div>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <CTAButton
               href={waLink('Quiero agendar mi sesión de diagnóstico de la mentoría')}
               variant="primary"

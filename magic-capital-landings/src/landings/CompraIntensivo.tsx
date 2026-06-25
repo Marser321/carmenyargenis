@@ -58,14 +58,15 @@ export default function CompraIntensivo() {
 
   return (
     <LandingLayout waMessage="Hola, tengo una pregunta sobre el Intensivo MAP-9 ($297) antes de comprar.">
-      {/* 1 · Hero: contador arriba → H1 → banner → CTAs */}
+      {/* 1 · Hero a una pantalla: contador → H1 → video → CTAs */}
       <LandingHero
         tone="charcoal"
+        fillViewport
         image={{
           src: img('03', '03-compra-intensivo__hero-fundadores-sesion-vivo.png'),
           alt: 'Sesión en vivo del intensivo',
           focal: '50% 35%',
-          scrim: 'left',
+          scrim: 'full',
         }}
         countdown={{ targetISO: COHORTE.intensivoISO, label: 'El intensivo en vivo empieza en' }}
         banner={{ src: LANDING_BANNER['03'], alt: 'Intensivo MAP-9 — viernes y sábado en vivo con Argenis y Carmen', ratio: '4x5' }}

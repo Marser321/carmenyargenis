@@ -53,14 +53,15 @@ const PERICIA = [
 export default function Autoridad() {
   return (
     <LandingLayout waMessage="Hola, vi la página de Argenis y Carmen y quiero saber más.">
-      {/* 1 · Hero editorial */}
+      {/* 1 · Hero a una pantalla: kicker → H1 → video → CTAs */}
       <LandingHero
         tone="charcoal"
+        fillViewport
         image={{
           src: img('07', '07-autoridad-argenis__hero-fundadores-espacio-titular.png'),
           alt: 'Argenis y Carmen en su espacio de trabajo',
           focal: '50% 30%',
-          scrim: 'left',
+          scrim: 'full',
         }}
         banner={{ src: LANDING_BANNER['07'], alt: 'Masterclass gratis — Cómo adquirir propiedades en subasta, paso a paso, con Argenis y Carmen', ratio: '4x5' }}
         kicker={<Kicker>Magic Capital · {FOUNDERS.argenis.name} &amp; {FOUNDERS.carmen.name}</Kicker>}

@@ -133,7 +133,7 @@ export function LandingHero({
           {title}
         </DisplayHeading>
       </div>
-      {bannerFillNode && <div className="min-h-0 w-full flex-1 py-5">{bannerFillNode}</div>}
+      {bannerFillNode && <div className="w-full flex-1 py-5 min-h-[32svh]">{bannerFillNode}</div>}
       <div className="flex flex-col items-center gap-3">
         {sub && <div className="max-w-xl text-[15px] leading-relaxed text-ivory/75 sm:text-[17px]">{sub}</div>}
         {actions && (

@@ -100,28 +100,33 @@ const FAQ: readonly QA[] = [
 export default function GraciasIntensivo() {
   return (
     <LandingLayout waMessage={WA_GENERAL}>
-      {/* 1 · Confirmación (editorial) */}
+      {/* 1 · Confirmación (hero a fondo, centrado — pareja con 02/06) */}
       <Hero
         tone="charcoal"
         image={{
           src: img('04', '04-gracias-compra-intensivo__hero-bienvenida-area-miembros.png'),
           alt: 'Bienvenida al área de miembros del Intensivo MAP-9',
           focal: '50% 35%',
-          scrim: 'left',
+          scrim: 'full',
         }}
       >
-        <div className="max-w-2xl">
-          <Kicker>Pago confirmado</Kicker>
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold/20 text-3xl text-gold ring-1 ring-gold/40">
+              <Icon.Check />
+            </span>
+          </Reveal>
+          <Kicker className="mt-6">Pago confirmado</Kicker>
           <DisplayHeading as="h1" size="xl" className="mt-4">
             Bienvenido al Intensivo MAP-9
           </DisplayHeading>
-          <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
+          <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-ivory/75">
             Tu lugar está reservado. El acceso completo llega a tu correo en minutos.
           </p>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ivory/60">
+          <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-ivory/60">
             Aprenderás a entrar en tax deed con criterio antes de arriesgar un dólar.
           </p>
-          <div className="mt-7">
+          <div className="mt-7 flex justify-center">
             <Badge tone="ivory">
               <Icon.Check /> Acceso en camino
             </Badge>

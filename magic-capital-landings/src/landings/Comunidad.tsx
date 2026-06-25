@@ -81,14 +81,15 @@ export default function Comunidad() {
 
   return (
     <LandingLayout waMessage="Hola, tengo dudas sobre la Comunidad Magic Capital ($27/mes) antes de suscribirme.">
-      {/* 1 · Hero (sin contador: la comunidad es mensual, sin fecha límite) */}
+      {/* 1 · Hero a una pantalla (sin contador: la comunidad es mensual, sin fecha límite) */}
       <LandingHero
-        tone="ivory"
+        tone="charcoal"
+        fillViewport
         image={{
           src: '/img/09/09-comunidad__hero-pertenencia-sobria.png',
           alt: 'Comunidad Magic Capital: gente avanzando en el mismo camino',
           focal: '50% 35%',
-          scrim: 'left',
+          scrim: 'full',
         }}
         banner={{ src: LANDING_BANNER['09'], alt: 'Comunidad Magic Capital — membresía mensual', ratio: '4x5' }}
         kicker={<Kicker>Comunidad Magic Capital · membresía mensual · en español</Kicker>}

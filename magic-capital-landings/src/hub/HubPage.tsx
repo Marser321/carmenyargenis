@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, DisplayHeading, Kicker, Badge, CTAButton, Icon } from '../components/primitives'
 import { Reveal, Stagger, RevealItem } from '../components/motion'
@@ -11,6 +12,22 @@ import { bg, lm } from '../content/images'
 import { cn } from '../lib/cn'
 
 export default function HubPage() {
+  const [copiedSlug, setCopiedSlug] = useState<string | null>(null)
+
+  // Copia la URL pública de la landing al portapapeles (para compartir cada una suelta).
+  const copyLink = (slug: string, route: string) => {
+    const url = window.location.origin + route
+    const done = () => {
+      setCopiedSlug(slug)
+      window.setTimeout(() => setCopiedSlug((s) => (s === slug ? null : s)), 1600)
+    }
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(url).then(done).catch(() => {})
+    } else {
+      done()
+    }
+  }
+
   return (
     <div className="min-h-screen bg-midnight">
       {/* Header del hub */}
@@ -19,7 +36,6 @@ export default function HubPage() {
           <div className="flex items-center gap-2.5">
             <span className="grid h-8 w-8 place-items-center rounded-md bg-gradient-to-b from-gold-bright to-gold-deep text-sm font-bold text-midnight">M</span>
             <span className="font-display text-[15px] font-semibold text-ivory">{BRAND.name}</span>
-            <Badge tone="smoke" className="hidden sm:inline-flex">Funnel local · demo</Badge>
           </div>
           <a href={CONTACT.deckUrl} target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium text-ivory/70 hover:text-ivory">
             Deck de la masterclass ↗
@@ -32,16 +48,16 @@ export default function HubPage() {
         <Spotlight />
         <Container className="relative z-10 py-20 sm:py-28">
           <Reveal>
-            <Kicker>Selector de landings · versión ultra-refinada local</Kicker>
+            <Kicker>Magic Capital · el recorrido completo</Kicker>
             <DisplayHeading as="h1" size="xl" className="mt-4 max-w-3xl">
-              El funnel completo de Magic Capital, en un solo lugar.
+              Todas las páginas de Magic Capital, en un solo lugar.
             </DisplayHeading>
             <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-ivory/75">
-              Las 8 landings del recorrido: de la autoridad a la masterclass, la comunidad, el intensivo y la
-              mentoría. Elige una para recorrerla.
+              De la autoridad a la masterclass, la comunidad, el intensivo y la mentoría. Abre cualquiera
+              para recorrerla, o copia su enlace para compartirla por separado.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Badge tone="ivory"><Icon.Check /> 8 landings</Badge>
+              <Badge tone="ivory"><Icon.Check /> 8 páginas</Badge>
               <Badge tone="ivory"><Icon.Check /> 10 lead magnets</Badge>
               <Badge tone="ivory"><Icon.Check /> Mobile-first</Badge>
             </div>
@@ -52,55 +68,71 @@ export default function HubPage() {
         </Container>
       </section>
 
-      {/* El recorrido — las 8 landings */}
+      {/* El recorrido — las páginas */}
       <section className="py-16 sm:py-20">
         <Container>
           <div className="flex items-end justify-between gap-4">
             <div>
               <Kicker>El recorrido</Kicker>
               <h2 className="mt-2 font-display text-2xl font-semibold text-ivory sm:text-3xl">
-                Las 8 landings del funnel
+                Las páginas del funnel
               </h2>
             </div>
             <span className="hidden text-[13px] text-ivory/55 sm:inline">En orden de embudo →</span>
           </div>
 
           <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {LANDINGS.map((l, i) => (
+            {LANDINGS.map((l) => (
               <RevealItem key={l.slug}>
-                <Link
-                  to={l.route}
-                  className="group block h-full overflow-hidden rounded-2xl border border-white/10 bg-navy-soft shadow-glass-dark transition-all hover:-translate-y-1 hover:shadow-cta"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Img
-                      src={l.thumb}
-                      alt={l.title}
-                      kenBurns={false}
-                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-                      focal="50% 35%"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
-                    <span className="absolute left-3 top-3 grid h-8 w-8 place-items-center rounded-lg bg-charcoal/70 font-display text-[13px] font-bold text-ivory backdrop-blur">
-                      {l.num}
-                    </span>
-                    {l.price && (
-                      <span className="absolute right-3 top-3 rounded-full bg-gold px-2.5 py-1 text-[12px] font-semibold text-midnight">
-                        {l.price}
+                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-navy-soft shadow-glass-dark transition-all hover:-translate-y-1 hover:shadow-cta">
+                  <Link to={l.route} className="block">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Img
+                        src={l.thumb}
+                        alt={l.title}
+                        kenBurns={false}
+                        className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                        focal="50% 35%"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
+                      <span className="absolute left-3 top-3 grid h-8 w-8 place-items-center rounded-lg bg-charcoal/70 font-display text-[13px] font-bold text-ivory backdrop-blur">
+                        {l.num}
                       </span>
-                    )}
-                    <span className="absolute bottom-3 left-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ivory/90">
-                      {kindLabel(l.kind)}
-                    </span>
+                      {l.price && (
+                        <span className="absolute right-3 top-3 rounded-full bg-gold px-2.5 py-1 text-[12px] font-semibold text-midnight">
+                          {l.price}
+                        </span>
+                      )}
+                      <span className="absolute bottom-3 left-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ivory/90">
+                        {kindLabel(l.kind)}
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-display text-lg font-semibold text-ivory">{l.title}</h3>
+                      <p className="mt-1 text-[13.5px] leading-snug text-ivory/65">{l.subtitle}</p>
+                      <span className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-gold">
+                        Ver landing <Icon.ArrowRight className="transition-transform group-hover:translate-x-0.5" />
+                      </span>
+                    </div>
+                  </Link>
+                  <div className="mt-auto flex items-center justify-between gap-2 border-t border-white/10 px-5 py-3">
+                    <span className="truncate font-mono text-[12px] text-ivory/45">{l.route}</span>
+                    <button
+                      type="button"
+                      onClick={() => copyLink(l.slug, l.route)}
+                      aria-label={`Copiar enlace de ${l.title}`}
+                      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-gold/30 px-3 py-1.5 text-[12.5px] font-semibold text-gold transition-colors hover:bg-gold/10"
+                    >
+                      {copiedSlug === l.slug ? (
+                        <>
+                          <Icon.Check /> ¡Copiado!
+                        </>
+                      ) : (
+                        'Copiar enlace'
+                      )}
+                    </button>
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-lg font-semibold text-ivory">{l.title}</h3>
-                    <p className="mt-1 text-[13.5px] leading-snug text-ivory/65">{l.subtitle}</p>
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-gold">
-                      Ver landing <Icon.ArrowRight className="transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </div>
-                </Link>
+                </div>
               </RevealItem>
             ))}
           </Stagger>
@@ -160,8 +192,7 @@ export default function HubPage() {
                 <Kicker>Proyecto hermano</Kicker>
                 <h2 className="mt-2 font-display text-2xl font-semibold">Deck de la masterclass</h2>
                 <p className="mt-2 max-w-xl text-[14.5px] leading-snug text-ivory/70">
-                  La presentación en vivo de la masterclass (23 slides, 5 actos) corre como app aparte, en el
-                  puerto 5180.
+                  La presentación en vivo de la masterclass (23 slides, 5 actos), como sitio aparte.
                 </p>
               </div>
               <CTAButton href={CONTACT.deckUrl} variant="light" icon={<Icon.ArrowUpRight />}>

@@ -84,14 +84,15 @@ export default function CompraMentoria() {
 
   return (
     <LandingLayout waMessage="Hola, quiero saber más sobre la Mentoría 1:1 ($3,997).">
-      {/* 1 · Hero: H1 → banner → CTAs (sin contador: 1:1 no tiene fecha fija) */}
+      {/* 1 · Hero a una pantalla: H1 → video → CTAs (sin contador: 1:1 no tiene fecha fija) */}
       <LandingHero
         tone="charcoal"
+        fillViewport
         image={{
           src: img('05', '05-compra-mentoria__hero-fundadores-revisando-portal.png'),
           alt: 'Argenis y Carmen revisando un portal de subastas',
           focal: '50% 35%',
-          scrim: 'left',
+          scrim: 'full',
         }}
         banner={{ src: LANDING_BANNER['05'], alt: 'Mentoría 1:1 Magic Capital con Argenis y Carmen', ratio: '4x5' }}
         kicker={<Kicker>Mentoría 1:1 · Magic Capital · acompañamiento privado</Kicker>}

@@ -86,8 +86,16 @@ const FAQ = [
 export default function GraciasReserva() {
   return (
     <LandingLayout waMessage="Hola, acabo de reservar mi lugar en la masterclass y quiero confirmar mi asistencia.">
-      {/* 1 · Confirmación (hero) */}
-      <Hero tone="petrol">
+      {/* 1 · Confirmación (hero a fondo, centrado) */}
+      <Hero
+        tone="charcoal"
+        image={{
+          src: img('02', '02-gracias-reserva__hero-confirmacion-serena.png'),
+          alt: 'Confirmación de tu lugar en la masterclass de Magic Capital',
+          focal: '50% 35%',
+          scrim: 'full',
+        }}
+      >
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
             <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold/20 text-3xl text-gold ring-1 ring-gold/40">

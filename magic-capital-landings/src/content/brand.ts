@@ -33,8 +33,8 @@ export const FOUNDERS = {
 export const CONTACT = {
   whatsappNumber: '15555550123', // formato internacional sin '+'
   email: 'hola@magiccapital.example',
-  // Deck de la masterclass (proyecto hermano), dev en :5180
-  deckUrl: 'http://localhost:5180',
+  // Deck de la masterclass (proyecto hermano) — producción en Vercel.
+  deckUrl: 'https://magic-capital-deck.vercel.app',
 } as const
 
 // Datos de cohorte — valores DEMO ilustrativos, centralizados aquí para

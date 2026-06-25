@@ -44,7 +44,7 @@ export const FIGURE_LABELS = {
 
 /** Banner global del entorno: deja claro que es una demo sin cobros reales. */
 export const DEMO_NOTE =
-  'Versión local de demostración — los formularios y pagos son simulados (sin cobro real).'
+  'Versión de demostración — los formularios y pagos son simulados (sin cobro real).'
 
 // ─────────────────────────────────────────────────────────────────────────
 //  CARVE-OUT "oscuro-lujo" (decisión del cliente 2026-06-24). El sistema visual
