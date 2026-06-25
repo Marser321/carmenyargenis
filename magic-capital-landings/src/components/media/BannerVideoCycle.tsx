@@ -24,12 +24,16 @@ export function BannerVideoCycle({
   vertical,
   alt,
   holdMs = 15000,
+  fill = false,
   className,
 }: {
   horizontal: string
   vertical: string
   alt: string
   holdMs?: number
+  /** Llena su contenedor (h-full) con object-contain, sin caja ni aspecto fijo —
+   *  para el hero a-pantalla: el flyer se ve COMPLETO ajustándose a la altura. */
+  fill?: boolean
   className?: string
 }) {
   const reduce = useReducedMotion()
@@ -86,11 +90,26 @@ export function BannerVideoCycle({
   }
 
   if (failed) {
-    return <Img src={undefined} alt={alt} label={alt} className={cn(ratioClass, className)} kenBurns={false} />
+    return (
+      <Img
+        src={undefined}
+        alt={alt}
+        label={alt}
+        className={cn(fill ? 'h-full w-full' : ratioClass, className)}
+        kenBurns={false}
+      />
+    )
   }
 
   return (
-    <div className={cn('relative overflow-hidden rounded-2xl bg-charcoal-soft gold-hairline shadow-glass-dark', ratioClass, className)}>
+    <div
+      className={cn(
+        'relative overflow-hidden',
+        fill ? 'h-full w-full' : 'rounded-2xl bg-charcoal-soft gold-hairline shadow-glass-dark',
+        fill ? null : ratioClass,
+        className,
+      )}
+    >
       <video
         ref={ref}
         key={src}
@@ -110,7 +129,7 @@ export function BannerVideoCycle({
           }
         }}
         onError={() => setFailed(true)}
-        className="h-full w-full object-cover"
+        className={cn('h-full w-full', fill ? 'object-contain' : 'object-cover')}
       />
     </div>
   )

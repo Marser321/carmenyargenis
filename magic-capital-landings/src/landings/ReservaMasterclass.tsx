@@ -53,10 +53,10 @@ const FAQ = [
 export default function ReservaMasterclass() {
   return (
     <LandingLayout waMessage="Hola, quiero reservar mi lugar en la masterclass gratis.">
-      {/* 1 · Hero centrado: video protagonista → contador → H1 → video → formulario liviano */}
+      {/* 1 · Hero a una pantalla: contador → H1 → video protagonista → botón siempre visible */}
       <LandingHero
         tone="charcoal"
-        align="center"
+        fillViewport
         image={{
           src: img('01', '01-reserva-masterclass__hero-fundadores-trabajando.png'),
           alt: 'Argenis y Carmen, fundadores de Magic Capital',
@@ -71,19 +71,28 @@ export default function ReservaMasterclass() {
             <span className="block text-[0.62em] font-medium tracking-[0.04em] text-ivory/85">paso a paso</span>
           </span>
         }
-        aside={
-          <Reveal>
-            {/* Formulario liviano, sin recuadro: el texto resalta y el video manda. */}
-            <div className="text-center">
-              <h2 className="font-display text-xl font-semibold text-ivory">Reserva tu cupo gratis</h2>
-              <p className="mt-1 text-[13.5px] text-ivory/60">Tu nombre y WhatsApp. Te enviamos el enlace de acceso.</p>
-              <div className="mt-4 text-left">
-                <LeadForm ctaLabel="Reserva tu cupo gratis" redirectTo="/l/02-gracias-reserva" tone="dark" />
-              </div>
-            </div>
-          </Reveal>
+        actions={
+          <CTAButton
+            onClick={() => document.getElementById('reservar')?.scrollIntoView({ behavior: 'smooth' })}
+            icon={<Icon.ArrowRight />}
+            size="lg"
+            magnetic
+          >
+            Reservar mi lugar
+          </CTAButton>
         }
       />
+
+      {/* 1b · Formulario de reserva (el botón del hero hace scroll hasta aquí) */}
+      <Section id="reservar" tone="charcoal" pad="lg" className="scroll-mt-16">
+        <Container width="narrow" className="text-center">
+          <h2 className="font-display text-2xl font-semibold text-ivory">Reserva tu cupo gratis</h2>
+          <p className="mt-2 text-[14px] text-ivory/60">Tu nombre y WhatsApp. Te enviamos el enlace de acceso.</p>
+          <Reveal className="mx-auto mt-6 max-w-md text-left">
+            <LeadForm ctaLabel="Reserva tu cupo gratis" redirectTo="/l/02-gracias-reserva" tone="dark" />
+          </Reveal>
+        </Container>
+      </Section>
 
       {/* 2 · Qué aprenderás (problema + cambios + 9 fases, fusionado) */}
       <Section tone="ivory" pad="lg" texture={sectionBg('01-reserva-masterclass', 1)}>

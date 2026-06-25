@@ -18,12 +18,16 @@ export function Hero({
   image,
   tone = 'charcoal',
   parallax = true,
+  fillViewport = false,
   children,
   className,
 }: {
   image?: { src: string; alt: string; focal?: string; scrim?: Scrim; video?: string; webm?: string }
   tone?: HeroTone
   parallax?: boolean
+  /** El hero ocupa ~una pantalla (min-h-svh, columna flex) — para que el video y
+   *  el CTA quepan en el primer pantallazo móvil. */
+  fillViewport?: boolean
   children: ReactNode
   className?: string
 }) {
@@ -62,7 +66,13 @@ export function Hero({
           <div className="absolute inset-0">{bg}</div>
         ))}
       {dark && <Spotlight />}
-      <Container className={cn('pb-16 sm:pb-24', hasBar ? 'pt-24 sm:pt-28' : 'pt-14 sm:pt-20')}>
+      <Container
+        className={cn(
+          fillViewport
+            ? 'flex min-h-svh flex-col pt-16 pb-8 sm:pt-20'
+            : cn('pb-16 sm:pb-24', hasBar ? 'pt-24 sm:pt-28' : 'pt-14 sm:pt-20'),
+        )}
+      >
         {children}
       </Container>
     </section>

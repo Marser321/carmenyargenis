@@ -40,6 +40,7 @@ export function LandingHero({
   aside,
   align = 'left',
   titleSize = 'xl',
+  fillViewport = false,
   className,
 }: {
   image?: HeroImage
@@ -57,10 +58,13 @@ export function LandingHero({
   aside?: ReactNode
   align?: 'left' | 'center'
   titleSize?: 'lg' | 'xl'
+  /** Hero a ~una pantalla: relojes+H1 arriba, video al medio (se ajusta) y CTA
+   *  siempre visible abajo. El video va `fill` (object-contain, sin recorte). */
+  fillViewport?: boolean
   className?: string
 }) {
   const centered = align === 'center'
-  const twoCol = Boolean(aside) && !centered
+  const twoCol = Boolean(aside) && !centered && !fillViewport
 
   const bannerNode = banner && (
     USE_BANNER_VIDEO ? (
@@ -90,6 +94,55 @@ export function LandingHero({
     )
   )
 
+  // Video que llena el bloque medio del hero a-pantalla (object-contain, sin recorte).
+  const bannerFillNode = banner && (
+    USE_BANNER_VIDEO ? (
+      <BannerVideoCycle
+        horizontal={BANNER_VIDEO.horizontal}
+        vertical={BANNER_VIDEO.vertical}
+        alt={banner.alt}
+        fill
+        className="mx-auto h-full max-w-3xl"
+      />
+    ) : (
+      <Img
+        src={USE_LANDING_BANNER ? banner.src : undefined}
+        alt={banner.alt}
+        label={banner.alt}
+        kenBurns={false}
+        priority
+        className="mx-auto h-full max-w-3xl"
+      />
+    )
+  )
+
+  // Hero a ~una pantalla: arriba relojes+kicker+H1, medio el video (flex-1), abajo el CTA.
+  const fillSpine = (
+    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center text-center">
+      <div className="flex flex-col items-center gap-4">
+        {countdown && (
+          <CountdownTimer
+            targetISO={countdown.targetISO}
+            label={countdown.label}
+            expiredLabel={countdown.expiredLabel}
+            variant="chips"
+          />
+        )}
+        {kicker}
+        <DisplayHeading as="h1" size={titleSize}>
+          {title}
+        </DisplayHeading>
+      </div>
+      {bannerFillNode && <div className="min-h-0 w-full flex-1 py-5">{bannerFillNode}</div>}
+      <div className="flex flex-col items-center gap-3">
+        {sub && <div className="max-w-xl text-[15px] leading-relaxed text-ivory/75 sm:text-[17px]">{sub}</div>}
+        {actions && (
+          <div className="flex flex-wrap items-center justify-center gap-3">{actions}</div>
+        )}
+      </div>
+    </div>
+  )
+
   const spine = (
     <div className={cn('flex flex-col gap-5', centered ? 'mx-auto max-w-3xl items-center text-center' : 'max-w-2xl')}>
       {countdown && (
@@ -114,8 +167,10 @@ export function LandingHero({
   )
 
   return (
-    <Hero image={image} tone={tone} parallax={parallax} className={className}>
-      {twoCol ? (
+    <Hero image={image} tone={tone} parallax={parallax} fillViewport={fillViewport} className={className}>
+      {fillViewport ? (
+        fillSpine
+      ) : twoCol ? (
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           {spine}
           <div>{aside}</div>
