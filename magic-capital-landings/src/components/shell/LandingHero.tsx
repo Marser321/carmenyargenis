@@ -116,9 +116,12 @@ export function LandingHero({
     )
   )
 
-  // Hero a ~una pantalla: arriba relojes+kicker+H1, medio el video (flex-1), abajo el CTA.
+  // Hero a ~una pantalla: el clúster (relojes+H1 → banner acotado → CTA) se CENTRA
+  // como una unidad. El banner tiene altura acotada y estable (no `flex-1`), así el
+  // layout se ve igual de balanceado en todas las resoluciones y el CTA nunca queda
+  // pegado al fondo (antes el banner se estiraba y dejaba un hueco vacío).
   const fillSpine = (
-    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center text-center">
+    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-5 text-center">
       <div className="flex flex-col items-center gap-4">
         {countdown && (
           <CountdownTimer
@@ -133,7 +136,7 @@ export function LandingHero({
           {title}
         </DisplayHeading>
       </div>
-      {bannerFillNode && <div className="w-full flex-1 py-5 min-h-[32svh]">{bannerFillNode}</div>}
+      {bannerFillNode && <div className="h-[32svh] w-full">{bannerFillNode}</div>}
       <div className="flex flex-col items-center gap-3">
         {sub && <div className="max-w-xl text-[15px] leading-relaxed text-ivory/75 sm:text-[17px]">{sub}</div>}
         {actions && (

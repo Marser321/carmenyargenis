@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { CTAButton } from '../primitives/CTAButton'
@@ -27,8 +27,13 @@ export function LeadForm({
   const [values, setValues] = useState({ nombre: '', whatsapp: '', email: '' })
   const [errors, setErrors] = useState<Errors>({})
   const [done, setDone] = useState(false)
+  const refs = {
+    nombre: useRef<HTMLInputElement>(null),
+    whatsapp: useRef<HTMLInputElement>(null),
+    email: useRef<HTMLInputElement>(null),
+  }
 
-  function validate(): boolean {
+  function validate(): Errors {
     const e: Errors = {}
     if (values.nombre.trim().length < 2) e.nombre = 'Escribe tu nombre.'
     const digits = values.whatsapp.replace(/[^\d]/g, '')
@@ -36,12 +41,17 @@ export function LeadForm({
     if (values.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email))
       e.email = 'Revisa el correo.'
     setErrors(e)
-    return Object.keys(e).length === 0
+    return e
   }
 
   function onSubmit(ev: React.FormEvent) {
     ev.preventDefault()
-    if (!validate()) return
+    const e = validate()
+    const firstError = (['nombre', 'whatsapp', 'email'] as const).find((k) => e[k])
+    if (firstError) {
+      refs[firstError].current?.focus()
+      return
+    }
     try {
       const prev = JSON.parse(localStorage.getItem('mc_leads') || '[]')
       prev.push({ ...values, ts: new Date().toISOString() })
@@ -99,12 +109,24 @@ export function LeadForm({
         </label>
         <input
           id="lf-nombre"
+          ref={refs.nombre}
+          type="text"
+          name="name"
+          autoComplete="name"
+          required
+          aria-required="true"
+          aria-invalid={!!errors.nombre}
+          aria-describedby={errors.nombre ? 'lf-nombre-err' : undefined}
           className={fieldClass}
           placeholder="Tu nombre"
           value={values.nombre}
           onChange={(e) => setValues((v) => ({ ...v, nombre: e.target.value }))}
         />
-        {errors.nombre && <p className="mt-1 text-[12px] text-red-700">{errors.nombre}</p>}
+        {errors.nombre && (
+          <p id="lf-nombre-err" role="alert" className="mt-1 text-[12px] text-red-400">
+            {errors.nombre}
+          </p>
+        )}
       </div>
       <div>
         <label className={labelClass} htmlFor="lf-wa">
@@ -112,13 +134,25 @@ export function LeadForm({
         </label>
         <input
           id="lf-wa"
+          ref={refs.whatsapp}
+          type="tel"
+          name="tel"
           inputMode="tel"
+          autoComplete="tel"
+          required
+          aria-required="true"
+          aria-invalid={!!errors.whatsapp}
+          aria-describedby={errors.whatsapp ? 'lf-wa-err' : undefined}
           className={fieldClass}
           placeholder="+1 555 555 0123"
           value={values.whatsapp}
           onChange={(e) => setValues((v) => ({ ...v, whatsapp: e.target.value }))}
         />
-        {errors.whatsapp && <p className="mt-1 text-[12px] text-red-700">{errors.whatsapp}</p>}
+        {errors.whatsapp && (
+          <p id="lf-wa-err" role="alert" className="mt-1 text-[12px] text-red-400">
+            {errors.whatsapp}
+          </p>
+        )}
       </div>
       <div>
         <label className={labelClass} htmlFor="lf-email">
@@ -126,13 +160,23 @@ export function LeadForm({
         </label>
         <input
           id="lf-email"
+          ref={refs.email}
+          type="email"
+          name="email"
           inputMode="email"
+          autoComplete="email"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? 'lf-email-err' : undefined}
           className={fieldClass}
           placeholder="tucorreo@ejemplo.com"
           value={values.email}
           onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
         />
-        {errors.email && <p className="mt-1 text-[12px] text-red-700">{errors.email}</p>}
+        {errors.email && (
+          <p id="lf-email-err" role="alert" className="mt-1 text-[12px] text-red-400">
+            {errors.email}
+          </p>
+        )}
       </div>
       <CTAButton type="submit" variant="primary" size="lg" className="w-full">
         {ctaLabel}

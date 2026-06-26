@@ -10,16 +10,17 @@ import {
   Icon,
 } from '../components/primitives'
 import { Reveal, Stagger, RevealItem } from '../components/motion'
-import { FAQAccordion } from '../components/blocks'
 import { Hero, LandingLayout } from '../components/shell'
 import { CalendarButton } from '../components/forms'
 import { Img } from '../components/media'
-import { FOUNDERS, waLink, FUNNEL } from '../content/brand'
+import { FOUNDERS, MASTERCLASS } from '../content/brand'
 import { img } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
+import { toICSDate } from '../lib/ics'
 
-// Fecha/hora de ejemplo — editable. La masterclass es semanal, en vivo.
-const FECHA = 'Miércoles, 7:00 PM ET'
+// Fecha/hora — derivada de la fuente única (brand.ts) para que coincida con el
+// contador de la página de reserva y con el .ics del botón de calendario.
+const FECHA = `${MASTERCLASS.fechaLabel} · ${MASTERCLASS.horaLabel} · ${MASTERCLASS.zonaLabel}`
 
 const PASOS = [
   {
@@ -34,8 +35,8 @@ const PASOS = [
   },
   {
     icon: <Icon.Check />,
-    t: 'Confirma tu asistencia',
-    d: 'Respóndenos por WhatsApp para reservar tu cupo en vivo. Las sesiones tienen capacidad real y limitada.',
+    t: 'Resérvate el horario',
+    d: 'Guárdalo en tu calendario y conéctate en vivo el día de la masterclass. Las sesiones tienen capacidad real y limitada.',
   },
 ]
 
@@ -68,24 +69,9 @@ const PREPARACION = [
   'Mente abierta y tus preguntas: este es el momento de resolver dudas en vivo.',
 ]
 
-const FAQ = [
-  {
-    q: '¿La masterclass es gratis?',
-    a: 'Sí. La masterclass es gratuita, en vivo y en español. No pedimos tarjeta para reservar tu lugar.',
-  },
-  {
-    q: '¿Cuánto dura?',
-    a: 'Alrededor de 60 minutos, con un espacio al final para responder preguntas en vivo.',
-  },
-  {
-    q: '¿Queda grabada?',
-    a: 'Está pensada para vivirse en vivo: ahí es donde resolvemos tus dudas en el momento. Si surge algún material de repaso, te avisamos por WhatsApp y correo.',
-  },
-]
-
 export default function GraciasReserva() {
   return (
-    <LandingLayout waMessage="Hola, acabo de reservar mi lugar en la masterclass y quiero confirmar mi asistencia.">
+    <LandingLayout hideWhatsApp>
       {/* 1 · Confirmación (hero a fondo, centrado) */}
       <Hero
         tone="charcoal"
@@ -115,15 +101,8 @@ export default function GraciasReserva() {
               <Icon.Calendar /> {FECHA}
             </Badge>
           </div>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-7 flex justify-center">
             <CalendarMasterclassButton variant="light" />
-            <CTAButton
-              href={waLink('Hola, acabo de reservar mi lugar en la masterclass. ¿Me confirman los detalles?')}
-              variant="whatsapp"
-              icon={<Icon.Whatsapp />}
-            >
-              Confírmame por WhatsApp
-            </CTAButton>
           </div>
           <p className="mt-4 text-[13px] text-ivory/55">
             Revisa tu WhatsApp y correo para el enlace de acceso.
@@ -155,62 +134,32 @@ export default function GraciasReserva() {
                       <CalendarMasterclassButton variant="secondary" />
                     </div>
                   )}
-                  {i === 2 && (
-                    <div className="mt-4">
-                      <CTAButton
-                        href={waLink('Hola, quiero confirmar mi asistencia a la masterclass de Magic Capital.')}
-                        variant="whatsapp"
-                        size="md"
-                        icon={<Icon.Whatsapp />}
-                      >
-                        Confirmar por WhatsApp
-                      </CTAButton>
-                    </div>
-                  )}
                 </GlassCard>
               </RevealItem>
             ))}
           </Stagger>
-        </Container>
-      </Section>
 
-      {/* 3 · Cómo conectarte */}
-      <Section tone="ivory-dim" texture={sectionBg('02-gracias-reserva', 2)}>
-        <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.85fr]">
-            <div>
-              <SectionHeader
-                align="left"
-                kicker="El día de la masterclass"
-                title="Cómo conectarte, sin complicaciones"
-              />
-              <Stagger className="mt-8 grid gap-4 sm:grid-cols-2">
-                {CONEXION.map((c) => (
-                  <RevealItem key={c.t} subtle>
-                    <div className="flex h-full items-start gap-3 rounded-xl bg-navy-soft/60 px-4 py-3.5 ring-1 ring-white/5">
-                      <span className="mt-0.5 shrink-0 text-lg text-gold">{c.icon}</span>
-                      <div>
-                        <h3 className="font-display text-[15px] font-semibold text-ivory">{c.t}</h3>
-                        <p className="mt-1 text-[13.5px] leading-snug text-ivory/70">{c.d}</p>
-                      </div>
+          {/* Cómo conectarte — plegado aquí (tips esenciales, sin sección aparte ni imagen) */}
+          <div className="mt-12">
+            <h3 className="text-center font-display text-xl font-semibold text-ivory">El día de la masterclass</h3>
+            <Stagger className="mx-auto mt-6 grid max-w-3xl gap-3 sm:grid-cols-2">
+              {CONEXION.map((c) => (
+                <RevealItem key={c.t} subtle>
+                  <div className="flex h-full items-start gap-3 rounded-xl bg-navy-soft/60 px-4 py-3.5 ring-1 ring-white/5">
+                    <span className="mt-0.5 shrink-0 text-lg text-gold">{c.icon}</span>
+                    <div>
+                      <h4 className="font-display text-[15px] font-semibold text-ivory">{c.t}</h4>
+                      <p className="mt-1 text-[13.5px] leading-snug text-ivory/70">{c.d}</p>
                     </div>
-                  </RevealItem>
-                ))}
-              </Stagger>
-            </div>
-            <Reveal>
-              <Img
-                src={img('02', '02-gracias-reserva__recordatorio-calendario-masterclass.png')}
-                alt="Recordatorio de la masterclass en el calendario"
-                className="aspect-[9/16] w-full rounded-2xl shadow-glass-dark"
-                focal="50% 40%"
-              />
-            </Reveal>
+                  </div>
+                </RevealItem>
+              ))}
+            </Stagger>
           </div>
         </Container>
       </Section>
 
-      {/* 4 · Cómo prepararte (editorial) */}
+      {/* 3 · Cómo prepararte (editorial) */}
       <Section tone="charcoal" pad="lg" texture={sectionBg('02-gracias-reserva', 3)}>
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -249,65 +198,7 @@ export default function GraciasReserva() {
         </Container>
       </Section>
 
-      {/* 5 · Tu siguiente paso, sin presión */}
-      <Section tone="ivory" pad="lg" texture={sectionBg('02-gracias-reserva', 4)}>
-        <Container width="narrow">
-          <SectionHeader
-            kicker="Después de la masterclass"
-            title="Tu siguiente paso, sin presión"
-            intro="No hace falta decidir nada hoy. Si quieres seguir cerca con poco compromiso, está la Comunidad; si quieres profundizar en el método, el Intensivo. A tu ritmo."
-          />
-          <Stagger className="mt-10 grid gap-5 sm:grid-cols-2">
-            <RevealItem>
-              <GlassCard tone="light" className="flex h-full flex-col">
-                <div className="flex items-center gap-2">
-                  <Icon.Users className="text-gold" />
-                  <Badge tone="petrol">{FUNNEL.comunidad.price}/mes</Badge>
-                </div>
-                <h3 className="mt-3 font-display text-lg font-semibold text-ivory">
-                  {FUNNEL.comunidad.name}
-                </h3>
-                <p className="mt-2 flex-1 text-[14.5px] leading-snug text-ivory/70">
-                  Acompañamiento continuo y comunidad para seguir aprendiendo a tu ritmo. Cancela cuando
-                  quieras.
-                </p>
-                <div className="mt-5">
-                  <CTAButton to="/l/09-comunidad" variant="secondary" size="md" icon={<Icon.ArrowRight />}>
-                    Conocer la comunidad
-                  </CTAButton>
-                </div>
-              </GlassCard>
-            </RevealItem>
-            <RevealItem>
-              <GlassCard tone="light" className="flex h-full flex-col">
-                <div className="flex items-center gap-2">
-                  <Icon.Compass className="text-gold" />
-                  <Badge tone="petrol">{FUNNEL.intensivo.price}</Badge>
-                </div>
-                <h3 className="mt-3 font-display text-lg font-semibold text-ivory">
-                  {FUNNEL.intensivo.name}
-                </h3>
-                <p className="mt-2 flex-1 text-[14.5px] leading-snug text-ivory/70">
-                  Dos días en vivo para implementar las 9 fases del método y la parte de financiamiento, con
-                  cupos limitados.
-                </p>
-                <div className="mt-5">
-                  <CTAButton to="/l/03-intensivo" variant="secondary" size="md" icon={<Icon.ArrowRight />}>
-                    Ver el intensivo
-                  </CTAButton>
-                </div>
-              </GlassCard>
-            </RevealItem>
-          </Stagger>
-          <Reveal className="mt-6">
-            <p className="text-center text-[13px] text-ivory/55">
-              Sin compromiso. Primero la masterclass; lo demás, solo si tiene sentido para ti.
-            </p>
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* 6 · Mini credibilidad */}
+      {/* 4 · Mini credibilidad */}
       <Section tone="petrol" pad="md" texture={sectionBg('02-gracias-reserva', 5)}>
         <Container width="narrow" className="text-center">
           <Reveal>
@@ -321,28 +212,22 @@ export default function GraciasReserva() {
         </Container>
       </Section>
 
-      {/* 7 · FAQ */}
-      <Section tone="ivory" pad="lg" texture={sectionBg('02-gracias-reserva', 6)}>
-        <Container>
-          <SectionHeader kicker="Preguntas frecuentes" title="Antes de vernos en vivo" />
-          <div className="mt-10">
-            <FAQAccordion items={FAQ} />
-          </div>
-        </Container>
-      </Section>
     </LandingLayout>
   )
 }
 
-/** Botón de calendario con los datos fijos de la masterclass (mock). */
+/** Botón de calendario derivado de la fecha real de la masterclass (brand.ts).
+ *  Duración ~60 min, así que el fin es una hora después del inicio. */
 function CalendarMasterclassButton({ variant }: { variant: 'secondary' | 'light' }) {
+  const start = toICSDate(MASTERCLASS.fechaISO)
+  const end = toICSDate(new Date(new Date(MASTERCLASS.fechaISO).getTime() + 60 * 60 * 1000).toISOString())
   return (
     <CalendarButton
       variant={variant}
       title="Masterclass Magic Capital"
-      description="Cómo Adquirir Propiedades en Subasta Paso a Paso — masterclass gratis, en vivo y en español. El enlace de Zoom llega por WhatsApp y correo."
-      start="20260626T230000Z"
-      end="20260627T000000Z"
+      description={`Cómo Adquirir Propiedades en Subasta Paso a Paso — masterclass gratis, en vivo y en español. El enlace de ${MASTERCLASS.plataforma} llega por WhatsApp y correo.`}
+      start={start}
+      end={end}
     />
   )
 }

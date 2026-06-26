@@ -13,14 +13,13 @@ import {
   ForWhomColumns,
   YesNoColumns,
   TrustBar,
-  FAQAccordion,
   PropertyShowcase,
   CountdownTimer,
 } from '../components/blocks'
 import { LandingHero, LandingLayout } from '../components/shell'
 import { Img } from '../components/media'
 import { LeadForm } from '../components/forms'
-import { MAP9_PHASES, MASTERCLASS, waLink } from '../content/brand'
+import { MAP9_PHASES, MASTERCLASS } from '../content/brand'
 import { img, LANDING_BANNER } from '../content/images'
 import { sectionBg } from '../content/section-backgrounds'
 
@@ -37,22 +36,9 @@ const APRENDERAS = [
   'Cómo calcular el capital total de entrada antes de pujar.',
 ]
 
-const QUE_ESPERAR = [
-  { icon: <Icon.Clock />, t: 'Duración', d: '~60 min + preguntas en vivo' },
-  { icon: <Icon.Globe />, t: 'Dónde', d: `100% online por ${MASTERCLASS.plataforma}, en español` },
-  { icon: <Icon.Document />, t: 'Qué traer', d: 'Papel, lápiz y el condado que te interesa' },
-]
-
-const FAQ = [
-  { q: '¿Esto es una estafa?', a: 'Tienes razón en dudar. Te mostramos el proceso público del condado —calendarios, números de caso, listados verificables por cualquiera. Exigimos que desconfíes.' },
-  { q: '¿Cuánto dinero necesito?', a: 'Hablamos de un capital de entrada razonable (puja + fees + revisión del título + contingencia). En la masterclass te enseñamos a estimarlo; nunca a pujar por intuición.' },
-  { q: '¿Necesito inglés o papeles?', a: 'Todo es en español neutro. Es una sesión educativa sobre un proceso público; para operar y estructurar crédito, los requisitos varían por estado, condado y emisor, y siempre recomendamos verificación local.' },
-  { q: '¿Queda grabada?', a: 'Es una experiencia en vivo. Si habilitamos una repetición, te avisamos por WhatsApp y correo.' },
-]
-
 export default function ReservaMasterclass() {
   return (
-    <LandingLayout waMessage="Hola, quiero reservar mi lugar en la masterclass gratis.">
+    <LandingLayout hideWhatsApp>
       {/* 1 · Hero a una pantalla: contador → H1 → video protagonista → botón siempre visible */}
       <LandingHero
         tone="charcoal"
@@ -67,7 +53,7 @@ export default function ReservaMasterclass() {
         banner={{ src: LANDING_BANNER['01'], alt: 'Masterclass gratis — Cómo adquirir propiedades en subasta, paso a paso, con Argenis y Carmen', ratio: '4x5' }}
         title={
           <span className="uppercase">
-            Cómo adquirir <span className="text-gold-metallic">propiedades en subasta</span>{' '}
+            Aprende cómo adquirir <span className="text-gold-metallic">propiedades en subasta</span>{' '}
             <span className="block text-[0.62em] font-medium tracking-[0.04em] text-ivory/85">paso a paso</span>
           </span>
         }
@@ -158,10 +144,10 @@ export default function ReservaMasterclass() {
         </Container>
       </Section>
 
-      {/* 3 · Para quién es / no */}
-      <Section tone="ivory-dim" texture={sectionBg('01-reserva-masterclass', 5)}>
+      {/* 3 · Honestidad y transparencia (para quién es + esto SÍ/NO + confianza, fusionado) */}
+      <Section tone="ivory-dim" pad="lg" texture={sectionBg('01-reserva-masterclass', 5)}>
         <Container>
-          <SectionHeader kicker="Honestidad" title="Para quién es (y para quién no)" />
+          <SectionHeader kicker="Honestidad y transparencia" title="Para quién es — y qué no prometemos" />
           <div className="mt-10">
             <ForWhomColumns
               left={{
@@ -182,6 +168,38 @@ export default function ReservaMasterclass() {
                   'Esperas que alguien invierta por ti sin entender el riesgo.',
                 ],
               }}
+            />
+          </div>
+          <div className="mt-8">
+            <YesNoColumns
+              left={{
+                heading: 'Esto SÍ',
+                variant: 'positive',
+                items: [
+                  'Educación sobre un proceso público.',
+                  'Te mostramos cómo descartar propiedades.',
+                  'Hablamos de costos y de riesgos.',
+                ],
+              }}
+              right={{
+                heading: 'Esto NO',
+                variant: 'negative',
+                items: [
+                  'No prometemos ingresos, ganancias ni "título limpio".',
+                  'No decimos "sin riesgo" ni "garantizado".',
+                  'No aprobamos crédito ni garantizamos límites.',
+                ],
+              }}
+            />
+          </div>
+          <div className="mt-8">
+            <TrustBar
+              items={[
+                { icon: <Icon.Shield />, text: 'Exigimos que desconfíes: es un proceso público y verificable.' },
+                { icon: <Icon.Filter />, text: 'Te enseñamos primero qué NO comprar.' },
+                { icon: <Icon.Globe />, text: 'En vivo y en español.' },
+                { icon: <Icon.Calendar />, text: 'Fecha y hora reales — sin temporizadores que se reinician solos.' },
+              ]}
             />
           </div>
         </Container>
@@ -206,88 +224,12 @@ export default function ReservaMasterclass() {
                 title="Argenis y Carmen — ejecutores, no influencers"
                 intro="Argenis opera y enseña el Método MAP-9 (la oportunidad). Carmen estructura empresa y crédito empresarial al 0% (el capital). Dos expertos, las dos piezas del sistema."
               />
-              <div className="mt-5">
-                <CTAButton to="/l/07-autoridad" variant="secondary" size="md" icon={<Icon.ArrowRight />}>
-                  Conoce su historia
-                </CTAButton>
-              </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* 5 · Confianza compacta (qué esperar + esto SÍ / esto NO; nutrido con el filtro forense) */}
-      <Section
-        tone="ivory-dim"
-        pad="lg"
-        texture={{
-          src: img('01', '01-reserva-masterclass__filtro-forense-no-comprar--16x9--codex-v02.png'),
-          opacity: 0.1,
-          focal: '50% 45%',
-        }}
-      >
-        <Container>
-          <SectionHeader kicker="Transparencia anti-estafa" title="Qué esperar — y qué no prometemos" />
-
-          <Stagger className="mt-10 grid gap-4 sm:grid-cols-3">
-            {QUE_ESPERAR.map((a) => (
-              <RevealItem key={a.t}>
-                <GlassCard tone="solid" className="h-full">
-                  <div className="text-2xl text-gold">{a.icon}</div>
-                  <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-gold">{a.t}</div>
-                  <p className="mt-1 text-[14px] leading-snug text-ivory/80">{a.d}</p>
-                </GlassCard>
-              </RevealItem>
-            ))}
-          </Stagger>
-
-          <div className="mt-8">
-            <YesNoColumns
-              left={{
-                heading: 'Esto SÍ',
-                variant: 'positive',
-                items: [
-                  'Educación sobre un proceso público.',
-                  'Te mostramos cómo descartar propiedades.',
-                  'Hablamos de costos y de riesgos.',
-                ],
-              }}
-              right={{
-                heading: 'Esto NO',
-                variant: 'negative',
-                items: [
-                  'No prometemos ingresos, ganancias ni "título limpio".',
-                  'No decimos "sin riesgo" ni "garantizado".',
-                  'No aprobamos crédito ni garantizamos límites.',
-                ],
-              }}
-            />
-          </div>
-
-          <div className="mt-8">
-            <TrustBar
-              items={[
-                { icon: <Icon.Shield />, text: 'Exigimos que desconfíes: es un proceso público y verificable.' },
-                { icon: <Icon.Filter />, text: 'Te enseñamos primero qué NO comprar.' },
-                { icon: <Icon.Globe />, text: 'En vivo y en español.' },
-                { icon: <Icon.Calendar />, text: 'Fecha y hora reales — sin temporizadores que se reinician solos.' },
-              ]}
-            />
-          </div>
-        </Container>
-      </Section>
-
-      {/* 6 · FAQ */}
-      <Section tone="ivory" texture={sectionBg('01-reserva-masterclass', 9)}>
-        <Container>
-          <SectionHeader kicker="Preguntas frecuentes" title="Lo que la gente nos pregunta" />
-          <div className="mt-10">
-            <FAQAccordion items={FAQ} />
-          </div>
-        </Container>
-      </Section>
-
-      {/* 7 · CTA final */}
+      {/* 4 · CTA final */}
       <Section tone="charcoal" pad="lg" aura texture={sectionBg('01-reserva-masterclass', 10)}>
         <Container width="narrow" className="text-center">
           <DisplayHeading size="lg">Reserva tu cupo y empieza por entender</DisplayHeading>
@@ -298,12 +240,9 @@ export default function ReservaMasterclass() {
           <div className="mt-6">
             <CountdownTimer targetISO={MASTERCLASS.fechaISO} className="items-center" />
           </div>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <div className="mt-7 flex justify-center">
             <CTAButton href="#top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} icon={<Icon.ArrowRight />} magnetic>
               Reserva tu cupo gratis
-            </CTAButton>
-            <CTAButton href={waLink('Hola, quiero reservar mi lugar en la masterclass gratis.')} variant="whatsapp" icon={<Icon.Whatsapp />}>
-              Escríbenos por WhatsApp
             </CTAButton>
           </div>
         </Container>

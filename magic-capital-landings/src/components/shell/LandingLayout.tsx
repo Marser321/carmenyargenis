@@ -9,15 +9,19 @@ import { LANDINGS } from '../../content/registry'
 
 /** Envuelve cada landing: barra fija + contenido + pie + WhatsApp flotante +
  *  toasts de actividad (prueba social simulada de la demo). `activity=false`
- *  los desactiva en páginas donde no aportan (p. ej. páginas de gracias). */
+ *  los desactiva en páginas donde no aportan (p. ej. páginas de gracias).
+ *  `hideWhatsApp` oculta el botón flotante de WhatsApp (p. ej. en el funnel de
+ *  masterclass, donde el único CTA debe llevar a registrarse). */
 export function LandingLayout({
   children,
   waMessage,
   activity = true,
+  hideWhatsApp = false,
 }: {
   children: ReactNode
   waMessage?: string
   activity?: boolean
+  hideWhatsApp?: boolean
 }) {
   const { pathname } = useLocation()
 
@@ -37,7 +41,7 @@ export function LandingLayout({
       <UrgencyBar />
       <main>{children}</main>
       <Footer />
-      <FloatingWhatsApp message={waMessage} />
+      {!hideWhatsApp && <FloatingWhatsApp message={waMessage} />}
       <LiveActivityToasts enabled={activity} />
     </div>
   )

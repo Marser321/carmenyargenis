@@ -1,4 +1,13 @@
 /**
+ * Convierte una fecha ISO (p. ej. '2026-07-14T20:00:00-04:00') al formato
+ * ICS en UTC ('20260715T000000Z'). Permite derivar el evento de calendario
+ * desde la fuente única de la fecha (brand.ts) en vez de hardcodearla.
+ */
+export function toICSDate(iso: string): string {
+  return new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
+}
+
+/**
  * Genera y descarga un archivo .ics (calendario) en el navegador. Para la demo
  * usamos fechas explícitas (sin depender del reloj). Sólo runtime de browser.
  */
@@ -15,6 +24,7 @@ export function downloadICS(opts: {
     'PRODID:-//Magic Capital//Landings Demo//ES',
     'BEGIN:VEVENT',
     `UID:mc-${opts.start}@magiccapital.example`,
+    `DTSTAMP:${opts.start}`,
     `DTSTART:${opts.start}`,
     `DTEND:${opts.end}`,
     `SUMMARY:${escapeICS(opts.title)}`,
